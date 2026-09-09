@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #16191C;
+  --color-ink-surface: #1E2328;
+  --color-ink-deep: #101215;
+  --color-bone: #F1ECDF;
+  --color-parchment: #E4DBC8;
+  --color-brass: #A9822D;
+  --color-brass-light: #C5A047;
+  --color-bottle: #26392E;
+  --color-bottle-light: #365142;
+  --color-bordeaux: #6B2A2E;
+  --color-graphite: #55524A;
+  --color-graphite-light: #8A857B;
+  --color-hairline: rgba(85, 82, 74, 0.15);
+
+  --font-serif: 'Fraunces', 'EB Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F1ECDF;
+  color: #16191C;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-serif-title {
+  font-family: var(--font-serif);
+}
+
+/* Custom scrollbar for clean vintage ledger look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #E4DBC8;
+}
+::-webkit-scrollbar-thumb {
+  background: #8A857B;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #55524A;
+}

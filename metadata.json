@@ -1,0 +1,6 @@
+{
+  "name": "Concierge Ledger - Meeting Room Booking",
+  "description": "Sistem booking ruang rapat berbasis website dengan tema Concierge Ledger, reservasi instan tanpa login, tampilan monitor kiosk, dashboard admin, dan arsitektur Laravel + Vue 3 + Inertia + Docker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
