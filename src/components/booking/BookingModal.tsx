@@ -69,6 +69,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       setTitle('');
       setDescription('');
       setAttendees([]);
+      setAttendeeCount(0);
 
       if (adminUser) {
         setApplicantName(adminUser.name);
@@ -173,6 +174,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     setTitle('');
     setDescription('');
     setAttendees([]);
+    setAttendeeCount(0);
 
     if (result.booking) {
       setSuccessBooking(result.booking);
@@ -189,45 +191,45 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         onClose={onClose}
         title="Peminjaman Ruang Rapat"
         subtitle="Lengkapi formulir di bawah ini untuk mengajukan peminjaman ruangan"
-        maxWidth="xl"
+        maxWidth="lg"
       >
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3.5">
         {errorMessage && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs sm:text-sm text-status-danger flex items-start gap-2 font-medium">
-            <AlertTriangle size={16} className="shrink-0 mt-0.5" />
+          <div className="p-2.5 bg-red-50 border border-red-200 rounded-lg text-xs sm:text-sm text-status-danger flex items-start gap-2 font-medium">
+            <AlertTriangle size={15} className="shrink-0 mt-0.5" />
             <span>{errorMessage}</span>
           </div>
         )}
 
         {/* Pilihan Ruangan */}
-        <div className="space-y-1.5">
-          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary">Pilih Ruangan *</label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+        <div className="space-y-1">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-text-secondary">Pilih Ruangan *</label>
+          <div className="grid grid-cols-3 gap-2">
             {rooms.map((room) => {
               const isSelected = room.slug === roomSlug;
               return (
                 <div
                   key={room.slug}
                   onClick={() => setRoomSlug(room.slug)}
-                  className={`p-3 rounded-xl border-2 cursor-pointer transition-all text-left ${
+                  className={`p-2.5 rounded-xl border-2 cursor-pointer transition-all text-left ${
                     isSelected
                       ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-xs'
                       : 'border-border hover:border-stone-400 bg-surface'
                   }`}
                 >
-                  <div className="font-bold text-sm text-text-primary">{room.name}</div>
-                  <div className="text-xs text-text-secondary mt-0.5 font-medium">Kapasitas: {room.capacity} org</div>
+                  <div className="font-bold text-xs sm:text-sm text-text-primary truncate">{room.name}</div>
+                  <div className="text-[11px] text-text-secondary mt-0.5 font-medium">Kapasitas: {room.capacity} org</div>
                 </div>
               );
             })}
           </div>
 
           {/* Kotak Notice Status Wajib Persetujuan Administrator */}
-          <div className="mt-2 p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl flex items-start gap-2 text-xs text-amber-900 font-medium">
-            <ShieldAlert size={16} className="text-amber-600 shrink-0 mt-0.5" />
+          <div className="mt-1.5 p-2 bg-amber-50/80 border border-amber-200 rounded-lg flex items-start gap-2 text-xs text-amber-900 font-medium">
+            <ShieldAlert size={15} className="text-amber-600 shrink-0 mt-0.5" />
             <div>
               <span className="font-bold">Verifikasi: </span>
-              Pengajuan peminjaman <strong>{selectedRoom?.name || 'ruangan'}</strong> akan diverifikasi oleh{' '}
+              Pengajuan <strong>{selectedRoom?.name || 'ruangan'}</strong> akan diverifikasi oleh{' '}
               <strong className="font-bold underline">Tim Pengelola TU SEKJEN</strong>.
             </div>
           </div>
