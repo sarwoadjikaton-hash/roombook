@@ -1,0 +1,31 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoKemnakerBlue" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2540" />
+      <stop offset="0.5" stop-color="#0F3B68" />
+      <stop offset="1" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="logoGoldAccent" x1="16" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B" />
+      <stop offset="1" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="logoBlueGlow" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1D4ED8" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <rect x="3" y="3" width="42" height="42" rx="12" fill="url(#logoKemnakerBlue)" filter="url(#logoBlueGlow)" />
+  <rect x="3" y="3" width="42" height="42" rx="12" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+
+  <path d="M12 15C12 13.8954 12.8954 13 14 13H24V35H14C12.8954 35 12 34.1046 12 33V15Z" fill="white" fill-opacity="0.22" />
+  <path d="M24 13L35 17.5C35.5523 17.7209 36 18.2565 36 18.8522V32.1478C36 32.7435 35.5523 33.2791 35 33.5L24 35V13Z" fill="white" fill-opacity="0.96" />
+
+  <circle cx="28" cy="22" r="1.5" fill="#0F3B68" />
+  <circle cx="32" cy="23.5" r="1.5" fill="#0F3B68" />
+  <circle cx="28" cy="27" r="1.5" fill="#0F3B68" />
+  <circle cx="32" cy="28.5" r="1.5" fill="#0F3B68" />
+
+  <circle cx="26.5" cy="24" r="2" fill="url(#logoGoldAccent)" />
+  <path d="M26.5 24V28" stroke="url(#logoGoldAccent)" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M16 17H21" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+</svg>

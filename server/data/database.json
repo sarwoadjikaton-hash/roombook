@@ -1,0 +1,1843 @@
+{
+  "rooms": [
+    {
+      "id": "room-1",
+      "slug": "ruang-sekjen",
+      "name": "Ruang Rapat Sekjen",
+      "capacity": 30,
+      "location": "Lantai 3, Gedung Utama (Sayap Barat)",
+      "facilities": [
+        "smart_tv",
+        "zoom_room",
+        "ac",
+        "wifi",
+        "sound_system"
+      ],
+      "requiresApproval": true,
+      "approverName": "Administrator Pengelola",
+      "approverEmail": "admin.mrbs@gmail.com",
+      "description": "Ruang rapat eksekutif berkapasitas besar dengan integrasi Zoom Room terdedikasi dan Smart TV 85 inch. Dikhususkan untuk rapat pimpinan, audiensi, dan koordinasi strategis.",
+      "googleCalendarId": "c_sekjen_instansi@group.calendar.google.com",
+      "isSpecialAccent": false,
+      "imageUrl": "/rooms/ruang-sekjen-1.jpg",
+      "images": [
+        "/rooms/ruang-sekjen-1.jpg",
+        "/rooms/ruang-sekjen-2.jpg",
+        "/rooms/ruang-sekjen-3.jpg",
+        "/rooms/ruang-sekjen-4.jpg",
+        "/rooms/ruang-sekjen-5.jpg"
+      ]
+    },
+    {
+      "id": "room-2",
+      "slug": "ruang-vip",
+      "name": "Ruang VIP",
+      "capacity": 15,
+      "location": "Lantai 2, Gedung Utama",
+      "facilities": [
+        "ac",
+        "wifi",
+        "smart_tv",
+        "whiteboard"
+      ],
+      "requiresApproval": true,
+      "approverName": "Administrator Pengelola",
+      "approverEmail": "admin.mrbs@gmail.com",
+      "description": "Ruang rapat representatif untuk pertemuan semi-formal, penerimaan tamu khusus, atau rapat koordinasi antar divisi.",
+      "googleCalendarId": "c_vip_instansi@group.calendar.google.com",
+      "isSpecialAccent": false,
+      "imageUrl": "/rooms/ruang-vip-1.jpg",
+      "images": [
+        "/rooms/ruang-vip-1.jpg",
+        "/rooms/ruang-vip-2.jpg"
+      ]
+    },
+    {
+      "id": "room-3",
+      "slug": "ruang-transit",
+      "name": "Ruang Transit",
+      "capacity": 10,
+      "location": "Lantai 1, Dekat Lobby",
+      "facilities": [
+        "ac",
+        "wifi",
+        "whiteboard"
+      ],
+      "requiresApproval": true,
+      "approverName": "Administrator Pengelola",
+      "approverEmail": "admin.mrbs@gmail.com",
+      "description": "Ruang diskusi cepat, rapat kerja taktis, dan transit peserta sebelum acara utama. Wajib disetujui Administrator Pengelola.",
+      "googleCalendarId": "c_transit_instansi@group.calendar.google.com",
+      "isSpecialAccent": false,
+      "imageUrl": "/rooms/ruang-transit-1.jpg",
+      "images": [
+        "/rooms/ruang-transit-1.jpg",
+        "/rooms/ruang-transit-2.jpg",
+        "/rooms/ruang-transit-3.jpg"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-1789543369967",
+      "createdAt": "2026-09-16 14:22:49",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "E2E Automated Test Meeting",
+      "description": "Pengujian otomatis alur booking sistem",
+      "organizerName": "Automated Test Agent",
+      "organizerEmail": "tester@instansi.go.id",
+      "organizerDept": "Pusdatin IT",
+      "date": "2026-09-20",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "attendeeCount": 10,
+      "attendees": [
+        "tester1@instansi.go.id",
+        "tester2@instansi.go.id"
+      ]
+    },
+    {
+      "id": "bk-1789542570135",
+      "createdAt": "2026-09-16 14:09:30",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "E2E Automated Test Meeting",
+      "description": "Pengujian otomatis alur booking sistem",
+      "organizerName": "Automated Test Agent",
+      "organizerEmail": "tester@instansi.go.id",
+      "organizerDept": "Pusdatin IT",
+      "date": "2026-09-20",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "attendeeCount": 10,
+      "attendees": [
+        "tester1@instansi.go.id",
+        "tester2@instansi.go.id"
+      ]
+    },
+    {
+      "id": "bk-1789542445253",
+      "createdAt": "2026-09-16 14:07:25",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "E2E Automated Test Meeting",
+      "description": "Pengujian otomatis alur booking sistem",
+      "organizerName": "Automated Test Agent",
+      "organizerEmail": "tester@instansi.go.id",
+      "organizerDept": "Pusdatin IT",
+      "date": "2026-09-20",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "attendeeCount": 10,
+      "attendees": [
+        "tester1@instansi.go.id",
+        "tester2@instansi.go.id"
+      ]
+    },
+    {
+      "id": "bk-695946",
+      "createdAt": "2026-09-16 13:54:55",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-vip",
+      "roomName": "Ruang VIP",
+      "title": "Testing",
+      "description": "",
+      "organizerId": "guest-1789541695946",
+      "organizerName": "katon",
+      "organizerEmail": "indmrtprg@gmail.com",
+      "organizerDept": "Biro Umum",
+      "date": "2026-09-16",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "attendeeCount": 10,
+      "attendees": []
+    },
+    {
+      "id": "bk-663203",
+      "createdAt": "2026-09-16 13:54:23",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-transit",
+      "roomName": "Ruang Transit",
+      "title": "Rapat Kerja",
+      "description": "",
+      "organizerId": "guest-1789541663203",
+      "organizerName": "jarwo",
+      "organizerEmail": "mamamadola33@gmail.com",
+      "organizerDept": "Biro Humas",
+      "date": "2026-09-16",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "attendeeCount": 10,
+      "attendees": []
+    },
+    {
+      "id": "bk-616317",
+      "createdAt": "2026-09-16 13:53:36",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "testinng",
+      "description": "",
+      "organizerId": "guest-1789541616317",
+      "organizerName": "samsul",
+      "organizerEmail": "indmrtprg@gmail.com",
+      "organizerDept": "Biro Umum",
+      "date": "2026-09-16",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "attendeeCount": 22,
+      "attendees": []
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-1",
+      "name": "Siti Rahmawati (Super Admin)",
+      "email": "superadmin@gmail.com",
+      "role": "superadmin",
+      "department": "Biro Umum & Pengelola Fasilitas",
+      "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+      "isActive": true,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "id": "usr-2",
+      "name": "Budi Santoso",
+      "email": "admin.mrbs@gmail.com",
+      "role": "admin",
+      "department": "Subbag Rumah Tangga & Ruangan",
+      "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+      "isActive": true,
+      "createdAt": "2026-01-05 09:00:00"
+    },
+    {
+      "id": "usr-3",
+      "name": "Ahmad Fauzi",
+      "email": "ahmad.fauzi@gmail.com",
+      "role": "employee",
+      "department": "Biro Kerjasama & Humas",
+      "avatarUrl": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=200&q=80",
+      "isActive": true,
+      "createdAt": "2026-01-10 10:00:00"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1789543369967",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "Automated Test Agent mengajukan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-16 14:22:49",
+      "isRead": false,
+      "bookingId": "bk-1789543369967",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789542570135",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "Automated Test Agent mengajukan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-16 14:09:30",
+      "isRead": false,
+      "bookingId": "bk-1789542570135",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789542445253",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "Automated Test Agent mengajukan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-16 14:07:25",
+      "isRead": false,
+      "bookingId": "bk-1789542445253",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789541695952",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "katon mengajukan booking \"Testing\" pada Ruang VIP.",
+      "timestamp": "2026-09-16 13:54:55",
+      "isRead": false,
+      "bookingId": "bk-695946",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789541663208",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "jarwo mengajukan booking \"Rapat Kerja\" pada Ruang Transit.",
+      "timestamp": "2026-09-16 13:54:23",
+      "isRead": false,
+      "bookingId": "bk-663203",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789541616322",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "samsul mengajukan booking \"testinng\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-16 13:53:36",
+      "isRead": false,
+      "bookingId": "bk-616317",
+      "actionUrl": "/admin/approvals"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log-1789543370844-738",
+      "timestamp": "2026-09-16 14:22:50",
+      "action": "cancel_booking",
+      "actorName": "E2E Cleanup Script",
+      "actorRole": "employee",
+      "details": "Membatalkan peminjaman ID: bk-1789543369967. Alasan: Automated test teardown",
+      "targetId": "bk-1789543369967"
+    },
+    {
+      "id": "log-1789543370828-454",
+      "timestamp": "2026-09-16 14:22:50",
+      "action": "approve_booking",
+      "actorName": "Superadmin E2E",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"E2E Automated Test Meeting\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-1789543369967"
+    },
+    {
+      "id": "log-1789543369977-979",
+      "timestamp": "2026-09-16 14:22:49",
+      "action": "create_booking",
+      "actorName": "Automated Test Agent",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-20 (09:00 - 10:30).",
+      "targetId": "bk-1789543369967"
+    },
+    {
+      "id": "log-1789542570894-256",
+      "timestamp": "2026-09-16 14:09:30",
+      "action": "cancel_booking",
+      "actorName": "E2E Cleanup Script",
+      "actorRole": "employee",
+      "details": "Membatalkan peminjaman ID: bk-1789542570135. Alasan: Automated test teardown",
+      "targetId": "bk-1789542570135"
+    },
+    {
+      "id": "log-1789542570879-705",
+      "timestamp": "2026-09-16 14:09:30",
+      "action": "approve_booking",
+      "actorName": "Superadmin E2E",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"E2E Automated Test Meeting\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-1789542570135"
+    },
+    {
+      "id": "log-1789542570144-173",
+      "timestamp": "2026-09-16 14:09:30",
+      "action": "create_booking",
+      "actorName": "Automated Test Agent",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-20 (09:00 - 10:30).",
+      "targetId": "bk-1789542570135"
+    },
+    {
+      "id": "log-1789542446109-199",
+      "timestamp": "2026-09-16 14:07:26",
+      "action": "cancel_booking",
+      "actorName": "E2E Cleanup Script",
+      "actorRole": "employee",
+      "details": "Membatalkan peminjaman ID: bk-1789542445253. Alasan: Automated test teardown",
+      "targetId": "bk-1789542445253"
+    },
+    {
+      "id": "log-1789542446094-830",
+      "timestamp": "2026-09-16 14:07:26",
+      "action": "approve_booking",
+      "actorName": "Superadmin E2E",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"E2E Automated Test Meeting\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-1789542445253"
+    },
+    {
+      "id": "log-1789542445261-598",
+      "timestamp": "2026-09-16 14:07:25",
+      "action": "create_booking",
+      "actorName": "Automated Test Agent",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"E2E Automated Test Meeting\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-20 (09:00 - 10:30).",
+      "targetId": "bk-1789542445253"
+    },
+    {
+      "id": "log-1789541947899-494",
+      "timestamp": "2026-09-16 13:59:07",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541787261-881",
+      "timestamp": "2026-09-16 13:56:27",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Testing\" (Ruang VIP) & tersinkron ke Google Calendar.",
+      "targetId": "bk-695946"
+    },
+    {
+      "id": "log-1789541786553-891",
+      "timestamp": "2026-09-16 13:56:26",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Testing\" di Ruang VIP. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-695946"
+    },
+    {
+      "id": "log-1789541782046-645",
+      "timestamp": "2026-09-16 13:56:22",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Rapat Kerja\" (Ruang Transit) & tersinkron ke Google Calendar.",
+      "targetId": "bk-663203"
+    },
+    {
+      "id": "log-1789541781224-756",
+      "timestamp": "2026-09-16 13:56:21",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"\" di . Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-663203"
+    },
+    {
+      "id": "log-1789541747777-395",
+      "timestamp": "2026-09-16 13:55:47",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541743870-244",
+      "timestamp": "2026-09-16 13:55:43",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541735346-691",
+      "timestamp": "2026-09-16 13:55:35",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testinng\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-616317"
+    },
+    {
+      "id": "log-1789541734451-814",
+      "timestamp": "2026-09-16 13:55:34",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testinng\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-616317"
+    },
+    {
+      "id": "log-1789541731970-171",
+      "timestamp": "2026-09-16 13:55:31",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541731956-897",
+      "timestamp": "2026-09-16 13:55:31",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541695958-711",
+      "timestamp": "2026-09-16 13:54:55",
+      "action": "create_booking",
+      "actorName": "katon",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Testing\" pada Ruang VIP untuk tanggal 2026-09-16 (14:00 - 15:00).",
+      "targetId": "bk-695946"
+    },
+    {
+      "id": "log-1789541695954-928",
+      "timestamp": "2026-09-16 13:54:55",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"katon\" mengajukan booking \"Testing\" di Ruang VIP (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-695946"
+    },
+    {
+      "id": "log-1789541663221-428",
+      "timestamp": "2026-09-16 13:54:23",
+      "action": "create_booking",
+      "actorName": "jarwo",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Rapat Kerja\" pada Ruang Transit untuk tanggal 2026-09-16 (14:00 - 15:00).",
+      "targetId": "bk-663203"
+    },
+    {
+      "id": "log-1789541663210-41",
+      "timestamp": "2026-09-16 13:54:23",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"jarwo\" mengajukan booking \"Rapat Kerja\" di Ruang Transit (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-663203"
+    },
+    {
+      "id": "log-1789541616342-7",
+      "timestamp": "2026-09-16 13:53:36",
+      "action": "create_booking",
+      "actorName": "samsul",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"testinng\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-16 (14:00 - 15:00).",
+      "targetId": "bk-616317"
+    },
+    {
+      "id": "log-1789541616324-804",
+      "timestamp": "2026-09-16 13:53:36",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"samsul\" mengajukan booking \"testinng\" di Ruang Rapat Sekjen (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-616317"
+    },
+    {
+      "id": "log-1789541546445-542",
+      "timestamp": "2026-09-16 13:52:26",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789541503259-802",
+      "timestamp": "2026-09-16 13:51:43",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang VIP\".",
+      "targetId": "room-2"
+    },
+    {
+      "id": "log-1789541433396-821",
+      "timestamp": "2026-09-16 13:50:33",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Transit\".",
+      "targetId": "room-3"
+    },
+    {
+      "id": "log-1789541433385-832",
+      "timestamp": "2026-09-16 13:50:33",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Transit\".",
+      "targetId": "room-3"
+    },
+    {
+      "id": "log-1789540651332-549",
+      "timestamp": "2026-09-16 13:37:31",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789540651308-425",
+      "timestamp": "2026-09-16 13:37:31",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789540544341-831",
+      "timestamp": "2026-09-16 13:35:44",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789540480915-671",
+      "timestamp": "2026-09-16 13:34:40",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testing apk\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-715515"
+    },
+    {
+      "id": "log-1789540480244-940",
+      "timestamp": "2026-09-16 13:34:40",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testing apk\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-715515"
+    },
+    {
+      "id": "log-1789540472428-630",
+      "timestamp": "2026-09-16 13:34:32",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"rapat kerja\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "bk-787831"
+    },
+    {
+      "id": "log-1789540471519-987",
+      "timestamp": "2026-09-16 13:34:31",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"\" di . Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-787831"
+    },
+    {
+      "id": "log-1789533237827-157",
+      "timestamp": "2026-09-16 11:33:57",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789532825451-594",
+      "timestamp": "2026-09-16 11:27:05",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789532787854-789",
+      "timestamp": "2026-09-16 11:26:27",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"rapat kerja\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-16 (15:00 - 16:00).",
+      "targetId": "bk-787831"
+    },
+    {
+      "id": "log-1789532367794-146",
+      "timestamp": "2026-09-16 11:19:27",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789532361354-177",
+      "timestamp": "2026-09-16 11:19:21",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789531974784-722",
+      "timestamp": "2026-09-16 11:12:54",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" (Ruang Transit)",
+      "targetId": "bk-576040"
+    },
+    {
+      "id": "log-1789531974764-27",
+      "timestamp": "2026-09-16 11:12:54",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" di Ruang Transit. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-576040"
+    },
+    {
+      "id": "log-1789531775195-700",
+      "timestamp": "2026-09-16 11:09:35",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789531775174-299",
+      "timestamp": "2026-09-16 11:09:35",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789531715538-493",
+      "timestamp": "2026-09-16 11:08:35",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"testing apk\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-16 (13:00 - 14:00).",
+      "targetId": "bk-715515"
+    },
+    {
+      "id": "log-1789531715522-973",
+      "timestamp": "2026-09-16 11:08:35",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"iman\" mengajukan booking \"testing apk\" di Ruang Rapat Sekjen (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-715515"
+    },
+    {
+      "id": "log-1789531647494-976",
+      "timestamp": "2026-09-16 11:07:27",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789531645075-484",
+      "timestamp": "2026-09-16 11:07:25",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789531645045-726",
+      "timestamp": "2026-09-16 11:07:25",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789460631288-92",
+      "timestamp": "2026-09-15 15:23:51",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Rapat Sekjen\".",
+      "targetId": "room-1"
+    },
+    {
+      "id": "log-1789460631276-622",
+      "timestamp": "2026-09-15 15:23:51",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Rapat Sekjen\".",
+      "targetId": "room-1"
+    },
+    {
+      "id": "log-1789459980587-853",
+      "timestamp": "2026-09-15 15:13:00",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789459954859-878",
+      "timestamp": "2026-09-15 15:12:34",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Sinkronisasi 2-arah Google Calendar Service Account berhasil dijalankan.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789459949836-421",
+      "timestamp": "2026-09-15 15:12:29",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789459949816-992",
+      "timestamp": "2026-09-15 15:12:29",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789459576038-525",
+      "timestamp": "2026-09-15 15:06:16",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"iman\" mengajukan booking \"test\" di Ruang Transit (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-576040"
+    },
+    {
+      "id": "log-1789459576048-643",
+      "timestamp": "2026-09-15 15:06:16",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"test\" pada Ruang Transit untuk tanggal 2026-09-15 (17:00 - 18:00).",
+      "targetId": "bk-576040"
+    },
+    {
+      "id": "log-1789458985960-733",
+      "timestamp": "2026-09-15 14:56:25",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Test Booking Fix\" (Ruang VIP)",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789458985953-590",
+      "timestamp": "2026-09-15 14:56:25",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"\" di . Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789458984519-713",
+      "timestamp": "2026-09-15 14:56:24",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" (Ruang Transit)",
+      "targetId": "bk-966521"
+    },
+    {
+      "id": "log-1789458984509-716",
+      "timestamp": "2026-09-15 14:56:24",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" di Ruang Transit. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-966521"
+    },
+    {
+      "id": "log-1789458982489-920",
+      "timestamp": "2026-09-15 14:56:22",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" (Ruang Rapat Sekjen)",
+      "targetId": "bk-904046"
+    },
+    {
+      "id": "log-1789458982479-767",
+      "timestamp": "2026-09-15 14:56:22",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-904046"
+    },
+    {
+      "id": "log-1789458966537-883",
+      "timestamp": "2026-09-15 14:56:06",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"test\" pada Ruang Transit untuk tanggal 2026-09-15 (16:00 - 16:30).",
+      "targetId": "bk-966521"
+    },
+    {
+      "id": "log-1789458966527-596",
+      "timestamp": "2026-09-15 14:56:06",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"iman\" mengajukan booking \"test\" di Ruang Transit (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-966521"
+    },
+    {
+      "id": "log-1789458933068-975",
+      "timestamp": "2026-09-15 14:55:33",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789458933053-6",
+      "timestamp": "2026-09-15 14:55:33",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789458904306-249",
+      "timestamp": "2026-09-15 14:55:04",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"test\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-15 (15:00 - 15:30).",
+      "targetId": "bk-904046"
+    },
+    {
+      "id": "log-1789458904286-267",
+      "timestamp": "2026-09-15 14:55:04",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"iman\" mengajukan booking \"test\" di Ruang Rapat Sekjen (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-904046"
+    },
+    {
+      "id": "log-1789277392214-166",
+      "timestamp": "2026-09-13 12:29:52",
+      "action": "create_booking",
+      "actorName": "arya (biro umum)",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"rapat harian\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-13 (15:30 - 16:00).",
+      "targetId": "qb-391712"
+    },
+    {
+      "id": "log-1789277392200-726",
+      "timestamp": "2026-09-13 12:29:52",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book instan \"rapat harian\" (15:30 - 16:00 WIB) di Ruang Rapat Sekjen oleh \"arya (biro umum)\".",
+      "targetId": "qb-391712"
+    },
+    {
+      "id": "log-1789277117250-162",
+      "timestamp": "2026-09-13 12:25:17",
+      "action": "approve_booking",
+      "actorName": "Administrator Pengelola",
+      "actorRole": "admin",
+      "details": "Menyetujui booking \"rapat mingguan\" (Ruang Transit)",
+      "targetId": "qb-982075"
+    },
+    {
+      "id": "log-1789277105786-906",
+      "timestamp": "2026-09-13 12:25:05",
+      "action": "reschedule_booking",
+      "actorName": "ibnu (biro umum )",
+      "actorRole": "employee",
+      "details": "Mengajukan perubahan jadwal \"rapat mingguan\" dari 2026-09-12 (12:22 - 13:22) ke 2026-09-13 (12:22 - 13:22).",
+      "targetId": "qb-982075"
+    },
+    {
+      "id": "log-1789276982432-574",
+      "timestamp": "2026-09-13 12:23:02",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book instan \"rapat mingguan\" (12:22 - 13:22 WIB) di Ruang Transit oleh \"ibnu (biro umum)\".",
+      "targetId": "qb-982075"
+    },
+    {
+      "id": "log-1789276982422-957",
+      "timestamp": "2026-09-13 12:23:02",
+      "action": "create_booking",
+      "actorName": "ibnu (biro umum)",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"rapat mingguan\" pada Ruang Transit untuk tanggal 2026-09-13 (12:22 - 13:22).",
+      "targetId": "qb-982075"
+    },
+    {
+      "id": "log-1789276550086-893",
+      "timestamp": "2026-09-13 12:15:50",
+      "action": "create_booking",
+      "actorName": "ibnu (biro umum)",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"rapat mingguan\" pada Ruang Transit untuk tanggal 2026-09-13 (14:00 - 15:00).",
+      "targetId": "qb-549621"
+    },
+    {
+      "id": "log-1789276549997-468",
+      "timestamp": "2026-09-13 12:15:49",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book instan \"rapat mingguan\" (14:00 - 15:00 WIB) di Ruang Transit oleh \"ibnu (biro umum)\".",
+      "targetId": "qb-549621"
+    },
+    {
+      "id": "log-1789273907655-528",
+      "timestamp": "2026-09-13 11:31:47",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789273144184-640",
+      "timestamp": "2026-09-13 11:19:04",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Audiensi Asosiasi Industri Digital\" (Ruang Sekjen)",
+      "targetId": "bk-103"
+    },
+    {
+      "id": "log-1789273144076-40",
+      "timestamp": "2026-09-13 11:19:04",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Audiensi Asosiasi Industri Digital\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-103"
+    },
+    {
+      "id": "log-1789273099843-957",
+      "timestamp": "2026-09-13 11:18:19",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789273099814-125",
+      "timestamp": "2026-09-13 11:18:19",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789272208421-176",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Budi Santoso, M.Si",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Sosialisasi Reformasi Birokrasi 2027\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-14 (09:30 - 12:00).",
+      "targetId": "bk-401"
+    },
+    {
+      "id": "log-1789272208298-301",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Briefing Harian Tim Teknis Lapangan\" pada Ruang Transit untuk tanggal 2026-09-13 (08:30 - 09:30).",
+      "targetId": "bk-301"
+    },
+    {
+      "id": "log-1789272208401-315",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Diskusi Desain Antarmuka MRBS\" pada Ruang Transit untuk tanggal 2026-09-13 (11:00 - 12:30).",
+      "targetId": "bk-302"
+    },
+    {
+      "id": "log-1789272208334-865",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Budi Santoso, M.Si",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Sosialisasi Reformasi Birokrasi 2027\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-14 (09:30 - 12:00).",
+      "targetId": "bk-401"
+    },
+    {
+      "id": "log-1789272208293-507",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Koordinasi Tim Hukum & Regulasi\" pada Ruang VIP untuk tanggal 2026-09-13 (14:00 - 16:00).",
+      "targetId": "bk-202"
+    },
+    {
+      "id": "log-1789272208282-842",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Siti Rahmawati",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Wawancara Calon Konsultan Ahli IT\" pada Ruang VIP untuk tanggal 2026-09-13 (10:00 - 12:00).",
+      "targetId": "bk-201"
+    },
+    {
+      "id": "log-1789272208270-715",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Siti Rahmawati",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Evaluasi Implementasi Kebijakan SPBE\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-13 (13:30 - 15:30).",
+      "targetId": "bk-102"
+    },
+    {
+      "id": "log-1789272208240-371",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Koordinasi Tim Hukum & Regulasi\" pada Ruang VIP untuk tanggal 2026-09-13 (14:00 - 16:00).",
+      "targetId": "bk-202"
+    },
+    {
+      "id": "log-1789272208237-160",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Diskusi Desain Antarmuka MRBS\" pada Ruang Transit untuk tanggal 2026-09-13 (11:00 - 12:30).",
+      "targetId": "bk-302"
+    },
+    {
+      "id": "log-1789272208234-249",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Siti Rahmawati",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Wawancara Calon Konsultan Ahli IT\" pada Ruang VIP untuk tanggal 2026-09-13 (10:00 - 12:00).",
+      "targetId": "bk-201"
+    },
+    {
+      "id": "log-1789272208229-260",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Ahmad Fauzi",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Briefing Harian Tim Teknis Lapangan\" pada Ruang Transit untuk tanggal 2026-09-13 (08:30 - 09:30).",
+      "targetId": "bk-301"
+    },
+    {
+      "id": "log-1789272208222-558",
+      "timestamp": "2026-09-13 11:03:28",
+      "action": "create_booking",
+      "actorName": "Siti Rahmawati",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Evaluasi Implementasi Kebijakan SPBE\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-13 (13:30 - 15:30).",
+      "targetId": "bk-102"
+    },
+    {
+      "id": "log-1789205915409-564",
+      "timestamp": "2026-09-12 16:38:35",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789205903985-689",
+      "timestamp": "2026-09-12 16:38:23",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789205903969-1",
+      "timestamp": "2026-09-12 16:38:23",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789205856923-566",
+      "timestamp": "2026-09-12 16:37:36",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789205180551-577",
+      "timestamp": "2026-09-12 16:26:20",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789205180519-178",
+      "timestamp": "2026-09-12 16:26:20",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789204991762-891",
+      "timestamp": "2026-09-12 16:23:11",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789204534497-58",
+      "timestamp": "2026-09-12 16:15:34",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789204534480-905",
+      "timestamp": "2026-09-12 16:15:34",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789203557984-54",
+      "timestamp": "2026-09-12 15:59:17",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789203530901-533",
+      "timestamp": "2026-09-12 15:58:50",
+      "action": "reschedule_booking",
+      "actorName": "Tes User",
+      "actorRole": "employee",
+      "details": "Mengajukan perubahan jadwal \"Test Booking Fix\" dari 2026-09-19 (09:00 - 10:00) ke 2026-09-19 (10:00 - 12:00).",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789203530793-452",
+      "timestamp": "2026-09-12 15:58:50",
+      "action": "edit_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pemohon \"Tes User\" mengajukan reschedule \"Test Booking Fix\" ke 2026-09-19 (10:00 - 12:00) di Ruang VIP (Menunggu Approval).",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789203422243-676",
+      "timestamp": "2026-09-12 15:57:02",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Test Fix\" (Ruang VIP)",
+      "targetId": "bk-1789166084242"
+    },
+    {
+      "id": "log-1789203422234-456",
+      "timestamp": "2026-09-12 15:57:02",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Test Fix\" di Ruang VIP. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-1789166084242"
+    },
+    {
+      "id": "log-1789203421146-590",
+      "timestamp": "2026-09-12 15:57:01",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Test Booking Fix\" (Ruang VIP)",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789203421038-754",
+      "timestamp": "2026-09-12 15:57:01",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Test Booking Fix\" di Ruang VIP. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789203381132-127",
+      "timestamp": "2026-09-12 15:56:21",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789203381104-47",
+      "timestamp": "2026-09-12 15:56:21",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789201873027-543",
+      "timestamp": "2026-09-12 15:31:13",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789199798649-62",
+      "timestamp": "2026-09-12 14:56:38",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789199798625-113",
+      "timestamp": "2026-09-12 14:56:38",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789192034464-946",
+      "timestamp": "2026-09-12 12:47:14",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789191954300-340",
+      "timestamp": "2026-09-12 12:45:54",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang VIP\".",
+      "targetId": "room-2"
+    },
+    {
+      "id": "log-1789191954279-666",
+      "timestamp": "2026-09-12 12:45:54",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang VIP\".",
+      "targetId": "room-2"
+    },
+    {
+      "id": "log-1789191948783-50",
+      "timestamp": "2026-09-12 12:45:48",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Transit\".",
+      "targetId": "room-3"
+    },
+    {
+      "id": "log-1789191948766-439",
+      "timestamp": "2026-09-12 12:45:48",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Transit\".",
+      "targetId": "room-3"
+    },
+    {
+      "id": "log-1789191943087-182",
+      "timestamp": "2026-09-12 12:45:43",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Rapat Sekjen\".",
+      "targetId": "room-1"
+    },
+    {
+      "id": "log-1789191943067-120",
+      "timestamp": "2026-09-12 12:45:43",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Rapat Sekjen\".",
+      "targetId": "room-1"
+    },
+    {
+      "id": "log-1789191905089-32",
+      "timestamp": "2026-09-12 12:45:05",
+      "action": "update_room",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Memperbarui konfigurasi ruangan \"Ruang Rapat Sekjen\".",
+      "targetId": "room-1"
+    },
+    {
+      "id": "log-1789191872228-806",
+      "timestamp": "2026-09-12 12:44:32",
+      "action": "reject_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menolak booking \"testtt\". Alasan: test",
+      "targetId": "bk-240125"
+    },
+    {
+      "id": "log-1789191872122-902",
+      "timestamp": "2026-09-12 12:44:32",
+      "action": "reject_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menolak booking \"testtt\" di Ruang Rapat Sekjen. Alasan: \"test\".",
+      "targetId": "bk-240125"
+    },
+    {
+      "id": "log-1789191853813-50",
+      "timestamp": "2026-09-12 12:44:13",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789191853788-212",
+      "timestamp": "2026-09-12 12:44:13",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789166240210-139",
+      "timestamp": "2026-09-11 05:37:20",
+      "action": "create_booking",
+      "actorName": "iman",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"testtt\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-12 (09:00 - 10:30).",
+      "targetId": "bk-240125"
+    },
+    {
+      "id": "log-1789166240130-799",
+      "timestamp": "2026-09-11 05:37:20",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"iman\" mengajukan booking \"testtt\" di Ruang Rapat Sekjen (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-240125"
+    },
+    {
+      "id": "log-1789166084318-29",
+      "timestamp": "2026-09-11 05:34:44",
+      "action": "create_booking",
+      "actorName": "Tes",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Test Fix\" pada Ruang VIP untuk tanggal 2026-09-20 (09:00 - 10:00).",
+      "targetId": "bk-1789166084242"
+    },
+    {
+      "id": "log-1789166054880-425",
+      "timestamp": "2026-09-11 05:34:14",
+      "action": "create_booking",
+      "actorName": "Tes User",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Test Booking Fix\" pada Ruang VIP untuk tanggal 2026-09-20 (09:00 - 10:00).",
+      "targetId": "bk-1789166054800"
+    },
+    {
+      "id": "log-1789165776198-779",
+      "timestamp": "2026-09-11 05:29:36",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789165769812-267",
+      "timestamp": "2026-09-11 05:29:29",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testing\" (Ruang Transit)",
+      "targetId": "bk-827718"
+    },
+    {
+      "id": "log-1789165769807-476",
+      "timestamp": "2026-09-11 05:29:29",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"testing\" di Ruang Transit. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-827718"
+    },
+    {
+      "id": "log-1789165764626-254",
+      "timestamp": "2026-09-11 05:29:24",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"tetsy\" (Ruang Transit)",
+      "targetId": "bk-465883"
+    },
+    {
+      "id": "log-1789165764541-804",
+      "timestamp": "2026-09-11 05:29:24",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"\" di . Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-465883"
+    },
+    {
+      "id": "log-1789165725588-997",
+      "timestamp": "2026-09-11 05:28:45",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789165725574-589",
+      "timestamp": "2026-09-11 05:28:45",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789165465969-241",
+      "timestamp": "2026-09-11 05:24:25",
+      "action": "create_booking",
+      "actorName": "fredy",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"tetsy\" pada Ruang Transit untuk tanggal 2026-09-21 (09:00 - 10:00).",
+      "targetId": "bk-465883"
+    },
+    {
+      "id": "log-1789165465887-529",
+      "timestamp": "2026-09-11 05:24:25",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"fredy\" mengajukan booking \"tetsy\" di Ruang Transit (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-465883"
+    },
+    {
+      "id": "log-1789165414987-926",
+      "timestamp": "2026-09-11 05:23:34",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789165308281-719",
+      "timestamp": "2026-09-11 05:21:48",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Audiensi Asosiasi Industri Digital\" (Ruang Rapat Sekjen)",
+      "targetId": "bk-103"
+    },
+    {
+      "id": "log-1789165308193-621",
+      "timestamp": "2026-09-11 05:21:48",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"Audiensi Asosiasi Industri Digital\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "bk-103"
+    },
+    {
+      "id": "log-1789165117495-749",
+      "timestamp": "2026-09-11 05:18:37",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789165117482-17",
+      "timestamp": "2026-09-11 05:18:37",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789164827722-283",
+      "timestamp": "2026-09-11 05:13:47",
+      "action": "create_booking",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pemohon \"katon\" mengajukan booking \"testing\" di Ruang Transit (Menunggu Persetujuan Administrator).",
+      "targetId": "bk-827718"
+    },
+    {
+      "id": "log-1789164827797-932",
+      "timestamp": "2026-09-11 05:13:47",
+      "action": "create_booking",
+      "actorName": "katon",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"testing\" pada Ruang Transit untuk tanggal 2026-09-16 (10:00 - 11:00).",
+      "targetId": "bk-827718"
+    },
+    {
+      "id": "log-1789164596202-989",
+      "timestamp": "2026-09-11 05:09:56",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789164532010-968",
+      "timestamp": "2026-09-11 05:08:52",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789164531997-605",
+      "timestamp": "2026-09-11 05:08:51",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789164092934-392",
+      "timestamp": "2026-09-11 05:01:32",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161569098-159",
+      "timestamp": "2026-09-11 04:19:29",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161568532-546",
+      "timestamp": "2026-09-11 04:19:28",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161509718-340",
+      "timestamp": "2026-09-11 04:18:29",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161102291-381",
+      "timestamp": "2026-09-11 04:11:42",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161102278-909",
+      "timestamp": "2026-09-11 04:11:42",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161087237-193",
+      "timestamp": "2026-09-11 04:11:27",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161074776-476",
+      "timestamp": "2026-09-11 04:11:14",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161074762-838",
+      "timestamp": "2026-09-11 04:11:14",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789161008826-768",
+      "timestamp": "2026-09-11 04:10:08",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159975444-201",
+      "timestamp": "2026-09-11 03:52:55",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159969280-712",
+      "timestamp": "2026-09-11 03:52:49",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159883492-187",
+      "timestamp": "2026-09-11 03:51:23",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159809079-922",
+      "timestamp": "2026-09-11 03:50:09",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159658148-828",
+      "timestamp": "2026-09-11 03:47:38",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159652808-403",
+      "timestamp": "2026-09-11 03:47:32",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159537998-723",
+      "timestamp": "2026-09-11 03:45:37",
+      "action": "sync_calendar",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" keluar dari sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789159485753-216",
+      "timestamp": "2026-09-11 03:44:45",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Siti Rahmawati (Super Admin)\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1",
+      "timestamp": "2026-09-11 08:00:00",
+      "action": "approve_booking",
+      "actorName": "Siti Rahmawati (Super Admin)",
+      "actorRole": "superadmin",
+      "details": "Menyetujui permohonan \"Rapat Koordinasi Anggaran & Program Kerja Q4\" pada Ruang Rapat Sekjen.",
+      "targetId": "bk-101"
+    }
+  ]
+}
