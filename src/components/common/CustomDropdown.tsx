@@ -73,7 +73,7 @@ export function CustomDropdown<T = string>({
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
       {label && (
-        <label className="block text-sm font-bold text-text-secondary mb-1.5">
+        <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">
           {label}
         </label>
       )}
@@ -82,13 +82,13 @@ export function CustomDropdown<T = string>({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full flex items-center justify-between gap-2.5 px-3.5 py-2.5 bg-surface hover:bg-surface-secondary/60 border rounded-xl text-sm font-bold text-text-primary shadow-xs transition-all focus:outline-none cursor-pointer ${
+        className={`w-full flex items-center justify-between gap-2.5 px-3 py-2 bg-surface hover:bg-surface-secondary/60 border rounded-xl text-sm font-semibold text-text-primary shadow-xs transition-all focus:outline-none cursor-pointer ${
           isOpen
-            ? 'border-primary ring-2 ring-primary/20 shadow-sm'
+            ? 'border-primary ring-2 ring-primary/20 shadow-xs'
             : 'border-border hover:border-text-muted'
         }`}
       >
-        <div className="flex items-center gap-2.5 min-w-0 flex-1">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
           {!hideAvatar && (
             <>
               {selectedOption?.icon ? (
@@ -105,7 +105,7 @@ export function CustomDropdown<T = string>({
             </>
           )}
 
-          <span className="truncate text-text-primary font-bold text-sm">
+          <span className="truncate text-text-primary font-semibold text-sm">
             {selectedOption?.label || placeholder}
           </span>
 
@@ -121,7 +121,7 @@ export function CustomDropdown<T = string>({
         </div>
 
         <ChevronDown
-          size={16}
+          size={15}
           className={`text-text-muted shrink-0 transition-transform duration-200 ${
             isOpen ? 'rotate-180 text-primary' : ''
           }`}

@@ -49,28 +49,28 @@ export const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal Dialog Container */}
-      <div className="flex min-h-full items-center justify-center p-4 text-center">
+      <div className="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
         <div
-          className={`w-full ${maxWidthClasses} transform overflow-hidden rounded-card bg-surface text-left align-middle shadow-xl transition-all duration-200 ease-out animate-in zoom-in-95 fade-in border border-border relative z-10`}
+          className={`w-full ${maxWidthClasses} transform overflow-hidden rounded-2xl bg-surface text-left align-middle shadow-2xl transition-all duration-200 ease-out animate-in zoom-in-95 fade-in border border-border relative z-10 max-h-[90vh] flex flex-col`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-start justify-between border-b border-border px-6 py-4">
+          <div className="flex items-start justify-between border-b border-border px-5 py-3.5 shrink-0">
             <div>
-              <h3 className="text-lg font-bold text-text-primary">{title}</h3>
-              {subtitle && <p className="mt-0.5 text-sm text-text-secondary">{subtitle}</p>}
+              <h3 className="text-base sm:text-lg font-bold text-text-primary leading-tight">{title}</h3>
+              {subtitle && <p className="mt-0.5 text-xs sm:text-sm text-text-secondary">{subtitle}</p>}
             </div>
             <button
               type="button"
               onClick={onClose}
-              className="rounded-btn p-1 text-text-secondary hover:bg-stone-100 hover:text-text-primary transition-colors cursor-pointer"
+              className="rounded-lg p-1.5 text-text-secondary hover:bg-stone-100 hover:text-text-primary transition-colors cursor-pointer -mr-1"
             >
-              <X size={20} strokeWidth={1.75} />
+              <X size={18} strokeWidth={2} />
             </button>
           </div>
 
           {/* Body */}
-          <div className="px-6 py-5">{children}</div>
+          <div className="px-5 py-4 overflow-y-auto">{children}</div>
         </div>
       </div>
     </div>,

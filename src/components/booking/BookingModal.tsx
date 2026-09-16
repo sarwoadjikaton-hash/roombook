@@ -188,100 +188,100 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         isOpen={isOpen && !showSuccessModal}
         onClose={onClose}
         title="Peminjaman Ruang Rapat"
-        subtitle="Lengkapi data agenda di bawah ini untuk mengajukan peminjaman ruangan"
-        maxWidth="2xl"
+        subtitle="Lengkapi formulir di bawah ini untuk mengajukan peminjaman ruangan"
+        maxWidth="xl"
       >
-      <form onSubmit={handleSubmit} className="space-y-5 p-1">
+      <form onSubmit={handleSubmit} className="space-y-4">
         {errorMessage && (
-          <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl text-sm sm:text-base text-status-danger flex items-start gap-2.5 font-medium">
-            <AlertTriangle size={18} className="shrink-0 mt-0.5" />
+          <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs sm:text-sm text-status-danger flex items-start gap-2 font-medium">
+            <AlertTriangle size={16} className="shrink-0 mt-0.5" />
             <span>{errorMessage}</span>
           </div>
         )}
 
         {/* Pilihan Ruangan */}
-        <div className="space-y-2">
-          <label className="block text-base font-extrabold text-text-primary">Pilih Ruangan *</label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="space-y-1.5">
+          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary">Pilih Ruangan *</label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {rooms.map((room) => {
               const isSelected = room.slug === roomSlug;
               return (
                 <div
                   key={room.slug}
                   onClick={() => setRoomSlug(room.slug)}
-                  className={`p-4 rounded-xl border-2 cursor-pointer transition-all text-left ${
+                  className={`p-3 rounded-xl border-2 cursor-pointer transition-all text-left ${
                     isSelected
-                      ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-sm'
+                      ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-xs'
                       : 'border-border hover:border-stone-400 bg-surface'
                   }`}
                 >
-                  <div className="font-extrabold text-base text-text-primary">{room.name}</div>
-                  <div className="text-sm text-text-secondary mt-1 font-medium">Kapasitas: {room.capacity} orang</div>
+                  <div className="font-bold text-sm text-text-primary">{room.name}</div>
+                  <div className="text-xs text-text-secondary mt-0.5 font-medium">Kapasitas: {room.capacity} org</div>
                 </div>
               );
             })}
           </div>
 
           {/* Kotak Notice Status Wajib Persetujuan Administrator */}
-          <div className="mt-2.5 p-3.5 bg-amber-50 border border-amber-300 rounded-xl flex items-start gap-2.5 text-sm sm:text-base text-amber-900 font-medium">
-            <ShieldAlert size={18} className="text-amber-600 shrink-0 mt-0.5" />
+          <div className="mt-2 p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl flex items-start gap-2 text-xs text-amber-900 font-medium">
+            <ShieldAlert size={16} className="text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold">Catatan: </span>
+              <span className="font-bold">Verifikasi: </span>
               Pengajuan peminjaman <strong>{selectedRoom?.name || 'ruangan'}</strong> akan diverifikasi oleh{' '}
-              <strong className="font-bold underline">Tim Pengelola TU SEKJEN</strong> sebelum disetujui.
+              <strong className="font-bold underline">Tim Pengelola TU SEKJEN</strong>.
             </div>
           </div>
         </div>
 
         {/* Informasi Pemohon (Publik) */}
         {!adminUser ? (
-          <div className="p-4 sm:p-5 bg-stone-50 border border-border rounded-xl space-y-3">
-            <div className="flex items-center gap-2 text-sm sm:text-base font-extrabold text-primary">
-              <UserIcon size={16} />
+          <div className="p-3.5 bg-stone-50 border border-border rounded-xl space-y-2.5">
+            <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+              <UserIcon size={14} />
               <span>Data Pemohon</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               <div>
-                <label className="block text-sm font-bold text-text-secondary mb-1">Nama Lengkap *</label>
+                <label className="block text-xs font-semibold text-text-secondary mb-1">Nama Lengkap *</label>
                 <input
                   type="text"
                   value={applicantName}
                   onChange={(e) => setApplicantName(e.target.value)}
                   placeholder="Nama Lengkap"
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm sm:text-base bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  className="w-full px-3 py-1.5 border border-border rounded-lg text-xs sm:text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-text-secondary mb-1">Email *</label>
+                <label className="block text-xs font-semibold text-text-secondary mb-1">Email *</label>
                 <input
                   type="email"
                   value={applicantEmail}
                   onChange={(e) => setApplicantEmail(e.target.value)}
-                  placeholder="email@gmail.com"
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm sm:text-base bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  placeholder="email@instansi.go.id"
+                  className="w-full px-3 py-1.5 border border-border rounded-lg text-xs sm:text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-text-secondary mb-1">Unit Kerja / Bagian *</label>
+                <label className="block text-xs font-semibold text-text-secondary mb-1">Unit Kerja / Bagian *</label>
                 <input
                   type="text"
                   value={applicantDept}
                   onChange={(e) => setApplicantDept(e.target.value)}
-                  placeholder="Contoh: Bagian Rumah Tangga"
-                  className="w-full px-3 py-2 border border-border rounded-lg text-sm sm:text-base bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  placeholder="Contoh: Bagian TU"
+                  className="w-full px-3 py-1.5 border border-border rounded-lg text-xs sm:text-sm bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                   required
                 />
               </div>
             </div>
           </div>
         ) : (
-          <div className="p-3 bg-primary/5 border border-primary/20 rounded-xl text-sm sm:text-base flex items-center justify-between text-text-secondary">
+          <div className="p-2.5 bg-primary/5 border border-primary/20 rounded-xl text-xs sm:text-sm flex items-center justify-between text-text-secondary">
             <div>
               Pemohon: <strong className="text-text-primary">{adminUser.name}</strong> ({adminUser.department})
             </div>
-            <span className="text-[11px] font-black text-primary bg-primary/10 px-2.5 py-0.5 rounded uppercase">
+            <span className="text-[10px] font-black text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
               Petugas TU
             </span>
           </div>
@@ -289,19 +289,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Judul Rapat */}
         <div>
-          <label className="block text-base font-extrabold text-text-primary mb-1.5">Nama / Agenda Kegiatan *</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">
+            Nama / Agenda Kegiatan *
+          </label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Contoh: Rapat Koordinasi Tim Kerja"
-            className="w-full px-3.5 py-2.5 border border-border rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium"
+            className="w-full px-3 py-2 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium"
             required
           />
         </div>
 
         {/* Tanggal & Waktu */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <div>
             <CustomDatePicker
               label="Tanggal Rapat *"
@@ -340,15 +342,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Conflict Warning Box */}
         {conflictWarning && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-sm sm:text-base text-status-danger flex items-start gap-2.5 font-medium">
-            <AlertTriangle size={18} className="shrink-0 mt-0.5" />
+          <div className="p-2.5 bg-red-50 border border-red-200 rounded-xl text-xs sm:text-sm text-status-danger flex items-start gap-2 font-medium">
+            <AlertTriangle size={16} className="shrink-0 mt-0.5" />
             <span>{conflictWarning}</span>
           </div>
         )}
 
         {/* Jumlah Peserta */}
         <div>
-          <label className="block text-base font-extrabold text-text-primary mb-1.5">
+          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">
             Jumlah Peserta (Maks: {selectedRoom?.capacity} Orang) *
           </label>
           <div className="relative max-w-xs">
@@ -358,51 +360,53 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               max={selectedRoom?.capacity || 30}
               value={attendeeCount}
               onChange={(e) => setAttendeeCount(e.target.value === '' ? '' : Math.max(0, parseInt(e.target.value) || 0))}
-              className="w-full px-3.5 py-2.5 border border-border rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+              className="w-full px-3 py-2 border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
               required
             />
-            <span className="absolute right-3.5 top-2.5 text-sm text-text-secondary font-medium">Orang</span>
+            <span className="absolute right-3.5 top-2 text-xs text-text-secondary font-medium">Orang</span>
           </div>
           {(Number(attendeeCount) || 0) > (selectedRoom?.capacity || 0) && (
-            <p className="text-sm text-red-600 mt-1 font-medium">Melebihi kapasitas ruangan ({selectedRoom?.capacity} org)</p>
+            <p className="text-xs text-red-600 mt-1 font-medium">Melebihi kapasitas ruangan ({selectedRoom?.capacity} org)</p>
           )}
         </div>
 
         {/* Undangan Peserta (Chips Tagging) */}
         <div>
-          <label className="block text-base font-extrabold text-text-primary mb-1.5">Undang Peserta Tambahan (Email / Nama)</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">
+            Undang Peserta Tambahan (Email / Nama)
+          </label>
           <div className="flex gap-2">
             <input
               type="text"
               value={attendeeInput}
               onChange={(e) => setAttendeeInput(e.target.value)}
               onKeyDown={handleAddAttendee}
-              placeholder="Ketik email / nama peserta dan tekan Enter"
-              className="flex-1 px-3.5 py-2.5 border border-border rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+              placeholder="Ketik email / nama peserta lalu tekan Enter"
+              className="flex-1 px-3 py-2 border border-border rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
             />
             <button
               type="button"
               onClick={handleAddAttendee}
-              className="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-text-primary text-base font-bold rounded-xl border border-border"
+              className="px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-text-primary text-xs sm:text-sm font-bold rounded-xl border border-border transition-colors cursor-pointer"
             >
-              <Plus size={16} />
+              <Plus size={15} />
             </button>
           </div>
 
           {attendees.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2.5">
+            <div className="flex flex-wrap gap-1.5 mt-2">
               {attendees.map((att) => (
                 <span
                   key={att}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-stone-100 border border-border text-sm rounded-full text-text-primary font-medium"
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-stone-100 border border-border text-xs rounded-full text-text-primary font-medium"
                 >
                   <span>{att}</span>
                   <button
                     type="button"
                     onClick={() => handleRemoveAttendee(att)}
-                    className="hover:text-status-danger"
+                    className="hover:text-status-danger cursor-pointer ml-0.5"
                   >
-                    <X size={13} />
+                    <X size={12} />
                   </button>
                 </span>
               ))}
@@ -412,22 +416,24 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Deskripsi / Agenda */}
         <div>
-          <label className="block text-base font-extrabold text-text-primary mb-1.5">Deskripsi Rapat (Opsional)</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-text-secondary mb-1">
+            Deskripsi / Catatan Rapat (Opsional)
+          </label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={2}
-            placeholder="Catatan tambahan, fasilitas yang dibutuhkan, atau tautan materi..."
-            className="w-full px-3.5 py-2.5 border border-border rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none"
+            placeholder="Catatan tambahan, fasilitas khusus yang dibutuhkan, dll..."
+            className="w-full px-3 py-2 border border-border rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none"
           />
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-4 border-t border-border flex items-center justify-end gap-3">
+        <div className="pt-3 border-t border-border flex items-center justify-end gap-2.5">
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2.5 text-base font-bold text-text-secondary hover:text-text-primary hover:bg-stone-100 rounded-xl transition-colors"
+            className="px-4 py-2 text-xs sm:text-sm font-bold text-text-secondary hover:text-text-primary hover:bg-stone-100 rounded-xl transition-colors cursor-pointer"
           >
             Batal
           </button>
@@ -435,13 +441,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="submit"
             disabled={!!conflictWarning}
-            className={`px-6 py-2.5 text-base font-black rounded-xl shadow-md transition-all flex items-center gap-2 ${
+            className={`px-5 py-2 text-xs sm:text-sm font-bold rounded-xl shadow-xs transition-all flex items-center gap-1.5 cursor-pointer ${
               conflictWarning
                 ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
                 : 'bg-primary hover:bg-primary-light text-white active:scale-95'
             }`}
           >
-            <CheckCircle2 size={17} />
+            <CheckCircle2 size={16} />
             <span>Ajukan Peminjaman</span>
           </button>
         </div>
