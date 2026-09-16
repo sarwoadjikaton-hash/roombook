@@ -177,13 +177,13 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   });
 
   const [bookings, setBookings] = useState<Booking[]>(() => {
-    if (!localStorage.getItem('mrbs_fresh_v3')) {
+    if (!localStorage.getItem('mrbs_fresh_v4')) {
       localStorage.removeItem('mrbs_bookings');
       localStorage.removeItem('mrbs_notifications');
       localStorage.removeItem('mrbs_guest_name');
       localStorage.removeItem('mrbs_guest_email');
       localStorage.removeItem('mrbs_guest_dept');
-      localStorage.setItem('mrbs_fresh_v3', 'true');
+      localStorage.setItem('mrbs_fresh_v4', 'true');
       return [];
     }
     const saved = localStorage.getItem('mrbs_bookings');
@@ -246,8 +246,6 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [googleSyncStatus, setGoogleSyncStatus] = useState<'synced' | 'syncing' | 'error'>('synced');
   const [lastSyncTime, setLastSyncTime] = useState<Date>(new Date());
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
-
-  // Unread notifications count
   const unreadNotificationsCount = notifications.filter((n) => !n.isRead).length;
 
   // Clock tick setiap 1 detik
@@ -280,11 +278,7 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
         // Server API adalah Single Source of Truth untuk bookings
         if (bookingsData && Array.isArray(bookingsData)) {
-          setBookings((localBookings) => {
-            const apiIds = new Set(bookingsData.map((b: { id: string }) => b.id));
-            const localOnly = localBookings.filter((b) => !apiIds.has(b.id));
-            return [...localOnly, ...bookingsData];
-          });
+          setBookings(bookingsData);
         }
 
         if (usersData && usersData.length > 0) {
