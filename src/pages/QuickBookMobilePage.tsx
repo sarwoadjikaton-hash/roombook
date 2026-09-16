@@ -64,7 +64,7 @@ export const QuickBookMobilePage: React.FC = () => {
   const [endTime, setEndTime] = useState<string>(defaultTimes.end);
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [attendeeCount, setAttendeeCount] = useState<number>(() => (currentRoom?.capacity > 8 ? 8 : currentRoom?.capacity || 4));
+  const [attendeeCount, setAttendeeCount] = useState<number | string>(0);
   const [attendees, setAttendees] = useState<string[]>([]);
   const [attendeeInput, setAttendeeInput] = useState<string>('');
 
@@ -148,9 +148,11 @@ export const QuickBookMobilePage: React.FC = () => {
       return;
     }
 
-    if (attendeeCount > (currentRoom?.capacity || 0)) {
+    const numAttendees = Number(attendeeCount) || 0;
+
+    if (numAttendees > (currentRoom?.capacity || 0)) {
       setErrorMessage(
-        `Jumlah peserta (${attendeeCount}) melebihi kapasitas maksimum ${currentRoom?.name} (${currentRoom?.capacity} orang).`
+        `Jumlah peserta (${numAttendees}) melebihi kapasitas maksimum ${currentRoom?.name} (${currentRoom?.capacity} orang).`
       );
       return;
     }
@@ -163,7 +165,7 @@ export const QuickBookMobilePage: React.FC = () => {
         endTime,
         date,
         description: description.trim() || 'Dipesan instan melalui Scan QR Code HP.',
-        attendeeCount,
+        attendeeCount: numAttendees,
         attendees,
         organizerName: finalName,
         organizerEmail: finalEmail,
@@ -495,7 +497,7 @@ export const QuickBookMobilePage: React.FC = () => {
               <div className="flex items-center gap-2 max-w-xs">
                 <button
                   type="button"
-                  onClick={() => setAttendeeCount((prev) => Math.max(1, prev - 1))}
+                  onClick={() => setAttendeeCount((prev) => Math.max(0, (Number(prev) || 0) - 1))}
                   className="w-10 h-10 rounded-xl bg-stone-100 border border-border hover:bg-stone-200 flex items-center justify-center font-bold text-text-primary text-base active:scale-95"
                 >
                   <Minus size={16} />
@@ -503,17 +505,17 @@ export const QuickBookMobilePage: React.FC = () => {
                 <div className="relative flex-1">
                   <input
                     type="number"
-                    min={1}
+                    min={0}
                     max={currentRoom.capacity}
                     value={attendeeCount}
-                    onChange={(e) => setAttendeeCount(parseInt(e.target.value) || 1)}
+                    onChange={(e) => setAttendeeCount(e.target.value === '' ? '' : Math.max(0, parseInt(e.target.value) || 0))}
                     className="w-full px-3 py-2 bg-white border border-border rounded-xl text-center font-black text-text-primary text-base focus:outline-none focus:border-primary"
                     required
                   />
                 </div>
                 <button
                   type="button"
-                  onClick={() => setAttendeeCount((prev) => Math.min(currentRoom.capacity, prev + 1))}
+                  onClick={() => setAttendeeCount((prev) => Math.min(currentRoom.capacity, (Number(prev) || 0) + 1))}
                   className="w-10 h-10 rounded-xl bg-stone-100 border border-border hover:bg-stone-200 flex items-center justify-center font-bold text-text-primary text-base active:scale-95"
                 >
                   <Plus size={16} />

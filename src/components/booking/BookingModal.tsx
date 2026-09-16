@@ -41,7 +41,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [endTime, setEndTime] = useState<string>(defaultEndTime || '10:30');
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [attendeeCount, setAttendeeCount] = useState<number>(8);
+  const [attendeeCount, setAttendeeCount] = useState<number | string>(0);
   const [attendees, setAttendees] = useState<string[]>([]);
   const [attendeeInput, setAttendeeInput] = useState<string>('');
   
@@ -138,9 +138,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       return;
     }
 
-    if (attendeeCount > (selectedRoom?.capacity || 0)) {
+    const numAttendees = Number(attendeeCount) || 0;
+
+    if (numAttendees > (selectedRoom?.capacity || 0)) {
       setErrorMessage(
-        `Jumlah peserta (${attendeeCount}) melebihi kapasitas maksimum ${selectedRoom?.name} (${selectedRoom?.capacity} orang).`
+        `Jumlah peserta (${numAttendees}) melebihi kapasitas maksimum ${selectedRoom?.name} (${selectedRoom?.capacity} orang).`
       );
       return;
     }
@@ -157,7 +159,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       date,
       startTime,
       endTime,
-      attendeeCount,
+      attendeeCount: numAttendees,
       attendees,
       requiresApproval: selectedRoom.requiresApproval,
     });
@@ -352,16 +354,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <div className="relative max-w-xs">
             <input
               type="number"
-              min={1}
+              min={0}
               max={selectedRoom?.capacity || 30}
               value={attendeeCount}
-              onChange={(e) => setAttendeeCount(parseInt(e.target.value) || 1)}
+              onChange={(e) => setAttendeeCount(e.target.value === '' ? '' : Math.max(0, parseInt(e.target.value) || 0))}
               className="w-full px-3.5 py-2.5 border border-border rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
               required
             />
             <span className="absolute right-3.5 top-2.5 text-sm text-text-secondary font-medium">Orang</span>
           </div>
-          {attendeeCount > (selectedRoom?.capacity || 0) && (
+          {(Number(attendeeCount) || 0) > (selectedRoom?.capacity || 0) && (
             <p className="text-sm text-red-600 mt-1 font-medium">Melebihi kapasitas ruangan ({selectedRoom?.capacity} org)</p>
           )}
         </div>
