@@ -735,7 +735,12 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
       })
     );
 
-    api.approveBooking(bookingId, { adminName: approverName, adminRole: adminUser?.role }).catch(() => {});
+    const targetBooking = bookings.find((b) => b.id === bookingId);
+    api.approveBooking(bookingId, {
+      adminName: approverName,
+      adminRole: adminUser?.role,
+      booking: targetBooking,
+    }).catch(() => {});
 
     // Hapus notifikasi pending_approval yang sudah disetujui (Pusat notif hanya untuk booking baru yang pending)
     setNotifications((prev) => prev.filter((n) => !(n.bookingId === bookingId)));

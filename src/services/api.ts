@@ -97,7 +97,7 @@ export const api = {
       method: 'POST',
       body: safeBody(data),
     }),
-  approveBooking: (id: string, data: { adminName?: string; adminRole?: string }) =>
+  approveBooking: (id: string, data: { adminName?: string; adminRole?: string; booking?: Booking }) =>
     fetchJson<Booking>(`${API_BASE}/bookings/${id}/approve`, {
       method: 'POST',
       body: safeBody(data),

@@ -75,8 +75,15 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
-// Inisialisasi Database PostgreSQL saat server start
-initPostgreDb();
+// Middleware: Pastikan koneksi & inisialisasi PostgreSQL sudah siap sebelum menangani request
+app.use(async (req, res, next) => {
+  try {
+    await initPostgreDb();
+  } catch (err) {
+    console.warn('[DB Middleware] Inisialisasi DB:', err.message);
+  }
+  next();
+});
 
 // Helper audit log
 const createAuditLog = async (action, actorName, actorRole, details, targetId) => {
@@ -529,9 +536,8 @@ app.post('/api/bookings/:id/approve', async (req, res) => {
     }
   }
 
-  if (!targetBooking) {
-    const db = readDb();
-    targetBooking = (db.bookings || []).find(b => b.id === req.params.id);
+  if (!targetBooking && req.body.booking) {
+    targetBooking = req.body.booking;
   }
 
   if (!targetBooking) {
@@ -551,10 +557,19 @@ app.post('/api/bookings/:id/approve', async (req, res) => {
 
   if (getPgStatus()) {
     try {
-      await pool.query(
+      const updateRes = await pool.query(
         `UPDATE bookings SET status = 'confirmed', approved_by = $1, approved_at = $2, synced_to_google = TRUE, google_calendar_event_id = $3 WHERE id = $4`,
         [adminName || 'Administrator Pengelola', timestamp, googleEventId, req.params.id]
       );
+
+      if (updateRes.rowCount === 0) {
+        await pool.query(
+          `INSERT INTO bookings (id, room_slug, room_name, title, description, organizer_id, organizer_name, organizer_email, organizer_dept, date, start_time, end_time, attendee_count, attendees, status, requires_approval, approved_by, approved_at, created_at, google_calendar_event_id, synced_to_google)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, 'confirmed', $15, $16, $17, $18, $19, TRUE)
+           ON CONFLICT (id) DO UPDATE SET status = 'confirmed', approved_by = $16, approved_at = $17, google_calendar_event_id = $19, synced_to_google = TRUE`,
+          [targetBooking.id, targetBooking.roomSlug, targetBooking.roomName, targetBooking.title, targetBooking.description || '', targetBooking.organizerId || 'guest-public', targetBooking.organizerName, targetBooking.organizerEmail, targetBooking.organizerDept || '-', targetBooking.date, targetBooking.startTime, targetBooking.endTime, targetBooking.attendeeCount || 1, targetBooking.attendees || [], targetBooking.requiresApproval ?? true, adminName || 'Administrator Pengelola', timestamp, targetBooking.createdAt || timestamp, googleEventId]
+        );
+      }
 
       // Hapus notif pending lama
       await pool.query(`DELETE FROM notifications WHERE booking_id = $1 AND type = 'pending_approval'`, [req.params.id]);
