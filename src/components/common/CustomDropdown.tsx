@@ -132,10 +132,10 @@ export function CustomDropdown<T = string>({
       {isOpen && (
         <div
           className={`absolute ${
-            placement === 'top' ? 'bottom-full mb-2' : 'top-full mt-2'
-          } right-0 min-w-full w-max max-w-[calc(100vw-1.5rem)] sm:min-w-[280px] p-1.5 bg-surface border-2 border-border dark:border-stone-700 rounded-2xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 max-h-72 overflow-y-auto custom-scrollbar`}
+            placement === 'top' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'
+          } left-0 w-full p-1 bg-surface border border-border dark:border-stone-700 rounded-xl shadow-xl z-50 animate-in fade-in zoom-in-95 duration-150 max-h-56 overflow-y-auto custom-scrollbar`}
         >
-          <div className="space-y-1">
+          <div className="space-y-0.5">
             {options.map((option, idx) => {
               const isSelected = option.value === value;
               const colorClass =
@@ -151,23 +151,23 @@ export function CustomDropdown<T = string>({
                     onChange(option.value);
                     setIsOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between gap-3 px-3 py-2 rounded-xl transition-all text-left cursor-pointer group ${
+                  className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg transition-all text-left cursor-pointer group ${
                     isSelected
                       ? 'bg-primary/10 text-primary font-bold'
-                      : 'hover:bg-surface-secondary text-text-primary'
+                      : 'hover:bg-surface-secondary text-text-primary font-medium'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <div className="flex items-center gap-2 min-w-0 flex-1">
                     {/* Avatar Bulat / Icon jika ada */}
                     {hasVisual && (
                       <>
                         {option.icon ? (
-                          <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                          <div className="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
                             {option.icon}
                           </div>
                         ) : option.avatarText ? (
                           <div
-                            className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black shrink-0 ${colorClass}`}
+                            className={`w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black shrink-0 ${colorClass}`}
                           >
                             {option.avatarText}
                           </div>
@@ -177,24 +177,23 @@ export function CustomDropdown<T = string>({
 
                     {/* Label & Sublabel */}
                     <div className="flex flex-col min-w-0">
-                      <span className="font-extrabold text-sm text-text-primary truncate">
+                      <span className="text-xs sm:text-sm truncate">
                         {option.label}
                       </span>
                       {option.sublabel && (
-                        <span className="text-xs text-text-muted font-medium truncate mt-0.5">
+                        <span className="text-[10px] text-text-secondary truncate">
                           {option.sublabel}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  {/* Badge & Checkmark */}
-                  <div className="flex items-center gap-2 shrink-0 ml-2">
+                  {/* Badge & Check Icon */}
+                  <div className="flex items-center gap-1.5 shrink-0 ml-1">
                     {option.badge && (
                       <span
-                        className={`px-2 py-0.5 text-[10px] font-black rounded-md border ${
-                          option.badgeColor ||
-                          'bg-primary/10 text-primary border-primary/20'
+                        className={`px-1.5 py-0.5 text-[9px] font-bold rounded ${
+                          option.badgeColor || 'bg-stone-100 text-text-secondary border border-border'
                         }`}
                       >
                         {option.badge}
@@ -202,7 +201,7 @@ export function CustomDropdown<T = string>({
                     )}
 
                     {isSelected && (
-                      <Check size={16} className="text-primary shrink-0" />
+                      <Check size={14} className="text-primary" />
                     )}
                   </div>
                 </button>
