@@ -993,6 +993,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Terjadi kesalahan pada server.' });
 });
 
-app.listen(PORT, () => {
-  console.log(`[ROOMBOOK TU SEKJEN] REST API backend running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[ROOMBOOK TU SEKJEN] REST API backend running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
