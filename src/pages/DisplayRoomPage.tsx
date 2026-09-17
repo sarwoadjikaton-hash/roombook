@@ -229,7 +229,7 @@ export const DisplayRoomPage: React.FC = () => {
           <div className="hidden md:block h-8 w-px bg-[#243C5E]" />
           <div className="hidden md:block">
             <div className="text-xs font-bold text-slate-300 tracking-wide uppercase">
-              Sistem Informasi Status Ruang Rapat
+              Sistem Informasi Reservasi Ruang Rapat
             </div>
             <div className="text-[11px] text-slate-400">
               Sekretariat Jenderal Kementerian Ketenagakerjaan RI

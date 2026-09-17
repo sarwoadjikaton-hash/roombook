@@ -1,14 +1,16 @@
 import React from 'react';
 
-// 1. Logo Resmi Kementerian Ketenagakerjaan RI (KEMNAKER) — Render Langsung dari File Asset
+// 1. Logo Resmi Kementerian Ketenagakerjaan RI (SIRAPAT) — Render Langsung dari File Asset
 interface KemnakerLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  title?: string;
   subtitle?: string;
   className?: string;
 }
 
 export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   size = 'lg',
+  title = 'SIRAPAT',
   subtitle = 'TU SEKJEN',
   className = '',
 }) => {
@@ -24,7 +26,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
       {/* Gambar Asli File Logo KEMNAKER RI (Render Langsung dengan Filter Putih Solid Transparan) */}
       <img
         src="/logo-kemnaker.png"
-        alt="Logo Resmi KEMNAKER RI"
+        alt="Logo Resmi SIRAPAT KEMNAKER RI"
         style={{
           width: iconDimensions.size,
           height: iconDimensions.size,
@@ -40,10 +42,10 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
         }}
       />
 
-      {/* Teks KEMNAKER & TU SEKJEN */}
+      {/* Teks SIRAPAT & TU SEKJEN */}
       <div className="flex flex-col justify-center min-w-0">
         <span className={`font-black text-white leading-none uppercase tracking-wider drop-shadow-md ${iconDimensions.title}`}>
-          KEMNAKER
+          {title}
         </span>
         <span className={`font-extrabold text-sky-300 tracking-widest uppercase mt-1 leading-none drop-shadow-sm ${iconDimensions.sub}`}>
           {subtitle}
@@ -168,7 +170,7 @@ export const Logo: React.FC<LogoProps> = ({
       {/* Logotype Text */}
       {showText && (
         <div className="flex flex-col min-w-0">
-          <div className="flex items-center gap-1 leading-none">
+          <div className="flex items-center leading-none">
             <span
               className={`font-black tracking-tight ${textSizes.title} ${
                 variant === 'light'
