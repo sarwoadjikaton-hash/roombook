@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
     if (path === '/admin/reports') return 'Laporan Penggunaan Ruangan';
     if (path === '/admin/google-sync') return 'Integrasi Kalender';
     if (path === '/admin/audit') return 'Catatan Aktivitas Sistem';
-    return 'Peminjaman Ruang Rapat TU SEKJEN';
+    return 'SIRAPAT - Reservasi Ruang Rapat';
   };
 
   const isSuperAdmin = adminUser?.role === 'superadmin';
@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             <span className="hidden sm:inline-block text-sm font-semibold text-text-muted">
               {location.pathname.startsWith('/admin')
                 ? 'Panel Pengelola TU SEKJEN'
-                : 'Sistem Peminjaman Ruang Rapat TU SEKJEN'}
+                : 'Sistem Informasi Reservasi Ruang Rapat TU SEKJEN'}
             </span>
           </div>
         </div>

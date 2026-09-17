@@ -116,7 +116,7 @@ export const ReportsPage: React.FC = () => {
         <div className="text-center pb-3 border-b-2 border-black">
           <h2 className="text-sm font-bold tracking-widest uppercase">Kementerian Ketenagakerjaan Republik Indonesia</h2>
           <h1 className="text-lg font-black uppercase mt-0.5">Sekretariat Jenderal • Tata Usaha Sekjen</h1>
-          <p className="text-xs text-stone-700 mt-1">Sistem Informasi Peminjaman Ruang Rapat (ROOMBOOK)</p>
+          <p className="text-xs text-stone-700 mt-1">Sistem Informasi Reservasi Ruang Rapat (SIRAPAT)</p>
           <div className="mt-3 pt-2 border-t border-stone-400">
             <h3 className="text-base font-extrabold uppercase tracking-wide">Laporan Rekapitulasi Pemakaian Ruang Rapat</h3>
             <p className="text-xs text-stone-600 mt-0.5">

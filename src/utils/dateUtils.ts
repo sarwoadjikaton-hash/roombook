@@ -252,7 +252,7 @@ export const getGoogleCalendarUrl = (booking: {
 
   const text = encodeURIComponent(booking.title || 'Rapat di Ruangan');
   const details = encodeURIComponent(
-    `${booking.description || ''}\n\nLokasi: ${booking.roomName}\nSistem Peminjaman Ruang Rapat (ROOMBOOK Kemnaker).`
+    `${booking.description || ''}\n\nLokasi: ${booking.roomName}\nSIRAPAT - Sistem Informasi Reservasi Ruang Rapat (Kemnaker RI).`
   );
   const location = encodeURIComponent(`${booking.roomName}, Gedung Kementerian Ketenagakerjaan RI`);
 

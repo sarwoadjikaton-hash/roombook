@@ -42,7 +42,7 @@ Waktu: ${booking.startTime} - ${booking.endTime} WIB
 Pemohon: ${booking.organizerName} (${booking.organizerDept})
 Status: Menunggu Persetujuan Tim Pengelola TU SEKJEN (Batas H-2)
 
-Diselenggarakan melalui Sistem Peminjaman Ruang Rapat (ROOMBOOK).`;
+Diselenggarakan melalui SIRAPAT - Sistem Informasi Reservasi Ruang Rapat (TU SEKJEN KEMNAKER).`;
 
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);

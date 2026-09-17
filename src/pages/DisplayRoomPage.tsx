@@ -691,7 +691,7 @@ export const DisplayRoomPage: React.FC = () => {
 
             {/* Bottom Official Signage Footer */}
             <div className="pt-2 border-t border-[#243C5E] text-center text-[10px] text-slate-400 font-semibold tracking-wider shrink-0">
-              ROOMBOOK • TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI
+              SIRAPAT • TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   );
 };
 
-// 2. Logo Umum Aplikasi RoomBook TU SEKJEN
+// 2. Logo Umum Aplikasi SIRAPAT TU SEKJEN
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'light' | 'dark' | 'auto';
@@ -176,10 +176,10 @@ export const Logo: React.FC<LogoProps> = ({
                   : 'text-slate-900'
               }`}
             >
-              ROOM
+              SI
             </span>
-            <span className={`font-black tracking-tight text-blue-600 dark:text-blue-400 ${textSizes.title}`}>
-              BOOK
+            <span className={`font-black tracking-tight text-primary dark:text-emerald-500 ${textSizes.title}`}>
+              RAPAT
             </span>
           </div>
           {showSubtitle && (

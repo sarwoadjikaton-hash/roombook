@@ -600,10 +600,10 @@ export const QuickBookMobilePage: React.FC = () => {
 
       {/* Official Footer Kemnaker */}
       <footer className="mt-8 pt-4 border-t border-border/80 text-center text-xs text-text-muted space-y-1">
-        <p className="font-extrabold text-text-secondary">
-          ROOMBOOK
+        <p className="font-extrabold text-primary text-sm tracking-wide">
+          SIRAPAT
         </p>
-        <p className="text-[11px]">Sistem Peminjaman Ruang Rapat - TU SEKJEN</p>
+        <p className="text-[11px]">Sistem Informasi Reservasi Ruang Rapat - TU SEKJEN</p>
       </footer>
     </div>
   );
