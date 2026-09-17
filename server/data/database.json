@@ -5,7 +5,7 @@
       "slug": "ruang-sekjen",
       "name": "Ruang Rapat Sekjen",
       "capacity": 30,
-      "location": "Lantai 3, Gedung Utama (Sayap Barat)",
+      "location": "Lantai 2, Gedung B",
       "facilities": [
         "smart_tv",
         "zoom_room",
@@ -33,12 +33,10 @@
       "slug": "ruang-vip",
       "name": "Ruang VIP",
       "capacity": 15,
-      "location": "Lantai 2, Gedung Utama",
+      "location": "Lantai 2, Gedung B",
       "facilities": [
         "ac",
-        "wifi",
-        "smart_tv",
-        "whiteboard"
+        "wifi"
       ],
       "requiresApproval": true,
       "approverName": "Administrator Pengelola",
@@ -57,11 +55,10 @@
       "slug": "ruang-transit",
       "name": "Ruang Transit",
       "capacity": 10,
-      "location": "Lantai 1, Dekat Lobby",
+      "location": "Lantai 2, Gedung B",
       "facilities": [
         "ac",
-        "wifi",
-        "whiteboard"
+        "wifi"
       ],
       "requiresApproval": true,
       "approverName": "Administrator Pengelola",

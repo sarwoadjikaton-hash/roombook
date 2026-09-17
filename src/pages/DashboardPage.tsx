@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useBooking } from '../context/BookingContext';
 import { getRoomRealTimeStatus } from '../utils/dateUtils';
 import { StatusBadge } from '../components/common/StatusBadge';
-import { FacilityIcons, CapacityBadge } from '../components/common/FacilityIcons';
+import { FacilityIcons } from '../components/common/FacilityIcons';
 import { RoomTimeline } from '../components/timeline/RoomTimeline';
 import { DatePickerControl } from '../components/common/DatePickerControl';
 import { BookingModal } from '../components/booking/BookingModal';
@@ -69,94 +69,113 @@ export const DashboardPage: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
           {rooms.map((room) => {
             const statusInfo = getRoomRealTimeStatus(bookings, room.slug, currentTime);
 
             // Placeholder gradient jika tidak ada imageUrl
             const roomGradients: Record<string, string> = {
-              'ruang-rapat-a': 'from-blue-100 to-blue-200',
-              'ruang-rapat-b': 'from-emerald-100 to-emerald-200',
-              'ruang-rapat-c': 'from-violet-100 to-violet-200',
+              'ruang-rapat-a': 'from-blue-900 to-indigo-950',
+              'ruang-rapat-b': 'from-emerald-900 to-teal-950',
+              'ruang-rapat-c': 'from-purple-900 to-slate-950',
             };
-            const gradientClass = roomGradients[room.slug] || 'from-stone-100 to-stone-200';
+            const gradientClass = roomGradients[room.slug] || 'from-slate-800 to-slate-950';
 
             return (
               <div
                 key={room.slug}
-                className="bg-white rounded-2xl border border-stone-200 shadow-md hover:shadow-lg transition-all flex flex-col overflow-hidden group"
+                className="relative h-[490px] sm:h-[530px] rounded-[2.25rem] overflow-hidden shadow-[0_12px_35px_rgba(0,0,0,0.14)] hover:shadow-[0_24px_50px_rgba(0,0,0,0.28)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between group select-none border border-slate-200/50"
               >
-                {/* Gambar Ruangan */}
-                <div className="relative h-44 overflow-hidden">
-                  {room.imageUrl || (room.images && room.images.length > 0) ? (
-                    <img
-                      src={room.imageUrl || room.images?.[0]}
-                      alt={room.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        if (room.slug === 'ruang-vip') {
-                          target.src = '/rooms/ruang-vip-1.jpg';
-                        } else if (room.slug === 'ruang-transit') {
-                          target.src = '/rooms/ruang-transit-1.jpg';
-                        } else if (room.slug === 'ruang-sekjen') {
-                          target.src = '/rooms/ruang-sekjen-1.jpg';
-                        }
-                      }}
-                    />
-                  ) : (
-                    <div className={`w-full h-full bg-gradient-to-br ${gradientClass} flex items-center justify-center`}>
-                      <div className="text-center space-y-1 opacity-60">
-                        <div className="text-4xl">🏢</div>
-                        <p className="text-sm font-bold text-stone-500">{room.name}</p>
-                      </div>
+                {/* Full-bleed Background Image */}
+                {room.imageUrl || (room.images && room.images.length > 0) ? (
+                  <img
+                    src={room.imageUrl || room.images?.[0]}
+                    alt={room.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (room.slug === 'ruang-vip') {
+                        target.src = '/rooms/ruang-vip-1.jpg';
+                      } else if (room.slug === 'ruang-transit') {
+                        target.src = '/rooms/ruang-transit-1.jpg';
+                      } else if (room.slug === 'ruang-sekjen') {
+                        target.src = '/rooms/ruang-sekjen-1.jpg';
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className={`absolute inset-0 bg-gradient-to-br ${gradientClass} flex items-center justify-center`}>
+                    <div className="text-center space-y-1 opacity-60">
+                      <div className="text-5xl">🏢</div>
+                      <p className="text-base font-bold text-white/80">{room.name}</p>
                     </div>
-                  )}
-                  {/* Badge Status di atas gambar */}
-                  <div className="absolute top-3 right-3">
+                  </div>
+                )}
+
+                {/* Top Dark Vignette Gradient (Halus & Tipis) */}
+                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badges */}
+                <div className="relative z-10 p-5 flex items-center justify-between">
+                  <div className="backdrop-blur-md bg-black/40 text-white border border-white/20 rounded-full px-3 py-1.5 shadow-md flex items-center gap-1.5 text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{room.capacity} Orang</span>
+                  </div>
+                  <div className="backdrop-blur-md bg-black/30 rounded-full shadow-md">
                     <StatusBadge status={statusInfo.status} size="md" />
                   </div>
                 </div>
 
-                {/* Info Ruangan */}
-                <div className="p-5 border-b border-stone-100 space-y-3">
-                  <div>
-                    <h3 className="text-lg font-black text-text-primary group-hover:text-primary transition-colors">
+                {/* Multi-layered Dark Progressive Blur Gradient at Bottom (Tipis & Halus) */}
+                <div className="absolute inset-x-0 bottom-0 h-[46%] pointer-events-none">
+                  <div className="absolute inset-0 backdrop-blur-[1px] [mask-image:linear-gradient(to_top,black_15%,transparent)]" />
+                  <div className="absolute inset-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black_40%,transparent)]" />
+                  <div className="absolute inset-0 backdrop-blur-[8px] [mask-image:linear-gradient(to_top,black_75%,transparent)]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+                </div>
+
+                {/* Bottom Content Area */}
+                <div className="relative z-10 p-6 sm:p-7 pt-0 space-y-3.5 mt-auto">
+                  {/* Title & Location */}
+                  <div className="space-y-1">
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight drop-shadow-md">
                       {room.name}
                     </h3>
-                    <p className="text-base text-text-secondary mt-0.5 font-medium">{room.location}</p>
+                    <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed drop-shadow-xs">
+                      {room.location}
+                    </p>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <CapacityBadge capacity={room.capacity} size="md" />
-                    <FacilityIcons facilities={room.facilities} size={15} />
+
+                  {/* Facilities Row */}
+                  <div className="flex items-center justify-between py-1.5 border-t border-white/15">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      Fasilitas
+                    </span>
+                    <FacilityIcons facilities={room.facilities} size={14} />
                   </div>
-                </div>
 
-                {/* Body: Deskripsi Ruangan */}
-                <div className="p-5 flex-1 bg-stone-50 flex flex-col justify-between">
-                  <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">
-                    {room.description || 'Ruangan siap digunakan untuk kegiatan rapat dan koordinasi.'}
-                  </p>
-                </div>
+                  {/* Divider Line */}
+                  <div className="h-px bg-white/15 w-full" />
 
-                {/* Footer Action */}
-                <div className="p-4 bg-white border-t border-stone-200 flex items-center gap-2">
-                  {adminUser && (
-                    <Link
-                      to={`/display/${room.slug}`}
-                      target="_blank"
-                      className="p-2.5 text-text-secondary hover:text-primary hover:bg-stone-100 rounded-xl transition-colors border border-stone-200"
-                      title="Buka Layar Display TV Kiosk"
+                  {/* Action Buttons */}
+                  <div className="flex items-center gap-2.5 pt-0.5">
+                    {adminUser && (
+                      <Link
+                        to={`/display/${room.slug}`}
+                        target="_blank"
+                        className="p-3.5 backdrop-blur-md bg-white/15 hover:bg-white/25 text-white rounded-2xl transition-all border border-white/20 shadow-md shrink-0"
+                        title="Buka Layar Display TV Kiosk"
+                      >
+                        <Tv size={18} />
+                      </Link>
+                    )}
+                    <button
+                      onClick={() => handleOpenBookingModal(room.slug, selectedDate)}
+                      className="flex-1 py-3.5 px-6 bg-white hover:bg-slate-100 active:scale-[0.98] text-slate-950 text-sm sm:text-base font-black rounded-2xl transition-all duration-200 text-center shadow-xl hover:shadow-2xl flex items-center justify-center gap-2"
                     >
-                      <Tv size={17} />
-                    </Link>
-                  )}
-                  <button
-                    onClick={() => handleOpenBookingModal(room.slug, selectedDate)}
-                    className="flex-1 py-2.5 px-4 bg-primary hover:bg-primary-light text-white text-base font-black rounded-xl transition-all text-center shadow-sm hover:shadow-md active:scale-95"
-                  >
-                    Pesan Ruangan
-                  </button>
+                      <span>Pesan Ruangan</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             );
@@ -199,7 +218,7 @@ export const DashboardPage: React.FC = () => {
       {/* Bottom Grid: Agenda Rapat Terpilih & Panduan Penggunaan */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Kolom 1-2: Agenda Rapat pada Tanggal yang Dipilih */}
-        <div className="lg:col-span-2 bg-surface rounded-2xl border border-border p-7 sm:p-8 shadow-card">
+        <div className="lg:col-span-2 bg-white/95 backdrop-blur-md rounded-3xl border border-stone-200/90 p-7 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div className="flex items-center justify-between pb-4 border-b border-border">
             <div className="flex items-center gap-2.5">
               <Clock size={18} className="text-primary" />
@@ -237,7 +256,7 @@ export const DashboardPage: React.FC = () => {
                   <div
                     key={booking.id}
                     onClick={() => setSelectedBookingForDetail(booking)}
-                    className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-surface-secondary/60 p-3 rounded-xl transition-all cursor-pointer group"
+                    className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-surface-secondary/60 p-3 rounded-2xl transition-all cursor-pointer group"
                   >
                     <div className="flex items-start gap-3.5">
                       <div className="w-2 h-12 rounded-full bg-primary shrink-0 group-hover:scale-y-110 transition-transform" />
@@ -272,7 +291,7 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Kolom 3: Ketentuan Peminjaman Ruang Rapat */}
-        <div className="bg-surface rounded-2xl border border-border p-7 sm:p-8 shadow-card flex flex-col justify-between space-y-6">
+        <div className="bg-gradient-to-br from-white via-slate-50/60 to-blue-50/20 backdrop-blur-md rounded-3xl border border-stone-200/90 p-7 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <h3 className="text-base sm:text-lg font-black text-text-primary pb-3 border-b border-border">
               Ketentuan Peminjaman

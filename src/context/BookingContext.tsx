@@ -118,8 +118,11 @@ const normalizeRoomList = (rawRooms: Room[]): Room[] => {
     let images = r.images;
     let name = r.name;
 
+    let facilities = r.facilities;
+
     if (isSekjen) {
       name = 'Ruang Rapat Sekjen';
+      facilities = ['smart_tv', 'zoom_room', 'ac', 'wifi', 'sound_system'];
       if (!imageUrl || imageUrl.includes('unsplash.com')) {
         imageUrl = '/rooms/ruang-sekjen-1.jpg';
       }
@@ -134,6 +137,7 @@ const normalizeRoomList = (rawRooms: Room[]): Room[] => {
       }
     } else if (isVip) {
       name = 'Ruang VIP';
+      facilities = ['ac', 'wifi'];
       if (!imageUrl || imageUrl.includes('unsplash.com')) {
         imageUrl = '/rooms/ruang-vip-1.jpg';
       }
@@ -145,6 +149,7 @@ const normalizeRoomList = (rawRooms: Room[]): Room[] => {
       }
     } else if (isTransit) {
       name = 'Ruang Transit';
+      facilities = ['ac', 'wifi'];
       if (!imageUrl || imageUrl.includes('unsplash.com')) {
         imageUrl = '/rooms/ruang-transit-1.jpg';
       }
@@ -158,11 +163,14 @@ const normalizeRoomList = (rawRooms: Room[]): Room[] => {
     } else if (seed) {
       if (!imageUrl) imageUrl = seed.imageUrl;
       if (!images || images.length === 0) images = seed.images;
+      if (seed.facilities) facilities = seed.facilities;
     }
 
     return {
       ...r,
       name,
+      location: 'Lantai 2, Gedung B',
+      facilities,
       imageUrl,
       images,
     };

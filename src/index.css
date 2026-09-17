@@ -82,6 +82,32 @@ button, a, input, select, textarea {
   animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* Progressive Blur & Glassmorphism */
+.progressive-blur-gradient {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 65%;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.9) 35%,
+    rgba(255, 255, 255, 0.45) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 /* Print CSS untuk Cetak Laporan Resmi & Data-Only PDF */
 @media print {
   @page {
