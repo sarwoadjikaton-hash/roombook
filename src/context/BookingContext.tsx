@@ -681,31 +681,39 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
       endTime: endTimeStr,
       attendeeCount: attendeeCountNum,
       attendees: attendeesList,
-      status: 'confirmed',
-      requiresApproval: false,
+      status: 'pending',
+      requiresApproval: true,
       createdAt: format(now, 'yyyy-MM-dd HH:mm:ss'),
-      syncedToGoogle: true,
-      googleCalendarEventId: `gcal_${newId}`,
+      syncedToGoogle: false,
     };
 
     setBookings((prev) => [newBooking, ...prev]);
     api.createBooking(newBooking).catch(() => {});
 
+    // Tambahkan Notifikasi ke Admin agar booking muncul di halaman Approvals
+    addNotification(
+      'pending_approval',
+      'Permohonan Booking Baru (Quick Book)',
+      `"${finalOrganizerName}" mengajukan peminjaman "${newBooking.title}" di ${targetRoom.name} untuk tanggal ${dateStr} (${startTimeStr} - ${endTimeStr}).`,
+      newId,
+      '/admin/approvals'
+    );
+
     addAuditLog(
       'quick_book',
-      `Quick Book instan "${newBooking.title}" (${startTimeStr} - ${endTimeStr} WIB) di ${targetRoom.name} oleh "${finalOrganizerName}".`,
+      `Quick Book "${newBooking.title}" (${startTimeStr} - ${endTimeStr} WIB) di ${targetRoom.name} oleh "${finalOrganizerName}" (Menunggu Persetujuan Administrator).`,
       newId
     );
 
     showToast(
-      'Ruangan Berhasil Dipesan!',
-      `Pemesanan cepat (${startTimeStr} - ${endTimeStr} WIB) aktif di ${targetRoom.name}.`,
+      'Permohonan Berhasil Diajukan!',
+      `Agenda "${newBooking.title}" di ${targetRoom.name} menunggu persetujuan Administrator.`,
       'success'
     );
 
     return {
       success: true,
-      message: `Ruangan berhasil dipesan untuk pukul ${startTimeStr} – ${endTimeStr} WIB!`,
+      message: `Permohonan booking berhasil diajukan! Menunggu persetujuan dari Administrator Pengelola.`,
       booking: newBooking,
     };
   };

@@ -79,6 +79,70 @@
   ],
   "bookings": [
     {
+      "id": "qb-224585",
+      "createdAt": "2026-09-17 08:57:04",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "testtttt",
+      "description": "Dipesan instan melalui Scan QR Code HP.",
+      "organizerId": "guest-public",
+      "organizerName": "sansan",
+      "organizerEmail": "indmrtprg@gmail.con",
+      "organizerDept": "biro humas",
+      "date": "2026-09-17",
+      "startTime": "13:00",
+      "endTime": "13:30",
+      "attendeeCount": 20,
+      "attendees": []
+    },
+    {
+      "id": "qb-691429",
+      "createdAt": "2026-09-17 08:48:11",
+      "status": "pending",
+      "requiresApproval": true,
+      "syncedToGoogle": false,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "test",
+      "description": "Dipesan instan melalui Scan QR Code HP.",
+      "organizerId": "guest-public",
+      "organizerName": "katon",
+      "organizerEmail": "indmrtprg@gmail.com",
+      "organizerDept": "biro umum",
+      "date": "2026-09-17",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "attendeeCount": 25,
+      "attendees": []
+    },
+    {
+      "id": "qb-054289",
+      "createdAt": "2026-09-17 08:37:34",
+      "status": "confirmed",
+      "requiresApproval": false,
+      "syncedToGoogle": true,
+      "roomSlug": "ruang-sekjen",
+      "roomName": "Ruang Rapat Sekjen",
+      "title": "Rapat Tim IT",
+      "description": "Rapat manajemen",
+      "organizerId": "guest-public",
+      "organizerName": "Zulhaz",
+      "organizerEmail": "muhammadnaufalzulhazmi@gmail.com",
+      "organizerDept": "Biro Umum",
+      "date": "2026-09-17",
+      "startTime": "09:00",
+      "endTime": "10:30",
+      "attendeeCount": 15,
+      "attendees": [
+        "Azusa",
+        "Rabbani"
+      ],
+      "googleCalendarEventId": "gcal_qb-054289"
+    },
+    {
       "id": "bk-1789543369967",
       "createdAt": "2026-09-16 14:22:49",
       "status": "pending",
@@ -239,6 +303,36 @@
   ],
   "notifications": [
     {
+      "id": "notif-1789610225401",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "sansan mengajukan booking \"testtttt\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-17 08:57:05",
+      "isRead": false,
+      "bookingId": "qb-224585",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789609692144",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "katon mengajukan booking \"test\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-17 08:48:12",
+      "isRead": false,
+      "bookingId": "qb-691429",
+      "actionUrl": "/admin/approvals"
+    },
+    {
+      "id": "notif-1789609055253",
+      "type": "pending_approval",
+      "title": "Permohonan Booking Baru",
+      "message": "Zulhaz mengajukan booking \"Rapat Tim IT\" pada Ruang Rapat Sekjen.",
+      "timestamp": "2026-09-17 08:37:35",
+      "isRead": false,
+      "bookingId": "qb-054289",
+      "actionUrl": "/admin/approvals"
+    },
+    {
       "id": "notif-1789543369967",
       "type": "pending_approval",
       "title": "Permohonan Booking Baru",
@@ -300,6 +394,96 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "log-1789610225540-89",
+      "timestamp": "2026-09-17 08:57:05",
+      "action": "create_booking",
+      "actorName": "sansan",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"testtttt\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-17 (13:00 - 13:30).",
+      "targetId": "qb-224585"
+    },
+    {
+      "id": "log-1789610225412-373",
+      "timestamp": "2026-09-17 08:57:05",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book \"testtttt\" (13:00 - 13:30 WIB) di Ruang Rapat Sekjen oleh \"sansan\" (Menunggu Persetujuan Administrator).",
+      "targetId": "qb-224585"
+    },
+    {
+      "id": "log-1789609707162-25",
+      "timestamp": "2026-09-17 08:48:27",
+      "action": "approve_booking",
+      "actorName": "Superadmin",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" (Ruang Rapat Sekjen) & tersinkron ke Google Calendar.",
+      "targetId": "qb-691429"
+    },
+    {
+      "id": "log-1789609706010-677",
+      "timestamp": "2026-09-17 08:48:26",
+      "action": "approve_booking",
+      "actorName": "Superadmin",
+      "actorRole": "superadmin",
+      "details": "Menyetujui booking \"test\" di Ruang Rapat Sekjen. Jadwal resmi aktif & event disinkronkan ke Google Calendar.",
+      "targetId": "qb-691429"
+    },
+    {
+      "id": "log-1789609692226-465",
+      "timestamp": "2026-09-17 08:48:12",
+      "action": "create_booking",
+      "actorName": "katon",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"test\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-17 (11:00 - 12:00).",
+      "targetId": "qb-691429"
+    },
+    {
+      "id": "log-1789609692171-743",
+      "timestamp": "2026-09-17 08:48:12",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book \"test\" (11:00 - 12:00 WIB) di Ruang Rapat Sekjen oleh \"katon\" (Menunggu Persetujuan Administrator).",
+      "targetId": "qb-691429"
+    },
+    {
+      "id": "log-1789609055316-731",
+      "timestamp": "2026-09-17 08:37:35",
+      "action": "create_booking",
+      "actorName": "Zulhaz",
+      "actorRole": "employee",
+      "details": "Mengajukan permohonan booking \"Rapat Tim IT\" pada Ruang Rapat Sekjen untuk tanggal 2026-09-17 (09:00 - 10:30).",
+      "targetId": "qb-054289"
+    },
+    {
+      "id": "log-1789609055255-746",
+      "timestamp": "2026-09-17 08:37:35",
+      "action": "quick_book",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Quick Book instan \"Rapat Tim IT\" (09:00 - 10:30 WIB) di Ruang Rapat Sekjen oleh \"Zulhaz\".",
+      "targetId": "qb-054289"
+    },
+    {
+      "id": "log-1789609028499-876",
+      "timestamp": "2026-09-17 08:37:08",
+      "action": "sync_calendar",
+      "actorName": "Pegawai / Pemohon Publik",
+      "actorRole": "public",
+      "details": "Pengguna \"Superadmin\" (superadmin) berhasil masuk ke sistem.",
+      "targetId": ""
+    },
+    {
+      "id": "log-1789609028431-494",
+      "timestamp": "2026-09-17 08:37:08",
+      "action": "sync_calendar",
+      "actorName": "Superadmin",
+      "actorRole": "superadmin",
+      "details": "Pengguna \"Superadmin\" (superadmin) berhasil masuk ke sistem melalui autentikasi password hash.",
+      "targetId": ""
+    },
     {
       "id": "log-1789543370844-738",
       "timestamp": "2026-09-16 14:22:50",

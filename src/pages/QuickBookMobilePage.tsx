@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useBooking } from '../context/BookingContext';
-import { getRoomRealTimeStatus, getGoogleCalendarUrl, checkBookingConflict, OPERATING_HOURS, formatDateIndonesian } from '../utils/dateUtils';
+import { getRoomRealTimeStatus, checkBookingConflict, OPERATING_HOURS, formatDateIndonesian, getGoogleCalendarUrl } from '../utils/dateUtils';
 import { format } from 'date-fns';
 import {
   Clock,
@@ -11,12 +11,12 @@ import {
   CheckCircle2,
   AlertTriangle,
   ArrowLeft,
-  CalendarPlus,
   Plus,
   Minus,
   X,
   ShieldCheck,
   Tv,
+  CalendarPlus,
 } from 'lucide-react';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { FacilityIcons } from '../components/common/FacilityIcons';
@@ -272,9 +272,9 @@ export const QuickBookMobilePage: React.FC = () => {
             </div>
           )}
 
-          <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-2 text-xs text-emerald-900 font-semibold">
-            <ShieldCheck size={16} className="text-emerald-600 shrink-0" />
-            <span>Pemesanan melalui QR Code ini <strong>langsung aktif</strong> di layar depan ruangan.</span>
+          <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl flex items-center gap-2 text-xs text-amber-900 font-semibold">
+            <ShieldCheck size={16} className="text-amber-600 shrink-0" />
+            <span>Pemesanan melalui QR Code ini memerlukan <strong>persetujuan Administrator</strong> sebelum aktif.</span>
           </div>
         </div>
 
@@ -286,9 +286,9 @@ export const QuickBookMobilePage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-lg sm:text-xl font-black text-text-primary">Ruangan Berhasil Dipesan!</h2>
+              <h2 className="text-lg sm:text-xl font-black text-text-primary">Permohonan Berhasil Diajukan!</h2>
               <p className="text-xs sm:text-sm text-text-secondary mt-1">
-                Layar di depan <strong>{currentRoom.name}</strong> telah diperbarui dan jadwal Anda telah aktif.
+                Peminjaman <strong>{currentRoom.name}</strong> menunggu persetujuan Administrator sebelum jadwal aktif.
               </p>
             </div>
 
@@ -322,18 +322,16 @@ export const QuickBookMobilePage: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="pt-2 flex flex-col gap-2.5">
+              <div className="w-full py-3 px-4 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center gap-2 text-sm font-bold text-amber-800">
+                <Clock size={16} />
+                <span>Menunggu Persetujuan Administrator</span>
+              </div>
+
               <a
-                href={getGoogleCalendarUrl({
-                  title: successBooking.title,
-                  description: `${successBooking.description || 'Pemesanan ruangan via Quick Book.'}\n\nPIC: ${successBooking.organizerName} (${successBooking.organizerDept})`,
-                  roomName: currentRoom.name,
-                  date: successBooking.date,
-                  startTime: successBooking.startTime,
-                  endTime: successBooking.endTime,
-                })}
+                href={getGoogleCalendarUrl(successBooking)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-extrabold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors"
+                className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors"
               >
                 <CalendarPlus size={16} />
                 <span>Simpan di Google Kalender</span>

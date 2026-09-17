@@ -157,11 +157,7 @@ export const DisplayRoomPage: React.FC = () => {
   }, [statusInfo, currentTime]);
 
   // URL untuk QR Code Reservasi Smartphone
-  const appBaseUrl = (import.meta as unknown as { env?: { VITE_APP_URL?: string } }).env?.VITE_APP_URL || (
-    window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      ? `http://192.168.1.62:${window.location.port || '3000'}`
-      : window.location.origin
-  );
+  const appBaseUrl = (import.meta as unknown as { env?: { VITE_APP_URL?: string } }).env?.VITE_APP_URL || window.location.origin;
   const quickBookUrl = currentRoom ? `${appBaseUrl}/quick-book/${currentRoom.slug}` : `${appBaseUrl}/booking`;
 
   // Status Visual Palette (Institutional Wayfinding Standard)
