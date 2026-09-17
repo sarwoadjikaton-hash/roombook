@@ -112,8 +112,8 @@ export const DashboardPage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Top Dark Vignette Gradient (Halus & Tipis) */}
-                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+                {/* Top Dark Vignette Gradient (Sangat Halus & Ringan) */}
+                <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
 
                 {/* Top Floating Badges */}
                 <div className="relative z-10 p-5 flex items-center justify-between">
@@ -126,16 +126,20 @@ export const DashboardPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Multi-layered Dark Progressive Blur Gradient at Bottom (Tipis & Halus) */}
-                <div className="absolute inset-x-0 bottom-0 h-[46%] pointer-events-none">
-                  <div className="absolute inset-0 backdrop-blur-[1px] [mask-image:linear-gradient(to_top,black_15%,transparent)]" />
-                  <div className="absolute inset-0 backdrop-blur-[3px] [mask-image:linear-gradient(to_top,black_40%,transparent)]" />
-                  <div className="absolute inset-0 backdrop-blur-[8px] [mask-image:linear-gradient(to_top,black_75%,transparent)]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+                {/* Interactive Progressive Blur at Bottom: Tipis default -> Menebal & Naik saat di-hover */}
+                <div className="absolute inset-x-0 bottom-0 h-[38%] group-hover:h-[60%] transition-all duration-700 ease-out pointer-events-none">
+                  {/* Layer 1 */}
+                  <div className="absolute inset-0 backdrop-blur-[1px] group-hover:backdrop-blur-[3px] transition-all duration-700 [mask-image:linear-gradient(to_top,black_20%,transparent)]" />
+                  {/* Layer 2 */}
+                  <div className="absolute inset-0 backdrop-blur-[4px] group-hover:backdrop-blur-[10px] transition-all duration-700 [mask-image:linear-gradient(to_top,black_60%,transparent)]" />
+                  {/* Layer 3: Extra rich blur on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 backdrop-blur-[16px] transition-opacity duration-700 [mask-image:linear-gradient(to_top,black_85%,transparent)]" />
+                  {/* Gradient Background Fade */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/95 group-hover:via-black/65 group-hover:to-transparent transition-all duration-700" />
                 </div>
 
                 {/* Bottom Content Area */}
-                <div className="relative z-10 p-6 sm:p-7 pt-0 space-y-3.5 mt-auto">
+                <div className="relative z-10 p-6 sm:p-7 pt-0 space-y-3 mt-auto">
                   {/* Title & Location */}
                   <div className="space-y-1">
                     <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight drop-shadow-md">
@@ -143,6 +147,13 @@ export const DashboardPage: React.FC = () => {
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed drop-shadow-xs">
                       {room.location}
+                    </p>
+                  </div>
+
+                  {/* Description that smoothly expands on hover */}
+                  <div className="max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden">
+                    <p className="text-xs text-slate-200/90 leading-relaxed line-clamp-2 pt-1.5 border-t border-white/10">
+                      {room.description || 'Ruangan siap digunakan untuk kegiatan rapat dan koordinasi kedinasan.'}
                     </p>
                   </div>
 
