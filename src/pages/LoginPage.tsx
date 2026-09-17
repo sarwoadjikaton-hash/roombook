@@ -156,7 +156,7 @@ export const LoginPage: React.FC = () => {
                     setPassword(e.target.value);
                     if (error) setError(null);
                   }}
-                  placeholder="••••••••••••"
+                  placeholder="Password"
                   className="w-full pl-12 pr-12 py-3.5 sm:py-4 border border-slate-300 rounded-2xl text-base bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/30 focus:border-blue-600 transition-all font-medium shadow-xs"
                   required
                 />
@@ -180,9 +180,8 @@ export const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full py-4 px-6 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white text-base font-black rounded-2xl shadow-lg hover:shadow-xl hover:shadow-blue-700/25 transition-all duration-200 flex items-center justify-center gap-3 active:scale-[0.99] ${
-                isLoading ? 'opacity-70 cursor-wait' : ''
-              }`}
+              className={`w-full py-4 px-6 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white text-base font-black rounded-2xl shadow-lg hover:shadow-xl hover:shadow-blue-700/25 transition-all duration-200 flex items-center justify-center gap-3 active:scale-[0.99] ${isLoading ? 'opacity-70 cursor-wait' : ''
+                }`}
             >
               {isLoading ? (
                 <>
