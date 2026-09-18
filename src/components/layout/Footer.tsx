@@ -16,11 +16,20 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
     return (
       <footer className="mt-auto bg-white dark:bg-surface border-t border-border py-3.5 text-xs text-text-secondary select-none">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-2.5">
-          {/* Badge Tag SIRAPAT */}
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-2xs">
+          {/* Badge Tag SIRAPAT: [ Logo Aplikasi | Logo Kemnaker ] */}
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-2xs">
+            <img
+              src="/logo.svg"
+              alt="Logo Aplikasi SIRAPAT"
+              className="w-4 h-4 object-contain rounded-xs shrink-0"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <span className="w-px h-3.5 bg-stone-300 dark:bg-stone-600" />
             <img
               src="/logo-kemnaker.png"
-              alt="Logo Kemnaker"
+              alt="Logo Resmi Kemnaker"
               className="w-4 h-4 object-contain shrink-0"
               onError={(e) => {
                 const target = e.currentTarget;
@@ -29,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
                 }
               }}
             />
-            <span className="font-extrabold tracking-wider text-text-primary text-xs">SIRAPAT</span>
+            <span className="font-extrabold tracking-wider text-text-primary text-xs ml-0.5">SIRAPAT</span>
           </div>
 
           <span className="text-stone-300 dark:text-stone-700">|</span>
@@ -52,13 +61,27 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Top Section: Logo, Nama Lembaga, dan Alamat Kontak */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          {/* Sisi Kiri: Logo & Identitas Kementerian */}
+          {/* Sisi Kiri: Logo [ Aplikasi | Kemnaker ] & Identitas Kementerian */}
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3">
+              {/* Logo Aplikasi */}
+              <img
+                src="/logo.svg"
+                alt="Logo Aplikasi SIRAPAT"
+                className="w-9 h-9 object-contain rounded-md shrink-0 drop-shadow-sm"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+
+              {/* Separator Garis */}
+              <span className="w-px h-7 bg-white/25" />
+
+              {/* Logo Kemnaker */}
               <img
                 src="/logo-kemnaker.png"
                 alt="Logo Resmi Kementerian Ketenagakerjaan Republik Indonesia"
-                className="w-10 h-10 object-contain shrink-0"
+                className="w-9 h-9 object-contain shrink-0"
                 style={{ filter: 'brightness(0) invert(1)' }}
                 onError={(e) => {
                   const target = e.currentTarget;
@@ -67,7 +90,8 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
                   }
                 }}
               />
-              <div className="flex flex-col text-[11px] font-extrabold uppercase tracking-wider text-white leading-tight">
+
+              <div className="flex flex-col text-[11px] font-extrabold uppercase tracking-wider text-white leading-tight ml-1">
                 <span>KEMENTERIAN</span>
                 <span>KETENAGAKERJAAN</span>
                 <span>REPUBLIK INDONESIA</span>
@@ -101,7 +125,16 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
 
         {/* Bottom Section: Tag Nama Aplikasi & Hak Cipta */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-300">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
+            <img
+              src="/logo.svg"
+              alt="Logo SIRAPAT"
+              className="w-4 h-4 object-contain rounded-xs shrink-0"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <span className="w-px h-3.5 bg-white/30" />
             <img
               src="/logo-kemnaker.png"
               alt="Logo Kemnaker"
@@ -114,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
                 }
               }}
             />
-            <span className="font-bold tracking-wider text-white text-xs">SIRAPAT</span>
+            <span className="font-bold tracking-wider text-white text-xs ml-0.5">SIRAPAT</span>
           </div>
 
           <span className="text-slate-500">|</span>
