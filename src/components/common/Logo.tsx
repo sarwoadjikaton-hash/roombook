@@ -23,7 +23,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
 
   return (
     <div className={`flex items-center gap-3.5 select-none ${className}`}>
-      {/* Gambar Asli File Logo KEMNAKER RI (Render Langsung dengan Filter Putih Solid Transparan) */}
+      {/* Gambar Asli File Logo KEMNAKER RI */}
       <img
         src="/logo-kemnaker.png"
         alt="Logo Resmi SIRAPAT KEMNAKER RI"
@@ -54,7 +54,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   );
 };
 
-// 2. Logo Utama Aplikasi SIRAPAT TU SEKJEN (Menggunakan Logo Resmi Kemnaker)
+// 2. Logo Header & Navbar: [ Logo Aplikasi | Logo Kemnaker ] + Teks SIRAPAT TU SEKJEN
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'light' | 'dark' | 'auto';
@@ -71,15 +71,35 @@ export const Logo: React.FC<LogoProps> = ({
   className = '',
 }) => {
   const iconDimensions = {
-    sm: { size: 28, title: 'text-base', subtitle: 'text-[9px]' },
-    md: { size: 36, title: 'text-lg', subtitle: 'text-[10px]' },
-    lg: { size: 44, title: 'text-xl', subtitle: 'text-sm' },
-    xl: { size: 56, title: 'text-2xl', subtitle: 'text-base' },
+    sm: { size: 26, dividerH: 'h-5', title: 'text-base', subtitle: 'text-[9px]' },
+    md: { size: 34, dividerH: 'h-6', title: 'text-lg', subtitle: 'text-[10px]' },
+    lg: { size: 42, dividerH: 'h-8', title: 'text-xl', subtitle: 'text-sm' },
+    xl: { size: 52, dividerH: 'h-10', title: 'text-2xl', subtitle: 'text-base' },
   }[size];
 
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Logo Resmi Kemnaker */}
+      {/* 1. Logo Aplikasi SIRAPAT */}
+      <img
+        src="/logo.svg"
+        alt="Logo Aplikasi SIRAPAT"
+        style={{
+          width: iconDimensions.size,
+          height: iconDimensions.size,
+        }}
+        className="shrink-0 object-contain rounded-md drop-shadow-xs transition-transform duration-300 hover:scale-105"
+      />
+
+      {/* Pembatas Garis Vertikal (Separator: Logo Aplikasi | Logo Kemnaker) */}
+      <span
+        className={`w-px ${iconDimensions.dividerH} ${
+          variant === 'light'
+            ? 'bg-white/30'
+            : 'bg-stone-300 dark:bg-stone-700'
+        }`}
+      />
+
+      {/* 2. Logo Resmi Kementerian Ketenagakerjaan RI */}
       <img
         src="/logo-kemnaker.png"
         alt="Logo Resmi Kemnaker RI"
@@ -98,15 +118,15 @@ export const Logo: React.FC<LogoProps> = ({
         }}
       />
 
-      {/* Logotype Text */}
+      {/* 3. Logotype Text */}
       {showText && (
-        <div className="flex flex-col min-w-0">
+        <div className="flex flex-col min-w-0 ml-0.5">
           <div className="flex items-center leading-none">
             <span
               className={`font-black tracking-tight ${iconDimensions.title} ${
                 variant === 'light'
                   ? 'text-white'
-                  : 'text-slate-900'
+                  : 'text-slate-900 dark:text-white'
               }`}
             >
               SI
@@ -117,8 +137,8 @@ export const Logo: React.FC<LogoProps> = ({
           </div>
           {showSubtitle && (
             <span
-              className={`font-semibold tracking-wider uppercase mt-1 leading-none ${iconDimensions.subtitle} ${
-                variant === 'light' ? 'text-slate-300' : 'text-slate-500'
+              className={`font-bold tracking-wider uppercase mt-1 leading-none ${iconDimensions.subtitle} ${
+                variant === 'light' ? 'text-slate-300' : 'text-slate-500 dark:text-slate-400'
               }`}
             >
               TU SEKJEN
