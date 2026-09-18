@@ -10,19 +10,19 @@ export default {
       colors: {
         // Palet Resmi Biru Kemnaker RI (Kementerian Ketenagakerjaan RI)
         primary: {
-          DEFAULT: '#0F3B68', // Corporate Navy Kemnaker
-          light: '#1D4ED8',   // Royal Blue
-          dark: '#0A2540',    // Midnight Navy Kemnaker
+          DEFAULT: '#193e6b', // Corporate Navy Kemnaker
+          light: '#235594',   // Lighter shade of #193e6b
+          dark: '#102744',    // Midnight Navy Kemnaker
           50: '#EFF6FF',
           100: '#DBEAFE',
           200: '#BFDBFE',
           300: '#93C5FD',
           400: '#60A5FA',
-          500: '#2563EB',
-          600: '#1D4ED8',
-          700: '#1E40AF',
-          800: '#0F3B68',
-          900: '#0A2540',
+          500: '#193e6b',
+          600: '#153358',
+          700: '#102744',
+          800: '#0c1d33',
+          900: '#071221',
         },
         kemnaker: {
           navy: '#0A2540',
