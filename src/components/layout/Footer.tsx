@@ -55,9 +55,9 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
     );
   }
 
-  // Footer Lengkap Resmi Kemnaker (Public View dengan Dark Navy Theme, Tanpa Box Rounded di Bawah)
+  // Footer Lengkap Resmi Kemnaker (Public View dengan Warna Biru #193e6b, Tanpa Box Rounded di Bawah)
   return (
-    <footer className="mt-auto bg-[#102A45] text-white border-t border-white/10 select-none">
+    <footer className="mt-auto bg-[#193e6b] text-white border-t border-white/10 select-none">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Top Section: Logo, Nama Lembaga, dan Alamat Kontak */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -150,10 +150,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
             <span className="font-bold tracking-wider text-white text-xs ml-0.5">SIRAPAT</span>
           </div>
 
-          <span className="text-slate-500">|</span>
-
           <div className="flex items-center gap-1.5 text-slate-300 text-[11px] sm:text-xs">
-            <span className="text-sky-400 font-bold">❖</span>
             <span>
               Sekretariat Jenderal Kementerian Ketenagakerjaan RI • TU SEKJEN © {currentYear}
             </span>
