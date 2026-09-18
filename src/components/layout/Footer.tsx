@@ -11,13 +11,13 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
 
   const isAdmin = variant === 'admin' || (variant === 'auto' && location.pathname.startsWith('/admin'));
 
-  // Footer Ringkas Khusus Panel Admin (Latar Belakang Putih)
+  // Footer Ringkas Khusus Panel Admin (Latar Belakang Putih, Tanpa Box Rounded)
   if (isAdmin) {
     return (
-      <footer className="mt-auto bg-white dark:bg-surface border-t border-border py-3.5 text-xs text-text-secondary select-none">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-2.5">
-          {/* Badge Tag SIRAPAT: [ Logo Aplikasi | Logo Kemnaker ] */}
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-2xs">
+      <footer className="mt-auto bg-white dark:bg-surface border-t border-border py-3 text-xs text-text-secondary select-none">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-3">
+          {/* Logo Aplikasi & Logo Kemnaker + SIRAPAT */}
+          <div className="flex items-center gap-2">
             <img
               src="/logo.svg"
               alt="Logo Aplikasi SIRAPAT"
@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
     );
   }
 
-  // Footer Lengkap Resmi Kemnaker (Public View dengan Dark Navy Theme)
+  // Footer Lengkap Resmi Kemnaker (Public View dengan Dark Navy Theme, Tanpa Box Rounded di Bawah)
   return (
     <footer className="mt-auto bg-[#102A45] text-white border-t border-white/10 select-none">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -123,9 +123,9 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
         {/* Garis Pembatas (Divider) */}
         <div className="w-full h-px bg-white/15 my-4"></div>
 
-        {/* Bottom Section: Tag Nama Aplikasi & Hak Cipta */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-300">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
+        {/* Bottom Section: Logo Aplikasi & Kemnaker, Nama Aplikasi, & Hak Cipta (Tanpa Box Rounded) */}
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300">
+          <div className="flex items-center gap-2">
             <img
               src="/logo.svg"
               alt="Logo SIRAPAT"
