@@ -59,11 +59,15 @@ export const Footer: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-300">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
             <img
-              src="/logo.svg"
-              alt="Logo SIRAPAT"
-              className="w-4 h-4 object-contain rounded-xs shrink-0"
+              src="/logo-kemnaker.png"
+              alt="Logo Kemnaker"
+              className="w-4 h-4 object-contain shrink-0"
+              style={{ filter: 'brightness(0) invert(1)' }}
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
+                const target = e.currentTarget;
+                if (!target.src.includes('.webp')) {
+                  target.src = '/logo-kemnaker.webp';
+                }
               }}
             />
             <span className="font-bold tracking-wider text-white text-xs">SIRAPAT</span>
