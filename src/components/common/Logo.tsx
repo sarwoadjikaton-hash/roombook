@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 1. Logo Resmi Kementerian Ketenagakerjaan RI (SIRAPAT) — Render Langsung dari File Asset
+// 1. Logo Resmi Kementerian Ketenagakerjaan RI (SIRAPAT) — Render [ Logo Aplikasi | Logo Kemnaker ]
 interface KemnakerLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   title?: string;
@@ -15,15 +15,32 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   className = '',
 }) => {
   const iconDimensions = {
-    sm: { size: 36, title: 'text-base', sub: 'text-[10px]' },
-    md: { size: 48, title: 'text-xl', sub: 'text-sm' },
-    lg: { size: 60, title: 'text-2xl sm:text-3xl', sub: 'text-sm sm:text-base' },
-    xl: { size: 76, title: 'text-3xl sm:text-4xl', sub: 'text-base sm:text-base' },
+    sm: { size: 30, dividerH: 'h-6', title: 'text-base', sub: 'text-[10px]' },
+    md: { size: 40, dividerH: 'h-8', title: 'text-xl', sub: 'text-sm' },
+    lg: { size: 50, dividerH: 'h-10', title: 'text-2xl sm:text-3xl', sub: 'text-sm sm:text-base' },
+    xl: { size: 64, dividerH: 'h-12', title: 'text-3xl sm:text-4xl', sub: 'text-base sm:text-base' },
   }[size];
 
   return (
-    <div className={`flex items-center gap-3.5 select-none ${className}`}>
-      {/* Gambar Asli File Logo KEMNAKER RI */}
+    <div className={`flex items-center gap-3 select-none ${className}`}>
+      {/* 1. Logo Aplikasi SIRAPAT */}
+      <img
+        src="/logo.svg"
+        alt="Logo Aplikasi SIRAPAT"
+        style={{
+          width: iconDimensions.size,
+          height: iconDimensions.size,
+        }}
+        className="shrink-0 object-contain rounded-md drop-shadow-md transition-transform duration-300 hover:scale-105"
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+        }}
+      />
+
+      {/* Pembatas Garis Vertikal (Separator: Logo Aplikasi | Logo Kemnaker) */}
+      <span className={`w-px ${iconDimensions.dividerH} bg-white/30`} />
+
+      {/* 2. Logo Resmi KEMNAKER RI */}
       <img
         src="/logo-kemnaker.png"
         alt="Logo Resmi SIRAPAT KEMNAKER RI"
@@ -42,7 +59,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
       />
 
       {/* Teks SIRAPAT & TU SEKJEN */}
-      <div className="flex flex-col justify-center min-w-0">
+      <div className="flex flex-col justify-center min-w-0 ml-0.5">
         <span className={`font-black text-white leading-none uppercase tracking-wider drop-shadow-md ${iconDimensions.title}`}>
           {title}
         </span>
@@ -88,6 +105,9 @@ export const Logo: React.FC<LogoProps> = ({
           height: iconDimensions.size,
         }}
         className="shrink-0 object-contain rounded-md drop-shadow-xs transition-transform duration-300 hover:scale-105"
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+        }}
       />
 
       {/* Pembatas Garis Vertikal (Separator: Logo Aplikasi | Logo Kemnaker) */}
