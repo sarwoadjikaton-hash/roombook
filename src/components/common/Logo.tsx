@@ -15,10 +15,10 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   className = '',
 }) => {
   const iconDimensions = {
-    sm: { size: 30, dividerH: 'h-6', title: 'text-base', sub: 'text-[10px]' },
-    md: { size: 40, dividerH: 'h-8', title: 'text-xl', sub: 'text-sm' },
-    lg: { size: 50, dividerH: 'h-10', title: 'text-2xl sm:text-3xl', sub: 'text-sm sm:text-base' },
-    xl: { size: 64, dividerH: 'h-12', title: 'text-3xl sm:text-4xl', sub: 'text-base sm:text-base' },
+    sm: { size: 30, xSize: 'text-sm', title: 'text-base', sub: 'text-[10px]' },
+    md: { size: 40, xSize: 'text-base sm:text-lg', title: 'text-xl', sub: 'text-sm' },
+    lg: { size: 50, xSize: 'text-lg sm:text-xl', title: 'text-2xl sm:text-3xl', sub: 'text-sm sm:text-base' },
+    xl: { size: 64, xSize: 'text-xl sm:text-2xl', title: 'text-3xl sm:text-4xl', sub: 'text-base sm:text-base' },
   }[size];
 
   return (
@@ -38,7 +38,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
       />
 
       {/* Pembatas Tanda Silang X (Separator: Logo Aplikasi ✕ Logo Kemnaker) */}
-      <span className="text-slate-400 font-black text-xs sm:text-sm mx-0.5 select-none">
+      <span className={`text-slate-400 font-extrabold ${iconDimensions.xSize} mx-0.5 select-none leading-none opacity-85`}>
         ✕
       </span>
 
