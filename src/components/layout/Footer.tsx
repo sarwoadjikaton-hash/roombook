@@ -41,6 +41,8 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
             <span className="font-extrabold tracking-wider text-text-primary text-xs ml-0.5">SIRAPAT</span>
           </div>
 
+          <span className="text-stone-300 dark:text-stone-700">-</span>
+
           {/* Keterangan Lembaga & Copyright */}
           <div className="flex items-center gap-1.5 text-text-muted text-[11px] sm:text-xs">
             <span className="font-medium text-text-secondary">
@@ -146,6 +148,8 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
             />
             <span className="font-bold tracking-wider text-white text-xs ml-0.5">SIRAPAT</span>
           </div>
+
+          <span className="text-stone-300 dark:text-stone-700">-</span>
 
           <div className="flex items-center gap-1.5 text-slate-300 text-[11px] sm:text-xs">
             <span>
