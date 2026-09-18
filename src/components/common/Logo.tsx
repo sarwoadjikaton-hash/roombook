@@ -37,8 +37,10 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
         }}
       />
 
-      {/* Pembatas Garis Vertikal (Separator: Logo Aplikasi | Logo Kemnaker) */}
-      <span className={`w-px ${iconDimensions.dividerH} bg-white/30`} />
+      {/* Pembatas Tanda Silang X (Separator: Logo Aplikasi ✕ Logo Kemnaker) */}
+      <span className="text-slate-400 font-black text-xs sm:text-sm mx-0.5 select-none">
+        ✕
+      </span>
 
       {/* 2. Logo Resmi KEMNAKER RI */}
       <img
