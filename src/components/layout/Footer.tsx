@@ -57,9 +57,16 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Section: Tag Nama Aplikasi & Hak Cipta */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-300">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="font-bold tracking-wider text-white">SIRAPAT</span>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#16375a] border border-white/20 shadow-sm text-white">
+            <img
+              src="/logo.svg"
+              alt="Logo SIRAPAT"
+              className="w-4 h-4 object-contain rounded-xs shrink-0"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            <span className="font-bold tracking-wider text-white text-xs">SIRAPAT</span>
           </div>
 
           <span className="text-slate-500">|</span>
