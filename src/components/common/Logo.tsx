@@ -38,10 +38,14 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
       />
 
       {/* Pembatas Tanda Silang X (Separator: Logo Aplikasi ✕ Logo Kemnaker) */}
-      <span className={`text-slate-400 font-extrabold ${iconDimensions.xSize} mx-0.5 select-none leading-none opacity-85`}>
-        ✕
+      <span
+        className="shrink-0 flex items-center justify-center select-none"
+        style={{ width: iconDimensions.size * 0.5, height: iconDimensions.size }}
+      >
+        <span className={`text-slate-300 font-black ${iconDimensions.xSize} leading-none`}>
+          ✕
+        </span>
       </span>
-
       {/* 2. Logo Resmi KEMNAKER RI */}
       <img
         src="/logo-kemnaker.png"
@@ -114,11 +118,10 @@ export const Logo: React.FC<LogoProps> = ({
 
       {/* Pembatas Garis Vertikal (Separator: Logo Aplikasi | Logo Kemnaker) */}
       <span
-        className={`w-px ${iconDimensions.dividerH} ${
-          variant === 'light'
-            ? 'bg-white/30'
-            : 'bg-stone-300 dark:bg-stone-700'
-        }`}
+        className={`w-px ${iconDimensions.dividerH} ${variant === 'light'
+          ? 'bg-white/30'
+          : 'bg-stone-300 dark:bg-stone-700'
+          }`}
       />
 
       {/* 2. Logo Resmi Kementerian Ketenagakerjaan RI */}
@@ -129,9 +132,8 @@ export const Logo: React.FC<LogoProps> = ({
           width: iconDimensions.size,
           height: iconDimensions.size,
         }}
-        className={`shrink-0 object-contain transition-transform duration-300 hover:scale-105 ${
-          variant === 'light' ? 'filter brightness-0 invert' : ''
-        }`}
+        className={`shrink-0 object-contain transition-transform duration-300 hover:scale-105 ${variant === 'light' ? 'filter brightness-0 invert' : ''
+          }`}
         onError={(e) => {
           const target = e.currentTarget;
           if (!target.src.includes('.webp')) {
@@ -145,11 +147,10 @@ export const Logo: React.FC<LogoProps> = ({
         <div className="flex flex-col min-w-0 ml-0.5">
           <div className="flex items-center leading-none">
             <span
-              className={`font-black tracking-tight ${iconDimensions.title} ${
-                variant === 'light'
-                  ? 'text-white'
-                  : 'text-slate-900 dark:text-white'
-              }`}
+              className={`font-black tracking-tight ${iconDimensions.title} ${variant === 'light'
+                ? 'text-white'
+                : 'text-slate-900 dark:text-white'
+                }`}
             >
               SI
             </span>
@@ -159,9 +160,8 @@ export const Logo: React.FC<LogoProps> = ({
           </div>
           {showSubtitle && (
             <span
-              className={`font-bold tracking-wider uppercase mt-1 leading-none ${iconDimensions.subtitle} ${
-                variant === 'light' ? 'text-slate-300' : 'text-slate-500 dark:text-slate-400'
-              }`}
+              className={`font-bold tracking-wider uppercase mt-1 leading-none ${iconDimensions.subtitle} ${variant === 'light' ? 'text-slate-300' : 'text-slate-500 dark:text-slate-400'
+                }`}
             >
               TU SEKJEN
             </span>
