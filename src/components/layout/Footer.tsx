@@ -1,8 +1,52 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  variant?: 'auto' | 'full' | 'admin';
+}
+
+export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
 
+  const isAdmin = variant === 'admin' || (variant === 'auto' && location.pathname.startsWith('/admin'));
+
+  // Footer Ringkas Khusus Panel Admin (Latar Belakang Putih)
+  if (isAdmin) {
+    return (
+      <footer className="mt-auto bg-white dark:bg-surface border-t border-border py-3.5 text-xs text-text-secondary select-none">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-2.5">
+          {/* Badge Tag SIRAPAT */}
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-2xs">
+            <img
+              src="/logo-kemnaker.png"
+              alt="Logo Kemnaker"
+              className="w-4 h-4 object-contain shrink-0"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.includes('.webp')) {
+                  target.src = '/logo-kemnaker.webp';
+                }
+              }}
+            />
+            <span className="font-extrabold tracking-wider text-text-primary text-xs">SIRAPAT</span>
+          </div>
+
+          <span className="text-stone-300 dark:text-stone-700">|</span>
+
+          {/* Keterangan Lembaga & Copyright */}
+          <div className="flex items-center gap-1.5 text-text-muted text-[11px] sm:text-xs">
+            <span className="text-primary font-bold">❖</span>
+            <span className="font-medium text-text-secondary">
+              Sekretariat Jenderal Kementerian Ketenagakerjaan RI • TU SEKJEN © {currentYear}
+            </span>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
+  // Footer Lengkap Resmi Kemnaker (Public View dengan Dark Navy Theme)
   return (
     <footer className="mt-auto bg-[#102A45] text-white border-t border-white/10 select-none">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
