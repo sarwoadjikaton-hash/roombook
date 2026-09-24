@@ -449,7 +449,7 @@ export const QuickBookMobilePage: React.FC = () => {
                   label="Tanggal Rapat *"
                   value={date}
                   onChange={(newDate) => setDate(newDate)}
-                  minDate={format(new Date(), 'yyyy-MM-dd')}
+                  minDate={adminUser ? undefined : format(new Date(), 'yyyy-MM-dd')}
                 />
               </div>
 

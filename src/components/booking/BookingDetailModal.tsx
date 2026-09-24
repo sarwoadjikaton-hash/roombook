@@ -351,7 +351,7 @@ export const BookingDetailModal: React.FC<BookingDetailModalProps> = ({ booking,
                 <CustomDatePicker
                   value={rescheduleDate}
                   onChange={(d) => setRescheduleDate(d)}
-                  minDate={format(new Date(), 'yyyy-MM-dd')}
+                  minDate={adminUser ? undefined : format(new Date(), 'yyyy-MM-dd')}
                 />
               </div>
 

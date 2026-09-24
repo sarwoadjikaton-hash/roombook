@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poster Sosialisasi ROOMBOOK (SIRAPAT) — TU SEKJEN Kemnaker RI</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #064E3B;
+      --primary-dark: #022c22;
+      --emerald-600: #059669;
+      --emerald-400: #34D399;
+      --accent-gold: #F59E0B;
+      --accent-amber: #D97706;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-100: #F1F5F9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0B0F17;
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+      min-height: 100vh;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .btn-action {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFF;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: #059669;
+      border-color: #34D399;
+      transform: translateY(-2px);
+    }
+
+    /* Poster Container (Aspect Ratio ~ A3 / A4 Vertical: 1 : 1.414) */
+    .poster-canvas {
+      width: 100%;
+      max-width: 800px;
+      background: radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.25), transparent 45%),
+                  radial-gradient(circle at 0% 100%, rgba(245, 158, 11, 0.15), transparent 40%),
+                  linear-gradient(180deg, #063C2E 0%, #081B15 40%, #0A1118 100%);
+      border: 1.5px solid rgba(52, 211, 153, 0.3);
+      border-radius: 28px;
+      padding: 44px 44px 36px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(6, 78, 59, 0.4);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Ambient Glow Rings */
+    .poster-canvas::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.35), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Top Header */
+    .poster-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon-box {
+      background: linear-gradient(135deg, #10B981, #047857);
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-text-block h2 {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #FFF, #A7F3D0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text-block p {
+      font-size: 11px;
+      color: #FBBF24;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .instansi-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #E2E8F0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main Hero Headline */
+    .hero-section {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FBBF24;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFFFFF 30%, #E2E8F0 70%, #A7F3D0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #94A3B8;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* 4 Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pillar-card {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 18px 20px;
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 0.2s;
+    }
+
+    .pillar-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+    }
+
+    .pillar-icon.gold {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .pillar-content h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+
+    .pillar-content p {
+      font-size: 12.5px;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+
+    /* 3 Steps Section */
+    .steps-container {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 20px;
+      padding: 22px 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .steps-header {
+      font-size: 15px;
+      font-weight: 800;
+      color: #34D399;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .step-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #10B981;
+      color: #000;
+      font-weight: 900;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .step-item h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+
+    .step-item p {
+      font-size: 11.5px;
+      color: #94A3B8;
+      line-height: 1.35;
+    }
+
+    /* Bottom QR & Access CTA */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1.5px solid #F59E0B;
+      border-radius: 20px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-text h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+
+    .cta-text p {
+      font-size: 12.5px;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .cta-url-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #34D399;
+      font-weight: 700;
+    }
+
+    .cta-qr-box {
+      background: #FFFFFF;
+      padding: 10px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+    }
+
+    .qr-svg {
+      width: 80px;
+      height: 80px;
+    }
+
+    .qr-lbl {
+      color: #0F172A;
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Footer Meta */
+    .poster-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #64748B;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Print Formatting */
+    @media print {
+      body {
+        background: #FFF !important;
+        padding: 0 !important;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .poster-canvas {
+        max-width: 100% !important;
+        width: 100% !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: #081B15 !important;
+        color: #FFF !important;
+        height: 100vh !important;
+        padding: 30px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Button -->
+  <div class="action-bar">
+    <button class="btn-action" onclick="window.print()">
+      <i data-lucide="printer" style="width: 16px; height: 16px;"></i>
+      <span>Cetak Poster (PDF / A4)</span>
+    </button>
+  </div>
+
+  <!-- Poster Canvas -->
+  <div class="poster-canvas">
+    
+    <!-- Header -->
+    <header class="poster-header">
+      <div class="header-brand">
+        <div class="brand-icon-box">
+          <i data-lucide="layers" style="width: 24px; height: 24px;"></i>
+        </div>
+        <div class="brand-text-block">
+          <h2>SIRAPAT (ROOMBOOK)</h2>
+          <p>TU SEKJEN KEMNAKER RI</p>
+        </div>
+      </div>
+      <div class="instansi-pill">
+        KEMENTERIAN KETENAGAKERJAAN RI
+      </div>
+    </header>
+
+    <!-- Hero Title -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+        <span>Transformasi Tata Kelola Fasilitas Digital</span>
+      </div>
+      <h1 class="hero-title">
+        Booking Ruang Rapat Jadi Lebih Cepat, Teratur, & Bebas Bentrok!
+      </h1>
+      <p class="hero-subtitle">
+        Satu sistem cerdas untuk seluruh pegawai di lingkungan Sekretariat Jenderal Kemnaker RI. Pantau ketersediaan, pesan kilat via HP, dan pantau display ruangan secara langsung.
+      </p>
+    </section>
+
+    <!-- 4 Features Pillars -->
+    <section class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i data-lucide="calendar-check-2" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="pillar-content">
+          <h3>100% Bebas Bentrok</h3>
+          <p>Sinkronisasi instan dengan Google Calendar API. Tidak ada lagi drama jadwal rapat ganda.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon gold">
+          <i data-lucide="tv" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="pillar-content">
+          <h3>Display Smart TV di Pintu</h3>
+          <p>Layar digital di depan ruang menampilkan status real-time, sisa waktu, dan agenda harian.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon gold">
+          <i data-lucide="shield-check" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="pillar-content">
+          <h3>SOP Persetujuan H-2</h3>
+          <p>Verifikasi terarah oleh Tim TU Sekjen dengan notifikasi batas waktu otomatis.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i data-lucide="qr-code" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="pillar-content">
+          <h3>Quick QR Booking HP</h3>
+          <p>Butuh ruang mendadak? Cukup pindai QR Code di pintu ruang untuk reservasi kilat 30 detik.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Simple Steps -->
+    <section class="steps-container">
+      <div class="steps-header">
+        <i data-lucide="check-circle-2" style="width: 18px;"></i>
+        <span>3 Langkah Mudah Melakukan Reservasi</span>
+      </div>
+      <div class="steps-row">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <h4>Pilih Ruangan</h4>
+          <p>Cek ketersediaan Ruang Sekjen, Ruang VIP, atau Ruang Transit.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <h4>Isi Data Singkat</h4>
+          <p>Masukkan agenda rapat, jam mulai-selesai, dan unit kerja Anda.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <h4>Sync ke Kalender</h4>
+          <p>Dapatkan nomor booking & simpan langsung ke Google Calendar Anda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR Code & CTA -->
+    <section class="cta-banner">
+      <div class="cta-text">
+        <h3>Akses Layanan Mandiri Sekarang!</h3>
+        <p>Tidak perlu login bagi pegawai pemohon. Buka tautan atau pindai barcode di samping:</p>
+        <div class="cta-url-box">
+          <i data-lucide="globe" style="width: 14px; height: 14px;"></i>
+          <span>https://sirapatsekjen.vercel.app</span>
+        </div>
+      </div>
+
+      <div class="cta-qr-box">
+        <!-- 100% Real Scannable QR Code for https://sirapatsekjen.vercel.app -->
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges">
+          <path fill="#FFFFFF" d="M0 0h37v37H0z"/>
+          <path stroke="#064E3B" d="M4 4.5h7m3 0h1m1 0h4m3 0h2m1 0h7M4 5.5h1m5 0h1m3 0h1m2 0h5m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m2 0h3m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h3m3 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m6 0h2m1 0h2m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h5m9 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h1m3 0h1m1 0h1m1 0h1m2 0h2M4 12.5h1m1 0h5m3 0h2m4 0h2m1 0h1m2 0h5M4 13.5h3m1 0h2m1 0h3m3 0h3m3 0h2m1 0h3m3 0h1M4 14.5h2m1 0h1m1 0h2m3 0h9m1 0h2m1 0h2M4 15.5h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m2 0h2m1 0h1M4 16.5h2m1 0h4m3 0h2m2 0h2m1 0h1m7 0h2M5 17.5h2m1 0h1m2 0h4m1 0h1m2 0h2m1 0h7m3 0h1M4 18.5h2m2 0h3m10 0h2m2 0h1m3 0h2M4 19.5h2m3 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m4 0h1m2 0h1M6 20.5h2m2 0h7m4 0h1m1 0h1m3 0h1m1 0h2M4 21.5h2m10 0h4m2 0h3m1 0h3m1 0h1m1 0h1M4 22.5h1m2 0h1m2 0h1m3 0h1m2 0h3m4 0h1m2 0h2m1 0h1M4 23.5h1m1 0h2m1 0h1m1 0h2m2 0h3m1 0h1m3 0h1m1 0h1m5 0h1M4 24.5h1m2 0h2m1 0h1m3 0h1m1 0h1m1 0h4m1 0h6m1 0h3M12 25.5h3m5 0h3m1 0h1m3 0h5M4 26.5h7m3 0h1m4 0h1m3 0h2m1 0h1m1 0h3M4 27.5h1m5 0h1m1 0h3m3 0h2m2 0h3m3 0h1m2 0h1M4 28.5h1m1 0h3m1 0h1m1 0h3m4 0h4m1 0h5m1 0h2M4 29.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h4m5 0h4M4 30.5h1m1 0h3m1 0h1m1 0h3m3 0h4m1 0h1m2 0h6M4 31.5h1m5 0h1m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1M4 32.5h7m1 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3"/>
+        </svg>
+        <span class="qr-lbl">Scan QR Book</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="poster-footer">
+      <span>Dikelola oleh: Bagian Tata Usaha Sekretariat Jenderal Kemnaker RI</span>
+      <span>Bantuan Teknis: Ext. 214 / Ruang Pengelola TU Sekjen</span>
+    </footer>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
