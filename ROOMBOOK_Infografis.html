@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Infografis Resmi ROOMBOOK (SIRAPAT) — TU SEKJEN Kemnaker RI</title>
+  <title>Infografis Resmi A4 — ROOMBOOK (SIRAPAT) TU SEKJEN Kemnaker RI</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,19 +17,21 @@
     :root {
       --primary: #064E3B;
       --primary-dark: #022c22;
+      --emerald-600: #059669;
       --emerald-500: #10B981;
       --emerald-400: #34D399;
       --accent-gold: #F59E0B;
-      --accent-amber: #D97706;
+      --accent-gold-light: #FDE68A;
       --slate-900: #0F172A;
       --slate-800: #1E293B;
       --slate-700: #334155;
       --slate-400: #94A3B8;
+      --slate-200: #E2E8F0;
       --slate-100: #F1F5F9;
       --danger: #EF4444;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
     }
 
     * {
@@ -45,15 +47,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 30px 15px;
       min-height: 100vh;
     }
 
-    /* Floating Action Button */
+    /* Floating Action Bar */
     .action-bar {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      top: 18px;
+      right: 18px;
       display: flex;
       gap: 10px;
       z-index: 100;
@@ -63,16 +65,16 @@
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #FFF;
-      padding: 10px 18px;
-      border-radius: 10px;
+      padding: 9px 16px;
+      border-radius: 8px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 12.5px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
       transition: all 0.2s;
     }
     .btn-action:hover {
@@ -81,313 +83,388 @@
       transform: translateY(-2px);
     }
 
-    /* Main Canvas */
-    .infographic-container {
+    /* A4 Poster Canvas (Exact 210mm x 297mm Proportion: 1 : 1.414) */
+    .a4-container {
       width: 100%;
-      max-width: 900px;
+      max-width: 794px; /* Standard 96 DPI A4 width */
+      height: 1123px;    /* Standard 96 DPI A4 height */
       background: #0D131F;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 28px;
+      border: 1.5px solid rgba(52, 211, 153, 0.3);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(6, 78, 59, 0.3);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(6, 78, 59, 0.35);
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: 0;
     }
 
-    /* 1. Header Banner */
+    /* 1. Header Section */
     .info-header {
       background: linear-gradient(135deg, #064E3B 0%, #047857 60%, #065F46 100%);
-      padding: 40px 48px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 2px solid #F59E0B;
-    }
-
-    .info-header::after {
-      content: '';
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.25), transparent 70%);
-      pointer-events: none;
-    }
-
-    .header-top-tag {
-      display: inline-flex;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #FDE68A;
-      margin-bottom: 14px;
+      border-bottom: 2px solid var(--accent-gold);
+      flex-shrink: 0;
     }
 
-    .header-title {
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-      color: #FFF;
-    }
-
-    .header-desc {
-      font-size: 15px;
-      color: #A7F3D0;
-      max-width: 720px;
-      line-height: 1.5;
-    }
-
-    /* Section Wrapper */
-    .info-section {
-      padding: 36px 48px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
-    }
-
-    .section-heading {
+    .header-left {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 24px;
     }
 
-    .section-badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #10B981, #047857);
-      color: #FFF;
+    .brand-icon {
+      background: #064E3B;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .brand-title h1 {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      color: #FFF;
+      line-height: 1.15;
+    }
+    .brand-title p {
+      font-size: 9.5px;
+      color: var(--accent-gold-light);
       font-weight: 800;
-      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-badge {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: 0.5px;
+      text-align: right;
+    }
+
+    /* Section Component Structure */
+    .section-block {
+      padding: 12px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .section-badge-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #10B981, #047857);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .section-title {
-      font-size: 20px;
+    .section-heading-text {
+      font-size: 13.5px;
       font-weight: 800;
       color: #FFF;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
-    /* 2. Before vs After Comparison */
+    /* 2. Before vs After Grid */
     .compare-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 12px;
     }
 
     .compare-card {
-      padding: 22px;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 5px;
     }
 
     .card-before {
-      background: rgba(239, 68, 68, 0.07);
+      background: rgba(239, 68, 68, 0.08);
       border: 1px solid rgba(239, 68, 68, 0.25);
     }
 
     .card-after {
-      background: rgba(16, 185, 129, 0.09);
+      background: rgba(16, 185, 129, 0.1);
       border: 1.5px solid rgba(16, 185, 129, 0.35);
     }
 
     .compare-tag {
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      display: inline-flex;
+      letter-spacing: 0.8px;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .compare-item {
+      font-size: 10.5px;
+      color: #CBD5E1;
+      line-height: 1.35;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      color: #CBD5E1;
-      line-height: 1.45;
+      gap: 6px;
     }
 
-    /* 3. 4-Step Process Timeline */
-    .timeline-steps {
+    /* 3. 4 Steps Workflow */
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      position: relative;
+      gap: 10px;
     }
 
-    .timeline-card {
-      background: rgba(30, 41, 59, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .step-card {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
-      padding: 18px 14px;
+      padding: 10px 8px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
     }
 
-    .step-badge {
-      width: 32px;
-      height: 32px;
+    .step-icon-circle {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: #F59E0B;
+      background: linear-gradient(135deg, #F59E0B, #D97706);
       color: #000;
       font-weight: 900;
+      font-size: 12px;
       font-family: 'JetBrains Mono', monospace;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .timeline-card h4 {
-      font-size: 14px;
-      font-weight: 800;
-      color: #FFF;
       margin-bottom: 6px;
     }
 
-    .timeline-card p {
-      font-size: 11.5px;
-      color: #94A3B8;
-      line-height: 1.4;
+    .step-card h4 {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 3px;
     }
 
-    /* 4. Room Feature Cards */
+    .step-card p {
+      font-size: 9.5px;
+      color: #94A3B8;
+      line-height: 1.25;
+    }
+
+    /* 4. Room Specification Cards */
     .rooms-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .room-box {
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
       gap: 10px;
     }
 
-    .room-header-row {
+    .room-card {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .room-card.gold-border { border-color: rgba(245, 158, 11, 0.4); }
+    .room-card.green-border { border-color: rgba(16, 185, 129, 0.4); }
+    .room-card.blue-border { border-color: rgba(59, 130, 246, 0.4); }
+
+    .room-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .room-type-tag {
-      font-size: 10px;
+    .room-type {
+      font-size: 9px;
       font-weight: 800;
-      padding: 2px 8px;
+      padding: 2px 6px;
       border-radius: 4px;
       text-transform: uppercase;
     }
 
-    .room-title {
-      font-size: 15px;
+    .room-card h4 {
+      font-size: 12px;
       font-weight: 800;
       color: #FFF;
     }
 
-    .room-loc {
-      font-size: 11.5px;
+    .room-card-sub {
+      font-size: 9.5px;
+      color: #34D399;
+      font-weight: 600;
+    }
+
+    .room-card p {
+      font-size: 9px;
       color: #94A3B8;
+      line-height: 1.3;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px;
+      border-radius: 4px;
     }
 
-    .room-facs {
-      font-size: 11px;
-      color: #CBD5E1;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 8px;
-      border-radius: 6px;
-      line-height: 1.4;
-    }
-
-    /* 5. Metrics & Impact Grid */
-    .metrics-grid {
+    /* 5. Metrics & Technology Highlights */
+    .metrics-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 10px;
     }
 
-    .metric-card {
+    .metric-box {
       background: linear-gradient(145deg, rgba(6, 78, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 8px;
       text-align: center;
     }
 
     .metric-val {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 32px;
+      font-size: 20px;
       font-weight: 900;
       color: #34D399;
       line-height: 1.1;
-      margin-bottom: 4px;
     }
 
     .metric-lbl {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 800;
       color: #FFF;
-      margin-bottom: 4px;
+      margin-top: 2px;
     }
 
-    .metric-desc {
-      font-size: 10.5px;
+    .metric-sub {
+      font-size: 8.5px;
       color: #94A3B8;
-      line-height: 1.3;
+      line-height: 1.2;
+      margin-top: 2px;
     }
 
-    /* Footer */
-    .info-footer {
-      background: #070B12;
-      padding: 24px 48px;
+    /* 6. Footer CTA Banner with Real Scannable QR */
+    .info-footer-cta {
+      background: linear-gradient(135deg, #064E3B 0%, #0F172A 100%);
+      border-top: 2px solid var(--accent-gold);
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
-      color: #64748B;
+      gap: 16px;
+      flex-shrink: 0;
     }
 
-    /* Print */
+    .cta-left h3 {
+      font-size: 13.5px;
+      font-weight: 900;
+      color: #FFF;
+      margin-bottom: 2px;
+    }
+
+    .cta-left p {
+      font-size: 10px;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+
+    .cta-url {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: #34D399;
+      font-weight: 700;
+    }
+
+    .qr-box {
+      background: #FFF;
+      padding: 6px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .qr-svg {
+      width: 58px;
+      height: 58px;
+    }
+
+    .qr-label {
+      font-size: 7.5px;
+      font-weight: 800;
+      color: #064E3B;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Exact A4 Print Page Setup */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
     @media print {
       body {
         background: #FFF !important;
         padding: 0 !important;
+        margin: 0 !important;
       }
       .action-bar {
         display: none !important;
       }
-      .infographic-container {
+      .a4-container {
+        width: 100% !important;
         max-width: 100% !important;
+        height: 100vh !important;
         border: none !important;
-        box-shadow: none !important;
         border-radius: 0 !important;
+        box-shadow: none !important;
         background: #0D131F !important;
         color: #FFF !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
     }
   </style>
@@ -397,192 +474,196 @@
   <!-- Floating Action Bar -->
   <div class="action-bar">
     <button class="btn-action" onclick="window.print()">
-      <i data-lucide="printer" style="width: 16px; height: 16px;"></i>
-      <span>Cetak / Simpan PDF Infografis</span>
+      <i data-lucide="printer" style="width: 15px; height: 15px;"></i>
+      <span>Cetak Infografis A4 (PDF)</span>
     </button>
   </div>
 
-  <!-- Infographic Container -->
-  <main class="infographic-container">
+  <!-- A4 Infographic Canvas -->
+  <main class="a4-container">
 
-    <!-- 1. Header Banner -->
+    <!-- 1. Header -->
     <header class="info-header">
-      <div class="header-top-tag">
-        <i data-lucide="building-2" style="width: 14px; height: 14px;"></i>
-        <span>BAGIAN TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI</span>
+      <div class="header-left">
+        <div class="brand-icon">
+          <i data-lucide="layers" style="width: 22px; height: 22px; color: #34D399;"></i>
+        </div>
+        <div class="brand-title">
+          <h1>INFOGRAFIS SISTEM RESERVASI RUANG RAPAT (ROOMBOOK)</h1>
+          <p>BAGIAN TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI</p>
+        </div>
       </div>
-      <h1 class="header-title">INFOGRAFIS SISTEM RESERVASI & TATA KELOLA RUANG RAPAT (ROOMBOOK)</h1>
-      <p class="header-desc">
-        Panduan visual terpadu transformasi digital reservasi ruang rapat: eliminasi bentrok jadwal, integrasi Google Calendar, Smart TV Kiosk, dan disiplin SOP Persetujuan H-2.
-      </p>
+      <div class="header-badge">
+        STANDAR RESMI A4<br>
+        <span style="color: #FDE68A;">v2.0 PRODUCTION</span>
+      </div>
     </header>
 
     <!-- 2. Before vs After -->
-    <section class="info-section">
-      <div class="section-heading">
-        <div class="section-badge">1</div>
-        <h2 class="section-title">Komparasi: Sebelum vs Sesudah ROOMBOOK</h2>
+    <section class="section-block">
+      <div class="section-title-row">
+        <div class="section-badge-num">1</div>
+        <h2 class="section-heading-text">Transformasi: Sebelum vs Sesudah ROOMBOOK</h2>
       </div>
-
       <div class="compare-grid">
         <div class="compare-card card-before">
           <div class="compare-tag" style="color: #EF4444;">
-            <i data-lucide="x-circle" style="width: 16px;"></i>
+            <i data-lucide="x-circle" style="width: 13px;"></i>
             <span>Sebelum Digitalisasi (Manual)</span>
           </div>
           <div class="compare-item">
-            <span style="color: #EF4444; font-weight: 800;">✕</span>
-            <span>Bentrok jadwal akibat permohonan via pesan WhatsApp atau buku catatan terpisah.</span>
+            <span style="color: #EF4444; font-weight: 900;">✕</span>
+            <span>Bentrok jadwal akibat permohonan via chat WhatsApp / buku fisik.</span>
           </div>
           <div class="compare-item">
-            <span style="color: #EF4444; font-weight: 800;">✕</span>
-            <span>Pegawai harus mendatangi pintu fisik ruangan hanya untuk mengecek kekosongan ruang.</span>
+            <span style="color: #EF4444; font-weight: 900;">✕</span>
+            <span>Pegawai harus ke pintu fisik hanya untuk mengecek ruangan kosong.</span>
           </div>
           <div class="compare-item">
-            <span style="color: #EF4444; font-weight: 800;">✕</span>
-            <span>Persetujuan pimpinan lambat dan tidak ada kepastian jadwal definitif.</span>
+            <span style="color: #EF4444; font-weight: 900;">✕</span>
+            <span>Persetujuan pimpinan lambat & tidak ada kepastian jadwal definitif.</span>
           </div>
         </div>
 
         <div class="compare-card card-after">
           <div class="compare-tag" style="color: #10B981;">
-            <i data-lucide="check-circle-2" style="width: 16px;"></i>
-            <span>Sesudah ROOMBOOK (Terkoneksi)</span>
+            <i data-lucide="check-circle-2" style="width: 13px;"></i>
+            <span>Sesudah ROOMBOOK (Terhubung)</span>
           </div>
           <div class="compare-item">
-            <span style="color: #10B981; font-weight: 800;">✓</span>
-            <span>Zero Double Booking: Sistem memvalidasi slot waktu otomatis secara terpusat.</span>
+            <span style="color: #10B981; font-weight: 900;">✓</span>
+            <span>100% Zero Double Booking dengan validasi slot kalender otomatis.</span>
           </div>
           <div class="compare-item">
-            <span style="color: #10B981; font-weight: 800;">✓</span>
-            <span>Smart TV Display di depan pintu memancarkan status realtime & countdown rapat aktif.</span>
+            <span style="color: #10B981; font-weight: 900;">✓</span>
+            <span>Smart TV Display di pintu memancarkan status realtime & countdown.</span>
           </div>
           <div class="compare-item">
-            <span style="color: #10B981; font-weight: 800;">✓</span>
-            <span>SOP H-2 & sinkronisasi Google Calendar instan ke ponsel pemohon.</span>
+            <span style="color: #10B981; font-weight: 900;">✓</span>
+            <span>Disiplin SOP H-2 & sinkronisasi Google Calendar 1-Klik ke HP.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. 4-Step Process Timeline -->
-    <section class="info-section">
-      <div class="section-heading">
-        <div class="section-badge">2</div>
-        <h2 class="section-title">Alur Cerdas 4 Langkah Peminjaman Ruangan</h2>
+    <!-- 3. 4-Step Process -->
+    <section class="section-block">
+      <div class="section-title-row">
+        <div class="section-badge-num">2</div>
+        <h2 class="section-heading-text">Alur Cerdas 4 Langkah Peminjaman Ruang</h2>
       </div>
-
-      <div class="timeline-steps">
-        <div class="timeline-card">
-          <div class="step-badge">1</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon-circle">1</div>
           <h4>Pilih Ruangan</h4>
-          <p>Buka web mandiri atau pindai QR Code di layar TV depan pintu ruangan.</p>
+          <p>Buka web mandiri atau scan QR di Smart TV depan pintu.</p>
         </div>
-
-        <div class="timeline-card">
-          <div class="step-badge">2</div>
-          <h4>Lengkapi Agenda</h4>
-          <p>Isi data pemohon, unit kerja, agenda kegiatan, dan durasi jam rapat.</p>
+        <div class="step-card">
+          <div class="step-icon-circle">2</div>
+          <h4>Isi Agenda</h4>
+          <p>Lengkapi nama, unit kerja, jam mulai-selesai, dan judul rapat.</p>
         </div>
-
-        <div class="timeline-card">
-          <div class="step-badge">3</div>
-          <h4>Approval / Verifikasi</h4>
-          <p>Diverifikasi Tim TU Sekjen dengan peringatan indikator batas waktu SOP H-2.</p>
+        <div class="step-card">
+          <div class="step-icon-circle">3</div>
+          <h4>Approval H-2</h4>
+          <p>Diverifikasi Tim Pengelola TU dengan peringatan batas waktu.</p>
         </div>
-
-        <div class="timeline-card">
-          <div class="step-badge">4</div>
-          <h4>Live di Kalender & TV</h4>
-          <p>Event otomatis tercatat di Google Calendar resmi & monitor Display Kiosk.</p>
+        <div class="step-card">
+          <div class="step-icon-circle">4</div>
+          <h4>Live Kalender</h4>
+          <p>Tersinkron ke Google Calendar resmi & monitor Smart TV.</p>
         </div>
       </div>
     </section>
 
-    <!-- 4. Master Ruang Rapat -->
-    <section class="info-section">
-      <div class="section-heading">
-        <div class="section-badge">3</div>
-        <h2 class="section-title">Profil & Fasilitas 3 Ruang Representatif</h2>
+    <!-- 4. Room Specifications -->
+    <section class="section-block">
+      <div class="section-title-row">
+        <div class="section-badge-num">3</div>
+        <h2 class="section-heading-text">Profil & Fasilitas 3 Ruang Rapat Representatif</h2>
       </div>
-
       <div class="rooms-grid">
-        <div class="room-box" style="border-color: rgba(245, 158, 11, 0.4);">
-          <div class="room-header-row">
-            <span class="room-type-tag" style="background: #F59E0B; color: #000;">VIP Sekjen</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FDE68A;">30 Org</span>
+        <div class="room-card gold-border">
+          <div class="room-card-header">
+            <span class="room-type" style="background: #F59E0B; color: #000;">VIP Sekjen</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #FDE68A;">30 Org</span>
           </div>
-          <div class="room-title">Ruang Rapat Sekjen</div>
-          <div class="room-loc">Gedung A, Lantai 2</div>
-          <div class="room-facs">
-            Smart TV 75", Video Conference 4K, Proyektor Laser, Sound System, WiFi, AC Inverter.
-          </div>
+          <h4>Ruang Rapat Sekjen</h4>
+          <span class="room-card-sub">Gedung A, Lantai 2</span>
+          <p>Smart TV 75", Video Conference 4K, Proyektor Laser, Sound System, WiFi High-Speed, AC Dual Inverter.</p>
         </div>
 
-        <div class="room-box" style="border-color: rgba(16, 185, 129, 0.4);">
-          <div class="room-header-row">
-            <span class="room-type-tag" style="background: #10B981; color: #FFF;">Eksekutif</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A7F3D0;">12 Org</span>
+        <div class="room-card green-border">
+          <div class="room-card-header">
+            <span class="room-type" style="background: #10B981; color: #FFF;">Eksekutif</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #A7F3D0;">12 Org</span>
           </div>
-          <div class="room-title">Ruang VIP</div>
-          <div class="room-loc">Gedung A, Lantai 1</div>
-          <div class="room-facs">
-            Smart TV, Video Conference, Sofa VIP, Meja Eksekutif, Mini Bar & Pantry, High-speed WiFi.
-          </div>
+          <h4>Ruang VIP</h4>
+          <span class="room-card-sub">Gedung A, Lantai 1</span>
+          <p>Smart TV, Video Conference, Meja Eksekutif, Sofa Tamu VIP, Mini Bar & Pantry, WiFi Cepat.</p>
         </div>
 
-        <div class="room-box" style="border-color: rgba(59, 130, 246, 0.4);">
-          <div class="room-header-row">
-            <span class="room-type-tag" style="background: #3B82F6; color: #FFF;">Instant</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #93C5FD;">8 Org</span>
+        <div class="room-card blue-border">
+          <div class="room-card-header">
+            <span class="room-type" style="background: #3B82F6; color: #FFF;">Instant</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #93C5FD;">8 Org</span>
           </div>
-          <div class="room-title">Ruang Transit</div>
-          <div class="room-loc">Gedung B, Lantai 2</div>
-          <div class="room-facs">
-            Whiteboard Kaca, Smart TV 55", Port LAN & WiFi Cepat, Meja Kolaboratif, AC.
-          </div>
+          <h4>Ruang Transit</h4>
+          <span class="room-card-sub">Gedung B, Lantai 2</span>
+          <p>Whiteboard Kaca, Smart TV 55", Port LAN & WiFi Cepat, Meja Kolaboratif, AC.</p>
         </div>
       </div>
     </section>
 
-    <!-- 5. Impact Metrics -->
-    <section class="info-section" style="border-bottom: none;">
-      <div class="section-heading">
-        <div class="section-badge">4</div>
-        <h2 class="section-title">Hasil Kuantitatif & Keunggulan Arsitektur</h2>
+    <!-- 5. Key Metrics -->
+    <section class="section-block">
+      <div class="section-title-row">
+        <div class="section-badge-num">4</div>
+        <h2 class="section-heading-text">Dampak Positif & Keandalan Arsitektur</h2>
       </div>
-
-      <div class="metrics-grid">
-        <div class="metric-card">
+      <div class="metrics-row">
+        <div class="metric-box">
           <div class="metric-val">100%</div>
-          <div class="metric-lbl">Zero Double Booking</div>
-          <div class="metric-desc">Pencegahan tabrakan jadwal otomatis lewat Google Calendar API.</div>
+          <div class="metric-lbl">Zero Bentrok</div>
+          <div class="metric-sub">Pencegahan tabrakan jadwal otomatis terpusat.</div>
         </div>
-
-        <div class="metric-card">
-          <div class="metric-val">&lt;1 mnt</div>
-          <div class="metric-lbl">Proses Reservasi Kilat</div>
-          <div class="metric-desc">Formulir mandiri tanpa perlu login akun bagi pegawai.</div>
+        <div class="metric-box">
+          <div class="metric-val">&lt; 1 mnt</div>
+          <div class="metric-lbl">Reservasi Kilat</div>
+          <div class="metric-sub">Layanan mandiri pegawai tanpa birokrasi akun.</div>
         </div>
-
-        <div class="metric-card">
+        <div class="metric-box">
           <div class="metric-val">H-2</div>
-          <div class="metric-lbl">Disiplin SOP Approval</div>
-          <div class="metric-desc">Indikator batas waktu persetujuan transparan.</div>
+          <div class="metric-lbl">SOP Approval</div>
+          <div class="metric-sub">Kepastian perizinan ruang rapat tepat waktu.</div>
         </div>
-
-        <div class="metric-card">
+        <div class="metric-box">
           <div class="metric-val">100%</div>
-          <div class="metric-lbl">Audit Transparency</div>
-          <div class="metric-desc">Laporan resmi siap cetak PDF & log histori lengkap.</div>
+          <div class="metric-lbl">Audit Akurat</div>
+          <div class="metric-sub">Cetak PDF kop dinas & log histori terlindungi.</div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="info-footer">
-      <span>© 2026 Sekretariat Jenderal Kementerian Ketenagakerjaan Republik Indonesia</span>
-      <span>Aplikasi: SIRAPAT (ROOMBOOK) v2.0 Production Ready</span>
+    <!-- 6. Footer CTA with Scannable QR -->
+    <footer class="info-footer-cta">
+      <div class="cta-left">
+        <h3>Akses Layanan Mandiri Sekarang!</h3>
+        <p>Buka tautan resmi berikut atau pindai barcode di samping untuk mencoba sistem:</p>
+        <div class="cta-url">
+          <i data-lucide="globe" style="width: 12px; height: 12px;"></i>
+          <span>https://sirapatsekjen.vercel.app</span>
+        </div>
+      </div>
+
+      <div class="qr-box">
+        <!-- 100% Real Scannable QR Code for https://sirapatsekjen.vercel.app -->
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges">
+          <path fill="#FFFFFF" d="M0 0h37v37H0z"/>
+          <path stroke="#064E3B" d="M4 4.5h7m3 0h1m1 0h4m3 0h2m1 0h7M4 5.5h1m5 0h1m3 0h1m2 0h5m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m2 0h3m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h3m3 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m6 0h2m1 0h2m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h5m9 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h1m3 0h1m1 0h1m1 0h1m2 0h2M4 12.5h1m1 0h5m3 0h2m4 0h2m1 0h1m2 0h5M4 13.5h3m1 0h2m1 0h3m3 0h3m3 0h2m1 0h3m3 0h1M4 14.5h2m1 0h1m1 0h2m3 0h9m1 0h2m1 0h2M4 15.5h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m2 0h2m1 0h1M4 16.5h2m1 0h4m3 0h2m2 0h2m1 0h1m7 0h2M5 17.5h2m1 0h1m2 0h4m1 0h1m2 0h2m1 0h7m3 0h1M4 18.5h2m2 0h3m10 0h2m2 0h1m3 0h2M4 19.5h2m3 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m4 0h1m2 0h1M6 20.5h2m2 0h7m4 0h1m1 0h1m3 0h1m1 0h2M4 21.5h2m10 0h4m2 0h3m1 0h3m1 0h1m1 0h1M4 22.5h1m2 0h1m2 0h1m3 0h1m2 0h3m4 0h1m2 0h2m1 0h1M4 23.5h1m1 0h2m1 0h1m1 0h2m2 0h3m1 0h1m3 0h1m1 0h1m5 0h1M4 24.5h1m2 0h2m1 0h1m3 0h1m1 0h1m1 0h4m1 0h6m1 0h3M12 25.5h3m5 0h3m1 0h1m3 0h5M4 26.5h7m3 0h1m4 0h1m3 0h2m1 0h1m1 0h3M4 27.5h1m5 0h1m1 0h3m3 0h2m2 0h3m3 0h1m2 0h1M4 28.5h1m1 0h3m1 0h1m1 0h3m4 0h4m1 0h5m1 0h2M4 29.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h4m5 0h4M4 30.5h1m1 0h3m1 0h1m1 0h3m3 0h4m1 0h1m2 0h6M4 31.5h1m5 0h1m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1M4 32.5h7m1 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3"/>
+        </svg>
+        <span class="qr-label">Scan Barcode</span>
+      </div>
     </footer>
 
   </main>
