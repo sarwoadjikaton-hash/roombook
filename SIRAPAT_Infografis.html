@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infografis Resmi A4 — SIRAPAT TU SEKJEN Kemnaker RI</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -74,9 +77,10 @@
       align-items: center;
       gap: 6px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
       transition: all 0.2s;
     }
+
     .btn-action:hover {
       background: #059669;
       border-color: #34D399;
@@ -86,13 +90,15 @@
     /* A4 Poster Canvas (Exact 210mm x 297mm Proportion: 1 : 1.414) */
     .a4-container {
       width: 100%;
-      max-width: 794px; /* Standard 96 DPI A4 width */
-      height: 1123px;    /* Standard 96 DPI A4 height */
+      max-width: 794px;
+      /* Standard 96 DPI A4 width */
+      height: 1123px;
+      /* Standard 96 DPI A4 height */
       background: #0D131F;
       border: 1.5px solid rgba(52, 211, 153, 0.3);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(6, 78, 59, 0.35);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(6, 78, 59, 0.35);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -126,7 +132,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .brand-title h1 {
@@ -136,6 +142,7 @@
       color: #FFF;
       line-height: 1.15;
     }
+
     .brand-title p {
       font-size: 9.5px;
       color: var(--accent-gold-light);
@@ -300,9 +307,17 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .room-card.gold-border { border-color: rgba(245, 158, 11, 0.4); }
-    .room-card.green-border { border-color: rgba(16, 185, 129, 0.4); }
-    .room-card.blue-border { border-color: rgba(59, 130, 246, 0.4); }
+    .room-card.gold-border {
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .room-card.green-border {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .room-card.blue-border {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
 
     .room-card-header {
       display: flex;
@@ -450,9 +465,11 @@
         padding: 0 !important;
         margin: 0 !important;
       }
+
       .action-bar {
         display: none !important;
       }
+
       .a4-container {
         width: 100% !important;
         max-width: 100% !important;
@@ -469,6 +486,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Floating Action Bar -->
@@ -586,7 +604,7 @@
           </div>
           <h4>Ruang Rapat Sekjen</h4>
           <span class="room-card-sub">Gedung A, Lantai 2</span>
-          <p>Smart TV 75", Video Conference 4K, Proyektor Laser, Sound System, WiFi High-Speed, AC Dual Inverter.</p>
+          <p>Smart TV, Video Conference 4K, WiFi, AC.</p>
         </div>
 
         <div class="room-card green-border">
@@ -596,7 +614,7 @@
           </div>
           <h4>Ruang VIP</h4>
           <span class="room-card-sub">Gedung A, Lantai 1</span>
-          <p>Smart TV, Video Conference, Meja Eksekutif, Sofa Tamu VIP, Mini Bar & Pantry, WiFi Cepat.</p>
+          <p>WiFi, AC.</p>
         </div>
 
         <div class="room-card blue-border">
@@ -606,7 +624,7 @@
           </div>
           <h4>Ruang Transit</h4>
           <span class="room-card-sub">Gedung B, Lantai 2</span>
-          <p>Whiteboard Kaca, Smart TV 55", Port LAN & WiFi Cepat, Meja Kolaboratif, AC.</p>
+          <p>WiFi, AC.</p>
         </div>
       </div>
     </section>
@@ -655,8 +673,9 @@
       <div class="qr-box">
         <!-- 100% Real Scannable QR Code for https://sirapatsekjen.vercel.app -->
         <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges">
-          <path fill="#FFFFFF" d="M0 0h37v37H0z"/>
-          <path stroke="#064E3B" d="M4 4.5h7m3 0h1m1 0h4m3 0h2m1 0h7M4 5.5h1m5 0h1m3 0h1m2 0h5m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m2 0h3m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h3m3 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m6 0h2m1 0h2m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h5m9 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h1m3 0h1m1 0h1m1 0h1m2 0h2M4 12.5h1m1 0h5m3 0h2m4 0h2m1 0h1m2 0h5M4 13.5h3m1 0h2m1 0h3m3 0h3m3 0h2m1 0h3m3 0h1M4 14.5h2m1 0h1m1 0h2m3 0h9m1 0h2m1 0h2M4 15.5h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m2 0h2m1 0h1M4 16.5h2m1 0h4m3 0h2m2 0h2m1 0h1m7 0h2M5 17.5h2m1 0h1m2 0h4m1 0h1m2 0h2m1 0h7m3 0h1M4 18.5h2m2 0h3m10 0h2m2 0h1m3 0h2M4 19.5h2m3 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m4 0h1m2 0h1M6 20.5h2m2 0h7m4 0h1m1 0h1m3 0h1m1 0h2M4 21.5h2m10 0h4m2 0h3m1 0h3m1 0h1m1 0h1M4 22.5h1m2 0h1m2 0h1m3 0h1m2 0h3m4 0h1m2 0h2m1 0h1M4 23.5h1m1 0h2m1 0h1m1 0h2m2 0h3m1 0h1m3 0h1m1 0h1m5 0h1M4 24.5h1m2 0h2m1 0h1m3 0h1m1 0h1m1 0h4m1 0h6m1 0h3M12 25.5h3m5 0h3m1 0h1m3 0h5M4 26.5h7m3 0h1m4 0h1m3 0h2m1 0h1m1 0h3M4 27.5h1m5 0h1m1 0h3m3 0h2m2 0h3m3 0h1m2 0h1M4 28.5h1m1 0h3m1 0h1m1 0h3m4 0h4m1 0h5m1 0h2M4 29.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h4m5 0h4M4 30.5h1m1 0h3m1 0h1m1 0h3m3 0h4m1 0h1m2 0h6M4 31.5h1m5 0h1m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1M4 32.5h7m1 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3"/>
+          <path fill="#FFFFFF" d="M0 0h37v37H0z" />
+          <path stroke="#064E3B"
+            d="M4 4.5h7m3 0h1m1 0h4m3 0h2m1 0h7M4 5.5h1m5 0h1m3 0h1m2 0h5m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m2 0h3m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h3m3 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m6 0h2m1 0h2m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h5m9 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h1m3 0h1m1 0h1m1 0h1m2 0h2M4 12.5h1m1 0h5m3 0h2m4 0h2m1 0h1m2 0h5M4 13.5h3m1 0h2m1 0h3m3 0h3m3 0h2m1 0h3m3 0h1M4 14.5h2m1 0h1m1 0h2m3 0h9m1 0h2m1 0h2M4 15.5h2m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m2 0h2m1 0h1M4 16.5h2m1 0h4m3 0h2m2 0h2m1 0h1m7 0h2M5 17.5h2m1 0h1m2 0h4m1 0h1m2 0h2m1 0h7m3 0h1M4 18.5h2m2 0h3m10 0h2m2 0h1m3 0h2M4 19.5h2m3 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m4 0h1m2 0h1M6 20.5h2m2 0h7m4 0h1m1 0h1m3 0h1m1 0h2M4 21.5h2m10 0h4m2 0h3m1 0h3m1 0h1m1 0h1M4 22.5h1m2 0h1m2 0h1m3 0h1m2 0h3m4 0h1m2 0h2m1 0h1M4 23.5h1m1 0h2m1 0h1m1 0h2m2 0h3m1 0h1m3 0h1m1 0h1m5 0h1M4 24.5h1m2 0h2m1 0h1m3 0h1m1 0h1m1 0h4m1 0h6m1 0h3M12 25.5h3m5 0h3m1 0h1m3 0h5M4 26.5h7m3 0h1m4 0h1m3 0h2m1 0h1m1 0h3M4 27.5h1m5 0h1m1 0h3m3 0h2m2 0h3m3 0h1m2 0h1M4 28.5h1m1 0h3m1 0h1m1 0h3m4 0h4m1 0h5m1 0h2M4 29.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h4m5 0h4M4 30.5h1m1 0h3m1 0h1m1 0h3m3 0h4m1 0h1m2 0h6M4 31.5h1m5 0h1m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1M4 32.5h7m1 0h1m2 0h2m2 0h1m1 0h1m1 0h1m2 0h1m1 0h3" />
         </svg>
         <span class="qr-label">Scan Barcode</span>
       </div>
@@ -668,4 +687,5 @@
     lucide.createIcons();
   </script>
 </body>
+
 </html>
