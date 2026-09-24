@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROOMBOOK (SIRAPAT) — Presentasi Sistem Peminjaman Ruang Rapat TU SEKJEN Kemnaker RI</title>
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons via unpkg -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #064E3B;
+      --primary-light: #0B6E53;
+      --primary-dark: #022c22;
+      --primary-subtle: #ECFDF5;
+      --accent-gold: #F59E0B;
+      --accent-gold-dark: #D97706;
+      --accent-amber-light: #FEF3C7;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-400: #94A3B8;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      --success: #10B981;
+      --danger: #EF4444;
+      --warning: #F59E0B;
+      --info: #3B82F6;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 35px -8px rgba(0, 0, 0, 0.14);
+      --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #090D14;
+      color: #F8FAFC;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+    }
+
+    /* Deck Layout */
+    .deck-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: radial-gradient(circle at 80% 20%, rgba(6, 78, 59, 0.35), transparent 45%),
+                  radial-gradient(circle at 10% 90%, rgba(217, 119, 6, 0.15), transparent 35%),
+                  #090D14;
+    }
+
+    /* Top Navigation / Status */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 50;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo-pill {
+      background: linear-gradient(135deg, #064E3B 0%, #047857 100%);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(6, 78, 59, 0.5);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .brand-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FBBF24;
+      background: rgba(245, 158, 11, 0.15);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .deck-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-tool {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-tool:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #FFF;
+      transform: translateY(-1px);
+    }
+
+    .btn-tool.primary {
+      background: linear-gradient(135deg, #059669, #047857);
+      border-color: #10B981;
+      color: #FFF;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+    .btn-tool.primary:hover {
+      background: linear-gradient(135deg, #10B981, #059669);
+    }
+
+    /* Slides Stage */
+    .slides-stage {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 30px 60px 40px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.97) translateY(15px);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      z-index: 10;
+    }
+
+    /* Slide Typography */
+    .slide-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #FFFFFF 40%, #CBD5E1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: 16px;
+      color: #94A3B8;
+      margin-bottom: 24px;
+      max-width: 900px;
+      line-height: 1.5;
+    }
+
+    /* Slide Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      height: calc(100% - 90px);
+      align-items: stretch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    /* Card Components */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .glass-card.emerald-tint {
+      background: linear-gradient(145deg, rgba(6, 78, 59, 0.45) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .glass-card.gold-tint {
+      background: linear-gradient(145deg, rgba(217, 119, 6, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+    }
+
+    .card-icon.gold {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+    }
+
+    .card-icon.blue {
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+    }
+
+    .card-icon.purple {
+      background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+      box-shadow: 0 6px 16px rgba(139, 92, 246, 0.35);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: #94A3B8;
+      line-height: 1.55;
+    }
+
+    /* Interactive Mockup Frames */
+    .mockup-frame {
+      background: #0B0F17;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(6, 78, 59, 0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .mockup-header {
+      background: #151D2A;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mockup-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+
+    .mockup-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #94A3B8;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mockup-body {
+      flex: 1;
+      padding: 18px;
+      background: #0D131F;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    /* UI Simulation Components */
+    .mockup-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #064E3B;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+    }
+
+    .mockup-room-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-available { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-occupied { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-pending { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .mockup-stat-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mockup-stat-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFF;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .mockup-stat-lbl {
+      font-size: 11px;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* Feature List Pill */
+    .feature-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .feature-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .feature-check-icon {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .feature-check-text strong {
+      display: block;
+      color: #FFF;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .feature-check-text p {
+      font-size: 13px;
+      color: #94A3B8;
+      line-height: 1.4;
+    }
+
+    /* Bottom Control Bar */
+    .bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 36px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 50;
+    }
+
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide-counter span.current {
+      color: #34D399;
+      font-size: 16px;
+    }
+
+    .progress-bar-container {
+      flex: 1;
+      max-width: 450px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      margin: 0 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10B981, #F59E0B);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-nav:hover {
+      background: #059669;
+      border-color: #10B981;
+      transform: scale(1.05);
+    }
+    .btn-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Modal Overview */
+    .overview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 13, 20, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      padding: 30px;
+    }
+    .overview-overlay.open {
+      display: flex;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+      overflow-y: auto;
+      padding: 20px 0;
+      flex: 1;
+    }
+    .overview-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .overview-card:hover, .overview-card.active {
+      border-color: #10B981;
+      background: rgba(6, 78, 59, 0.4);
+      transform: translateY(-2px);
+    }
+    .overview-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #F59E0B;
+    }
+    .overview-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFF;
+    }
+
+    /* Cover Slide Enhancements */
+    .cover-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      position: relative;
+    }
+    .cover-badge-instansi {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #F8FAFC;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .cover-title {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 20%, #A7F3D0 60%, #FDE68A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 950px;
+    }
+    .cover-tagline {
+      font-size: 20px;
+      color: #94A3B8;
+      max-width: 750px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+    .cover-meta-grid {
+      display: flex;
+      gap: 32px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 36px;
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(12px);
+    }
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .cover-meta-lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94A3B8;
+      font-weight: 700;
+    }
+    .cover-meta-val {
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFF;
+    }
+
+    /* Print / PDF Styling */
+    @media print {
+      body {
+        overflow: visible;
+        background: #FFF !important;
+        color: #000 !important;
+        height: auto;
+      }
+      .top-bar, .bottom-bar, .overview-overlay {
+        display: none !important;
+      }
+      .deck-container {
+        display: block;
+        height: auto;
+        background: none !important;
+      }
+      .slides-stage {
+        display: block;
+        height: auto;
+      }
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        page-break-after: always;
+        height: 100vh;
+        padding: 40px;
+        background: #090D14 !important;
+        color: #FFF !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck-container">
+  <!-- Top Navigation Bar -->
+  <header class="top-bar">
+    <div class="brand-group">
+      <div class="brand-logo-pill">
+        <i data-lucide="layers" style="width: 18px; height: 18px; color: #34D399;"></i>
+        <span>SIRAPAT — ROOMBOOK</span>
+      </div>
+      <span class="brand-badge">TU SEKJEN KEMNAKER RI</span>
+    </div>
+
+    <div class="deck-tools">
+      <button class="btn-tool" onclick="toggleOverview()" title="Buka Daftar Semua Slide (Tombol G)">
+        <i data-lucide="grid" style="width: 15px; height: 15px;"></i>
+        <span>Semua Slide (G)</span>
+      </button>
+      <button class="btn-tool" onclick="toggleFullScreen()" title="Mode Layar Penuh (Tombol F)">
+        <i data-lucide="maximize" style="width: 15px; height: 15px;"></i>
+        <span>Fullscreen (F)</span>
+      </button>
+      <button class="btn-tool primary" onclick="window.print()" title="Cetak atau Simpan PDF">
+        <i data-lucide="printer" style="width: 15px; height: 15px;"></i>
+        <span>Cetak / PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Slide Stage -->
+  <main class="slides-stage" id="stage">
+
+    <!-- SLIDE 1: COVER HERO -->
+    <section class="slide active" data-slide="1">
+      <div class="cover-hero">
+        <div class="cover-badge-instansi">
+          <i data-lucide="building-2" style="width: 16px; height: 16px; color: #34D399;"></i>
+          <span>SEKRETARIAT JENDERAL KEMENTERIAN KETENAGAKERJAAN RI</span>
+        </div>
+        <h1 class="cover-title">Sistem Peminjaman & Tata Kelola Ruang Rapat Digital</h1>
+        <p class="cover-tagline">
+          Inovasi reservasi cerdas terintegrasi Google Calendar, Smart TV Kiosk Display, alur persetujuan SOP H-2, dan audit log pemakaian fasilitas instansi.
+        </p>
+        <div class="cover-meta-grid">
+          <div class="cover-meta-item">
+            <span class="cover-meta-lbl">Aplikasi</span>
+            <span class="cover-meta-val" style="color: #34D399;">SIRAPAT (ROOMBOOK)</span>
+          </div>
+          <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-lbl">Versi Rilis</span>
+            <span class="cover-meta-val">v2.0 Production Ready</span>
+          </div>
+          <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-lbl">Target Operasional</span>
+            <span class="cover-meta-val" style="color: #FBBF24;">TU SEKJEN Kemnaker RI</span>
+          </div>
+          <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-lbl">Navigasi</span>
+            <span class="cover-meta-val">Gunakan Tombol ➔ / Spasi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: LATAR BELAKANG & PERMASALAHAN -->
+    <section class="slide" data-slide="2">
+      <div class="slide-eyebrow">
+        <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
+        <span>Latar Belakang & Urgensi</span>
+      </div>
+      <h2 class="slide-title">Tantangan Tata Kelola Ruang Rapat Sebelumnya</h2>
+      <p class="slide-subtitle">Sebelum hadirnya ROOMBOOK, koordinasi peminjaman ruang rapat menghadapi kendala administratif dan operasional harian.</p>
+
+      <div class="grid-4" style="margin-top: 10px;">
+        <div class="glass-card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #EF4444, #B91C1C);">
+            <i data-lucide="calendar-x" style="width: 22px; height: 22px;"></i>
+          </div>
+          <h3 class="card-title">Bentrok Jadwal (Double Booking)</h3>
+          <p class="card-desc">Pencatatan manual via WhatsApp dan buku kertas memicu tabrakan jadwal antar unit kerja pada jam yang sama.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #F59E0B, #B45309);">
+            <i data-lucide="eye-off" style="width: 22px; height: 22px;"></i>
+          </div>
+          <h3 class="card-title">Status Ruangan Buta (No Real-Time)</h3>
+          <p class="card-desc">Pegawai harus mendatangi pintu fisik ruangan hanya untuk mengecek apakah ruangan kosong atau sedang digunakan.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);">
+            <i data-lucide="clock" style="width: 22px; height: 22px;"></i>
+          </div>
+          <h3 class="card-title">Verifikasi Persetujuan Lambat</h3>
+          <p class="card-desc">Ruang strategis (Ruang Sekjen & VIP) membutuhkan kepastian approval pimpinan yang sering tertunda.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9);">
+            <i data-lucide="file-warning" style="width: 22px; height: 22px;"></i>
+          </div>
+          <h3 class="card-title">Ketiadaan Jejak Audit</h3>
+          <p class="card-desc">Sulit merekapitulasi utilisasi fasilitas, riwayat pemohon, dan laporan pertanggungjawaban operasional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: SOLUSI & NILAI MANFAAT -->
+    <section class="slide" data-slide="3">
+      <div class="slide-eyebrow">
+        <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+        <span>Transformasi Digital</span>
+      </div>
+      <h2 class="slide-title">Solusi Terpadu: ROOMBOOK (SIRAPAT)</h2>
+      <p class="slide-subtitle">Satu ekosistem berbasis web terintegrasi yang menjawab seluruh kebutuhan pemohon, pengelola, dan pimpinan.</p>
+
+      <div class="grid-2">
+        <div class="glass-card emerald-tint">
+          <h3 style="font-size: 20px; font-weight: 800; color: #34D399; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="check-circle-2" style="width: 22px; height: 22px;"></i>
+            Nilai Strategis bagi Instansi
+          </h3>
+          <div class="feature-check-list">
+            <div class="feature-check-item">
+              <div class="feature-check-icon"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>100% Zero Conflict Guarantee</strong>
+                <p>Validasi otomatis slot waktu dan sinkronisasi instan ke Google Calendar API v3.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Display Smart TV di Depan Ruangan</strong>
+                <p>Status OLED Real-time, Countdown rapat aktif, agenda hari ini, & QR Quick Book.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Disiplin SOP Approval H-2</strong>
+                <p>Indikator peringatan batas waktu persetujuan otomatis untuk tim Pengelola TU SEKJEN.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card gold-tint">
+          <h3 style="font-size: 20px; font-weight: 800; color: #FBBF24; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="zap" style="width: 22px; height: 22px;"></i>
+            Kemudahan Layanan Mandiri (Self-Service)
+          </h3>
+          <div class="feature-check-list">
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Pesan Tanpa Repot Buat Akun</strong>
+                <p>Pegawai cukup memasukkan data unit dan agenda, status bisa dicek kapan saja.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>1-Click Add to Personal Google Calendar</strong>
+                <p>Pemohon dapat langsung menyimpan undangan kalender ke smartphone mereka.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="check" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Laporan Resmi Siap Cetak PDF</strong>
+                <p>Format rekapitulasi standar kedinasan dengan tanda tangan dan rekap utilisasi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: TAMPILAN DASHBOARD & TIMELINE JADWAL -->
+    <section class="slide" data-slide="4">
+      <div class="slide-eyebrow">
+        <i data-lucide="layout-dashboard" style="width: 14px; height: 14px;"></i>
+        <span>Antarmuka Publik Pegawai</span>
+      </div>
+      <h2 class="slide-title">Beranda Utama & Timeline Jadwal Real-Time</h2>
+      <p class="slide-subtitle">Pegawai dapat memantau ketersediaan seluruh ruangan, kapasitas, fasilitas, serta agenda terjadwal dalam hitungan detik.</p>
+
+      <div class="grid-2">
+        <!-- Mockup Visual -->
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <div class="mockup-dot dot-red"></div>
+              <div class="mockup-dot dot-yellow"></div>
+              <div class="mockup-dot dot-green"></div>
+            </div>
+            <div class="mockup-url">https://sirapatsekjen.vercel.app/ — Beranda Publik</div>
+            <span style="font-size: 11px; color: #34D399; font-weight: 700;">LIVE</span>
+          </div>
+          <div class="mockup-body">
+            <!-- Simulated Nav -->
+            <div class="mockup-nav">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="background: #047857; padding: 4px 8px; border-radius: 4px; font-weight: 800; font-size: 11px;">SIRAPAT</div>
+                <span style="font-size: 11px; color: #A7F3D0; font-weight: 600;">TU SEKJEN KEMNAKER</span>
+              </div>
+              <button style="background: #F59E0B; border: none; color: #000; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 4px;">+ Pesan Ruangan</button>
+            </div>
+
+            <!-- Simulated Room Cards Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(16,185,129,0.4); border-radius: 8px; padding: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <strong style="color: #FFF; font-size: 12px;">Ruang Rapat Sekjen</strong>
+                  <span class="mockup-room-badge badge-occupied">DIGUNAKAN</span>
+                </div>
+                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 6px;">Kapasitas: 30 Orang • Gedung A Lt.2</div>
+                <div style="background: rgba(0,0,0,0.4); padding: 6px; border-radius: 4px; font-size: 10px; color: #CBD5E1; border-left: 3px solid #EF4444;">
+                  <strong>Rakor Pimpinan Ketenagakerjaan</strong><br>
+                  <span style="color: #94A3B8;">09:00 - 11:30 • Biro Umum</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <strong style="color: #FFF; font-size: 12px;">Ruang VIP</strong>
+                  <span class="mockup-room-badge badge-available">TERSEDIA</span>
+                </div>
+                <div style="font-size: 11px; color: #94A3B8; margin-bottom: 6px;">Kapasitas: 12 Orang • Gedung A Lt.1</div>
+                <div style="background: rgba(0,0,0,0.4); padding: 6px; border-radius: 4px; font-size: 10px; color: #34D399;">
+                  Ruangan Kosong • Siap Dipesan
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline visual representation -->
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 10px;">
+              <div style="font-size: 11px; font-weight: 700; color: #E2E8F0; margin-bottom: 8px; display: flex; justify-content: space-between;">
+                <span>Garis Waktu (Timeline) Hari Ini</span>
+                <span style="color: #F59E0B;">24 September 2026</span>
+              </div>
+              <div style="display: flex; gap: 4px; font-size: 9px; font-family: monospace; color: #64748B; margin-bottom: 4px;">
+                <span style="flex: 1;">08:00</span><span style="flex: 1;">10:00</span><span style="flex: 1;">12:00</span><span style="flex: 1;">14:00</span><span style="flex: 1;">16:00</span>
+              </div>
+              <div style="height: 14px; background: rgba(255,255,255,0.05); border-radius: 4px; position: relative; overflow: hidden; display: flex;">
+                <div style="width: 25%; background: #EF4444; opacity: 0.8;" title="09:00 - 11:30 Terisi"></div>
+                <div style="width: 35%; background: transparent;"></div>
+                <div style="width: 20%; background: #3B82F6; opacity: 0.8;" title="13:30 - 15:00 Terisi"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description List -->
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #34D399; margin-bottom: 6px;">1. Indikator Ketersediaan 1 Detik</h4>
+            <p style="font-size: 13.5px; color: #94A3B8; line-height: 1.5;">Status visual instan dengan kode warna (Hijau = Tersedia, Merah = Sedang Dipakai, Oranye = Menunggu Approval).</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #FBBF24; margin-bottom: 6px;">2. Filter Kalender Fleksibel</h4>
+            <p style="font-size: 13.5px; color: #94A3B8; line-height: 1.5;">Pegawai dapat melompat ke tanggal mendatang untuk merencanakan rapat dinas jauh-jauh hari tanpa risiko bentrok.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #60A5FA; margin-bottom: 6px;">3. Fitur Lacak "Peminjaman Saya"</h4>
+            <p style="font-size: 13.5px; color: #94A3B8; line-height: 1.5;">Cukup masukkan email pemohon untuk melihat riwayat status persetujuan, mengubah jadwal, atau membatalkan permohonan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: FORMULIR PEMINJAMAN MANDIRI & GOOGLE CALENDAR SYNC -->
+    <section class="slide" data-slide="5">
+      <div class="slide-eyebrow">
+        <i data-lucide="edit-3" style="width: 14px; height: 14px;"></i>
+        <span>Formulir Cerdas & Integrasi</span>
+      </div>
+      <h2 class="slide-title">Formulir Reservasi & 1-Click Sync Kalender</h2>
+      <p class="slide-subtitle">Pengajuan berlangsung kurang dari 1 menit dengan validasi waktu otomatis dan integrasi langsung ke Google Calendar.</p>
+
+      <div class="grid-2">
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <div class="mockup-dot dot-red"></div>
+              <div class="mockup-dot dot-yellow"></div>
+              <div class="mockup-dot dot-green"></div>
+            </div>
+            <div class="mockup-url">Modal Form Reservasi Peminjaman</div>
+          </div>
+          <div class="mockup-body">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px;">
+              <div style="font-weight: 700; color: #FFF; font-size: 13px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px;">
+                Formulir Peminjaman Ruang Rapat
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
+                <div>
+                  <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Pilihan Ruangan:</label>
+                  <div style="background: #064E3B; color: #FFF; padding: 6px 10px; border-radius: 4px; font-weight: 600;">Ruang Rapat Sekjen (Maks. 30 Orang)</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div>
+                    <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Nama Pemohon:</label>
+                    <div style="background: rgba(0,0,0,0.3); color: #FFF; padding: 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">Budi Santoso, S.Kom</div>
+                  </div>
+                  <div>
+                    <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Unit Kerja:</label>
+                    <div style="background: rgba(0,0,0,0.3); color: #FFF; padding: 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">Biro Umum & Perencanaan</div>
+                  </div>
+                </div>
+                <div>
+                  <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Agenda Rapat:</label>
+                  <div style="background: rgba(0,0,0,0.3); color: #FFF; padding: 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">Rapat Koordinasi Evaluasi Anggaran Triwulan III</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div>
+                    <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Jam Mulai:</label>
+                    <div style="background: rgba(0,0,0,0.3); color: #34D399; font-weight: 700; padding: 6px; border-radius: 4px;">09:00 WIB</div>
+                  </div>
+                  <div>
+                    <label style="color: #94A3B8; display: block; margin-bottom: 2px;">Jam Selesai:</label>
+                    <div style="background: rgba(0,0,0,0.3); color: #34D399; font-weight: 700; padding: 6px; border-radius: 4px;">11:30 WIB</div>
+                  </div>
+                </div>
+                <div style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); padding: 8px; border-radius: 6px; margin-top: 4px; color: #34D399; display: flex; align-items: center; gap: 6px;">
+                  <i data-lucide="check-circle" style="width: 14px;"></i>
+                  <span>Slot waktu tersedia dan tidak ada jadwal bentrok!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card emerald-tint" style="justify-content: center;">
+          <div class="card-icon" style="background: linear-gradient(135deg, #10B981, #059669); margin-bottom: 18px;">
+            <i data-lucide="calendar" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: #FFF; margin-bottom: 10px;">Fitur Tambah ke Google Calendar Mandiri</h3>
+          <p style="font-size: 14px; color: #94A3B8; line-height: 1.6; margin-bottom: 16px;">
+            Setelah permohonan diajukan, sistem memunculkan jendela dialog konfirmasi yang memuat tombol <strong>"Tambahkan ke Google Kalender Saya"</strong>.
+          </p>
+          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 14px; display: flex; align-items: center; gap: 12px;">
+            <div style="background: #4285F4; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">G</div>
+            <div>
+              <strong style="color: #FFF; font-size: 13px; display: block;">Sinkronisasi 1 Klik Tanpa Input Ulang</strong>
+              <span style="font-size: 12px; color: #94A3B8;">Agenda otomatis terisi lengkap dengan judul, lokasi ruang, tanggal, dan pengingat.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: DISPLAY KIOSK SMART TV RUANGAN (16:9 LANDSCAPE) -->
+    <section class="slide" data-slide="6">
+      <div class="slide-eyebrow">
+        <i data-lucide="tv" style="width: 14px; height: 14px;"></i>
+        <span>Layar Informasi Pintu Ruangan</span>
+      </div>
+      <h2 class="slide-title">Display Kiosk TV Pintar (Smart TV 16:9)</h2>
+      <p class="slide-subtitle">Monitor digital interaktif berlatar belakang foto asli ruangan dan panel status gelap anti-silau (OLED-friendly).</p>
+
+      <div class="grid-2">
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <div class="mockup-dot dot-red"></div>
+              <div class="mockup-dot dot-yellow"></div>
+              <div class="mockup-dot dot-green"></div>
+            </div>
+            <div class="mockup-url">https://sirapatsekjen.vercel.app/display/ruang-sekjen — Smart TV Display</div>
+          </div>
+          <div class="mockup-body" style="background: #020617; padding: 14px; position: relative;">
+            <!-- Simulated TV Kiosk Layout -->
+            <div style="border: 2px solid rgba(16,185,129,0.5); border-radius: 10px; padding: 12px; background: rgba(15,23,42,0.85); position: relative;">
+              <!-- Header Bar -->
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px;">
+                <div>
+                  <span style="font-size: 10px; color: #F59E0B; font-weight: 800; letter-spacing: 1px;">RUANG RAPAT STRATEGIS</span>
+                  <div style="font-size: 16px; font-weight: 900; color: #FFF;">RUANG RAPAT SEKJEN</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 800; color: #34D399;">10:45:12</div>
+                  <div style="font-size: 9px; color: #94A3B8;">Kamis, 24 September 2026</div>
+                </div>
+              </div>
+
+              <!-- Main Status Banner -->
+              <div style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 8px; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <span style="background: #EF4444; color: #FFF; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">SEDANG DIGUNAKAN</span>
+                  <div style="font-size: 12px; font-weight: 800; color: #FFF; margin-top: 4px;">Rapat Koordinasi Evaluasi Ketenagakerjaan</div>
+                  <div style="font-size: 10px; color: #CBD5E1;">Biro Umum • Pukul 09:00 - 11:30 WIB</div>
+                </div>
+                <div style="text-align: right; background: rgba(0,0,0,0.4); padding: 6px 10px; border-radius: 6px;">
+                  <span style="font-size: 9px; color: #94A3B8;">Sisa Waktu Rapat</span>
+                  <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 800; color: #FBBF24;">44 Menit</div>
+                </div>
+              </div>
+
+              <!-- Footer with Next Agenda & QR Code -->
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 6px;">
+                <div>
+                  <span style="font-size: 9px; color: #94A3B8; text-transform: uppercase;">Agenda Berikutnya:</span>
+                  <div style="font-size: 11px; font-weight: 700; color: #E2E8F0;">13:30 - Rapat Persiapan MoU Ketenagakerjaan</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <div style="background: #FFF; color: #000; padding: 4px; border-radius: 4px; font-size: 9px; font-weight: 800;">[ QR CODE ]</div>
+                  <span style="font-size: 9px; color: #A7F3D0; font-weight: 700; max-width: 70px; line-height: 1.1;">Pindai untuk Pesan Kilat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-check-list" style="justify-content: center;">
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #34D399; margin-bottom: 6px;">
+              <i data-lucide="image" style="width: 16px; display: inline; vertical-align: middle;"></i> Carousel Foto Ruangan Nyata
+            </h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Layar memutar foto ruangan asli (5 foto Ruang Sekjen, 2 foto VIP, 3 foto Transit) secara halus di latar belakang.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #FBBF24; margin-bottom: 6px;">
+              <i data-lucide="refresh-cw" style="width: 16px; display: inline; vertical-align: middle;"></i> Pergantian Ruangan Otomatis (10 Detik)
+            </h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Mode Kiosk dapat berpindah otomatis antar-ruangan untuk monitor display umum di lobi utama gedung.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #60A5FA; margin-bottom: 6px;">
+              <i data-lucide="qr-code" style="width: 16px; display: inline; vertical-align: middle;"></i> QR Quick Book Instant
+            </h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Pegawai yang berdiri di depan pintu cukup memindai QR untuk langsung membuka form booking cepat di smartphone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: MOBILE QUICK BOOK & SCAN QR -->
+    <section class="slide" data-slide="7">
+      <div class="slide-eyebrow">
+        <i data-lucide="smartphone" style="width: 14px; height: 14px;"></i>
+        <span>Pemesanan Kilat di Pintu</span>
+      </div>
+      <h2 class="slide-title">Mobile Quick Book via Smartphone</h2>
+      <p class="slide-subtitle">Dirancang khusus untuk pengalaman layar vertikal smartphone (Touch-First) saat pegawai butuh ruang mendadak.</p>
+
+      <div class="grid-2">
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <!-- Smartphone Mockup Wrapper -->
+          <div style="width: 280px; height: 380px; background: #0F172A; border: 4px solid #334155; border-radius: 36px; padding: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.8); display: flex; flex-direction: column; position: relative;">
+            <div style="width: 60px; height: 4px; background: #475569; border-radius: 999px; margin: 0 auto 8px;"></div>
+            
+            <div style="flex: 1; background: #064E3B; border-radius: 24px; padding: 12px; display: flex; flex-direction: column; overflow: hidden;">
+              <div style="text-align: center; margin-bottom: 8px;">
+                <span style="font-size: 9px; color: #FDE68A; font-weight: 800; letter-spacing: 0.5px;">QUICK BOOKING HP</span>
+                <div style="font-size: 13px; font-weight: 900; color: #FFF;">Ruang Rapat Sekjen</div>
+              </div>
+
+              <div style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 10px;">
+                <input type="text" placeholder="Nama Pemohon" value="Ahmad Fauzi" readonly style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #FFF; padding: 4px 8px; border-radius: 4px; font-size: 10px;">
+                <input type="text" placeholder="Unit Kerja" value="Biro Perencanaan" readonly style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #FFF; padding: 4px 8px; border-radius: 4px; font-size: 10px;">
+                <input type="text" placeholder="Judul Agenda" value="Koordinasi Singkat Tim" readonly style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #FFF; padding: 4px 8px; border-radius: 4px; font-size: 10px;">
+                <div style="display: flex; gap: 4px;">
+                  <span style="flex: 1; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 4px; text-align: center; color: #34D399; font-weight: 700;">11:30</span>
+                  <span style="flex: 1; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 4px; text-align: center; color: #34D399; font-weight: 700;">12:30</span>
+                </div>
+                <button style="background: linear-gradient(135deg, #F59E0B, #D97706); border: none; color: #000; font-weight: 800; padding: 6px; border-radius: 6px; font-size: 10px; margin-top: 4px;">
+                  ⚡ Pesan Sekarang Langsung
+                </button>
+              </div>
+
+              <div style="margin-top: auto; text-align: center; font-size: 8.5px; color: #A7F3D0;">
+                ✓ Terverifikasi SOP TU Sekjen
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+          <div class="glass-card gold-tint">
+            <h4 style="font-size: 16px; font-weight: 700; color: #FBBF24; margin-bottom: 6px;">3 Langkah Cepat Reservasi di Depan Pintu:</h4>
+            <ol style="padding-left: 18px; font-size: 13.5px; color: #CBD5E1; line-height: 1.8;">
+              <li><strong>Pindai QR Code</strong> pada Smart TV di samping pintu ruangan.</li>
+              <li><strong>Lengkapi Form Singkat</strong> (Nama, Unit Kerja, Durasi Jam).</li>
+              <li><strong>Konfirmasi Instan</strong> (Auto-approval atau masuk antrean prioritas PIC).</li>
+            </ol>
+          </div>
+
+          <div class="glass-card">
+            <h4 style="font-size: 15px; font-weight: 700; color: #34D399; margin-bottom: 4px;">Sangat Ideal Untuk:</h4>
+            <p style="font-size: 13px; color: #94A3B8;">
+              Pimpinan dan pejabat yang membutuhkan ruang rapat koordinasi taktis mendadak tanpa harus membuka laptop atau login ke komputer kerja.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: PANEL ADMIN & ALUR APPROVAL SOP H-2 -->
+    <section class="slide" data-slide="8">
+      <div class="slide-eyebrow">
+        <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+        <span>Pusat Kendali Pengelola</span>
+      </div>
+      <h2 class="slide-title">Dashboard Pengelola & Alur Approval (SOP H-2)</h2>
+      <p class="slide-subtitle">Tim Pengelola TU SEKJEN memproses persetujuan permohonan dengan sistem peringatan urgensi waktu (Batas H-2).</p>
+
+      <div class="grid-2">
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <div class="mockup-dot dot-red"></div>
+              <div class="mockup-dot dot-yellow"></div>
+              <div class="mockup-dot dot-green"></div>
+            </div>
+            <div class="mockup-url">https://sirapatsekjen.vercel.app/admin/approvals — Persetujuan Booking</div>
+          </div>
+          <div class="mockup-body">
+            <div style="font-size: 12px; font-weight: 800; color: #FFF; margin-bottom: 10px; display: flex; justify-content: space-between;">
+              <span>Daftar Permohonan Menunggu Persetujuan</span>
+              <span style="background: #F59E0B; color: #000; font-size: 10px; padding: 2px 6px; border-radius: 4px;">3 Menunggu</span>
+            </div>
+
+            <!-- Approval Item Card 1 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(245,158,11,0.3); border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                <strong style="color: #FFF; font-size: 12px;">Rapat Koordinasi Renja 2027</strong>
+                <span style="background: rgba(239,68,68,0.2); color: #EF4444; border: 1px solid #EF4444; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">URGENT (H-1)</span>
+              </div>
+              <div style="font-size: 10.5px; color: #94A3B8; margin-bottom: 8px;">
+                Pemohon: <strong>Dra. Nurhayati (Biro Renkeu)</strong> • Ruang Rapat Sekjen • 25 Sep 2026, 09:00 - 12:00
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button style="flex: 1; background: #059669; border: none; color: #FFF; font-weight: 700; font-size: 10px; padding: 5px; border-radius: 4px; cursor: pointer;">
+                  ✓ Setujui (Approve)
+                </button>
+                <button style="flex: 1; background: #DC2626; border: none; color: #FFF; font-weight: 700; font-size: 10px; padding: 5px; border-radius: 4px; cursor: pointer;">
+                  ✕ Tolak (Reject)
+                </button>
+              </div>
+            </div>
+
+            <!-- Approval Item Card 2 -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                <strong style="color: #FFF; font-size: 12px;">Penerimaan Tamu Delegasi ILO</strong>
+                <span style="background: rgba(245,158,11,0.2); color: #F59E0B; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">H-3</span>
+              </div>
+              <div style="font-size: 10.5px; color: #94A3B8; margin-bottom: 8px;">
+                Pemohon: <strong>Hendra Setiawan (Biro KSLN)</strong> • Ruang VIP • 27 Sep 2026, 14:00 - 16:00
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button style="flex: 1; background: #059669; border: none; color: #FFF; font-weight: 700; font-size: 10px; padding: 5px; border-radius: 4px;">
+                  ✓ Setujui (Approve)
+                </button>
+                <button style="flex: 1; background: #DC2626; border: none; color: #FFF; font-weight: 700; font-size: 10px; padding: 5px; border-radius: 4px;">
+                  ✕ Tolak (Reject)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-check-list" style="justify-content: center;">
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #34D399; margin-bottom: 6px;">Otomatisasi Kalender Pasca-Approval</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Saat pengelola klik "Setujui", sistem otomatis membuat jadwal di Google Calendar resmi instansi dan mengirim notifikasi status.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #FBBF24; margin-bottom: 6px;">Catatan Alasan Resmi Saat Penolakan</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Jika ada agenda pimpinan yang lebih mendesak, pengelola dapat menyertakan alasan tertulis yang transparan ke pemohon.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #60A5FA; margin-bottom: 6px;">Keamanan Role-Based (RBAC)</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Hierarki akun terbagi menjadi Superadmin (Kelola User & Master Ruang) dan Admin/PIC Ruangan Operasional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: LAPORAN, REKAPITULASI & CETAK PDF RESMI -->
+    <section class="slide" data-slide="9">
+      <div class="slide-eyebrow">
+        <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+        <span>Pelaporan & Akuntabilitas</span>
+      </div>
+      <h2 class="slide-title">Laporan Utilisasi & Ekspor Dokumen Resmi</h2>
+      <p class="slide-subtitle">Dilengkapi fitur filter tanggal, rekap unit kerja teraktif, ekspor Excel/CSV, dan cetak PDF format resmi kedinasan.</p>
+
+      <div class="grid-2">
+        <div class="mockup-frame">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <div class="mockup-dot dot-red"></div>
+              <div class="mockup-dot dot-yellow"></div>
+              <div class="mockup-dot dot-green"></div>
+            </div>
+            <div class="mockup-url">https://sirapatsekjen.vercel.app/admin/reports — Laporan Pemakaian</div>
+          </div>
+          <div class="mockup-body">
+            <!-- Simulated Stats Row -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;">
+              <div class="mockup-stat-box">
+                <span class="mockup-stat-val" style="color: #34D399;">128</span>
+                <span class="mockup-stat-lbl">Total Rapat Selesai</span>
+              </div>
+              <div class="mockup-stat-box">
+                <span class="mockup-stat-val" style="color: #FBBF24;">86%</span>
+                <span class="mockup-stat-lbl">Tingkat Okupansi</span>
+              </div>
+              <div class="mockup-stat-box">
+                <span class="mockup-stat-val" style="color: #60A5FA;">0</span>
+                <span class="mockup-stat-lbl">Konflik Jadwal</span>
+              </div>
+            </div>
+
+            <!-- Simulated PDF Document Preview -->
+            <div style="background: #FFFFFF; color: #000; border-radius: 6px; padding: 12px; font-size: 9px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+              <div style="text-align: center; border-bottom: 1.5px solid #000; padding-bottom: 4px; margin-bottom: 6px;">
+                <div style="font-weight: 800; font-size: 10px;">KEMENTERIAN KETENAGAKERJAAN REPUBLIK INDONESIA</div>
+                <div style="font-weight: 700; font-size: 8px; color: #475569;">SEKRETARIAT JENDERAL — BAGIAN TATA USAHA</div>
+                <div style="font-size: 7.5px; color: #64748B;">LAPORAN REKAPITULASI PEMINJAMAN RUANG RAPAT</div>
+              </div>
+              <table style="width: 100%; border-collapse: collapse; font-size: 8px;">
+                <thead>
+                  <tr style="background: #F1F5F9; border-bottom: 1px solid #CBD5E1;">
+                    <th style="padding: 2px; text-align: left;">Tanggal</th>
+                    <th style="padding: 2px; text-align: left;">Ruangan</th>
+                    <th style="padding: 2px; text-align: left;">Unit Pemohon</th>
+                    <th style="padding: 2px; text-align: center;">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 0.5px solid #E2E8F0;">
+                    <td style="padding: 2px;">24/09/2026</td>
+                    <td>R. Sekjen</td>
+                    <td>Biro Umum</td>
+                    <td style="color: #059669; font-weight: 700; text-align: center;">DISETUJUI</td>
+                  </tr>
+                  <tr style="border-bottom: 0.5px solid #E2E8F0;">
+                    <td style="padding: 2px;">24/09/2026</td>
+                    <td>R. VIP</td>
+                    <td>Biro Perencanaan</td>
+                    <td style="color: #059669; font-weight: 700; text-align: center;">DISETUJUI</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
+                <div style="text-align: center; font-size: 7.5px;">
+                  Mengetahui, Pengelola Ruang Rapat<br><br>
+                  <strong>( Administrator TU Sekjen )</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #34D399; margin-bottom: 6px;">Hanya Memuat Jadwal Resmi</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Laporan rekapitulasi secara cerdas hanya menyertakan agenda yang berstatus <em>Disetujui</em> dan <em>Selesai</em>, menjamin kebersihan data arsip.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #FBBF24; margin-bottom: 6px;">Ekspor Multi-Format (PDF & Excel)</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Mendukung cetak langsung PDF kop surat instansi maupun download tabel Excel/CSV untuk analisa statistik lanjutan.</p>
+          </div>
+          <div class="glass-card">
+            <h4 style="font-size: 16px; font-weight: 700; color: #60A5FA; margin-bottom: 6px;">Audit Log Terperinci</h4>
+            <p style="font-size: 13.5px; color: #94A3B8;">Setiap aksi (pengajuan, persetujuan, pembatalan, dan login) tercatat dengan stempel waktu dan identitas pelaksana.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: MASTER RUANG RAPAT & FASILITAS -->
+    <section class="slide" data-slide="10">
+      <div class="slide-eyebrow">
+        <i data-lucide="door-open" style="width: 14px; height: 14px;"></i>
+        <span>Profil Ruangan</span>
+      </div>
+      <h2 class="slide-title">Spesifikasi Master Ruang Rapat TU SEKJEN</h2>
+      <p class="slide-subtitle">Tiga ruang rapat representatif yang siap mendukung kelancaran seluruh agenda kedinasan dan pimpinan.</p>
+
+      <div class="grid-3" style="margin-top: 10px;">
+        <div class="glass-card gold-tint">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="background: #F59E0B; color: #000; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px;">VIP STRATEGIS</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FDE68A;">Kapasitas: 30</span>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: #FFF; margin-bottom: 6px;">Ruang Rapat Sekjen</h3>
+          <div style="font-size: 12px; color: #94A3B8; margin-bottom: 12px;">Gedung A, Lantai 2</div>
+          <p style="font-size: 13px; color: #CBD5E1; margin-bottom: 14px;">Ruangan utama untuk rapat koordinasi pimpinan tinggi madya dan pratama.</p>
+          <div style="font-size: 11px; color: #94A3B8; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;">
+            <strong>Fasilitas:</strong> Smart TV 75", Video Conference 4K, Proyektor Laser, Sound System, WiFi High-Speed, AC Dual Inverter.
+          </div>
+        </div>
+
+        <div class="glass-card emerald-tint">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="background: #10B981; color: #FFF; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px;">EKSEKUTIF</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #A7F3D0;">Kapasitas: 12</span>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: #FFF; margin-bottom: 6px;">Ruang VIP</h3>
+          <div style="font-size: 12px; color: #94A3B8; margin-bottom: 12px;">Gedung A, Lantai 1</div>
+          <p style="font-size: 13px; color: #CBD5E1; margin-bottom: 14px;">Didedikasikan untuk penerimaan tamu kedutaan, lembaga donor, dan pertemuan bilateral.</p>
+          <div style="font-size: 11px; color: #94A3B8; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;">
+            <strong>Fasilitas:</strong> Smart TV, Video Conference, Sofa VIP, Meja Eksekutif, Mini Bar & Snack Area, WiFi Cepat.
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="background: #3B82F6; color: #FFF; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px;">INSTANT BOOK</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #93C5FD;">Kapasitas: 8</span>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: #FFF; margin-bottom: 6px;">Ruang Transit</h3>
+          <div style="font-size: 12px; color: #94A3B8; margin-bottom: 12px;">Gedung B, Lantai 2</div>
+          <p style="font-size: 13px; color: #CBD5E1; margin-bottom: 14px;">Ruang koordinasi taktis tim kerja dengan sistem auto-approval instan.</p>
+          <div style="font-size: 11px; color: #94A3B8; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;">
+            <strong>Fasilitas:</strong> Whiteboard Kaca, Smart TV 55", Meja Diskusi Kolaboratif, Port LAN & WiFi, AC.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: ARSITEKTUR TEKNIS & INTEGRASI GOOGLE API -->
+    <section class="slide" data-slide="11">
+      <div class="slide-eyebrow">
+        <i data-lucide="cpu" style="width: 14px; height: 14px;"></i>
+        <span>Arsitektur & Keamanan</span>
+      </div>
+      <h2 class="slide-title">Arsitektur Sistem & Integrasi Google Service Account</h2>
+      <p class="slide-subtitle">Dibangun dengan standar performa tinggi, ketahanan data relasional, dan protokol keamanan data terenkripsi.</p>
+
+      <div class="grid-2">
+        <div class="glass-card">
+          <h3 style="font-size: 18px; font-weight: 800; color: #34D399; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="layers" style="width: 20px;"></i>
+            Teknologi Modern (Tech Stack)
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border-left: 3px solid #10B981;">
+              <strong style="color: #FFF;">Frontend:</strong> React 18, TypeScript, Tailwind CSS, Vite, Lucide Icons, Canvas Confetti.
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border-left: 3px solid #3B82F6;">
+              <strong style="color: #FFF;">Backend REST API:</strong> Node.js, Express, Helmet, CORS, Rate Limiting (100 req/min).
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border-left: 3px solid #F59E0B;">
+              <strong style="color: #FFF;">Database:</strong> PostgreSQL ACID-Compliant dengan Foreign Keys, ENUM status, & Indexing.
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border-left: 3px solid #EF4444;">
+              <strong style="color: #FFF;">Integrasi Eksternal:</strong> Google Calendar API v3 via Service Account OAuth 2.0.
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card gold-tint">
+          <h3 style="font-size: 18px; font-weight: 800; color: #FBBF24; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="shield-check" style="width: 20px;"></i>
+            Protokol Keamanan & Sinkronisasi
+          </h3>
+          <div class="feature-check-list">
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="lock" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Bcrypt Hashing & Validasi Password Ketat</strong>
+                <p>Kombinasi huruf besar, kecil, angka, simbol, serta proteksi Anti-Bruteforce.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="shield" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Parameterized SQL Queries</strong>
+                <p>Proteksi 100% dari celah keamanan SQL Injection pada seluruh endpoint API.</p>
+              </div>
+            </div>
+            <div class="feature-check-item">
+              <div class="feature-check-icon" style="background: rgba(245,158,11,0.2); color: #F59E0B;"><i data-lucide="refresh-cw" style="width: 14px;"></i></div>
+              <div class="feature-check-text">
+                <strong>Dual-Direction Calendar Sync</strong>
+                <p>Penghapusan event di DB lokal otomatis menghapus slot di Google Calendar secara real-time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: DAMPAK & PENGUKURAN KEBERHASILAN -->
+    <section class="slide" data-slide="12">
+      <div class="slide-eyebrow">
+        <i data-lucide="trending-up" style="width: 14px; height: 14px;"></i>
+        <span>Hasil & Dampak Nyata</span>
+      </div>
+      <h2 class="slide-title">Dampak Positif Implementasi ROOMBOOK</h2>
+      <p class="slide-subtitle">Efisiensi birokrasi meningkat signifikan dengan transparansi data fasilitas yang akurat.</p>
+
+      <div class="grid-4" style="margin-top: 10px;">
+        <div class="glass-card emerald-tint" style="text-align: center; align-items: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 900; color: #34D399; line-height: 1;">0%</div>
+          <strong style="color: #FFF; font-size: 15px; margin-top: 10px;">Zero Bentrok Jadwal</strong>
+          <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Tidak ada lagi tumpang tindih penggunaan ruang rapat di gedung.</p>
+        </div>
+
+        <div class="glass-card emerald-tint" style="text-align: center; align-items: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 900; color: #34D399; line-height: 1;">&lt;1m</div>
+          <strong style="color: #FFF; font-size: 15px; margin-top: 10px;">Waktu Reservasi Cepat</strong>
+          <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Dari sebelumnya memakan waktu 30-60 menit koordinasi manual via chat.</p>
+        </div>
+
+        <div class="glass-card gold-tint" style="text-align: center; align-items: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 900; color: #FBBF24; line-height: 1;">100%</div>
+          <strong style="color: #FFF; font-size: 15px; margin-top: 10px;">Transparansi Terpusat</strong>
+          <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Semua pegawai dapat melihat jadwal resmi langsung tanpa perantara.</p>
+        </div>
+
+        <div class="glass-card gold-tint" style="text-align: center; align-items: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 900; color: #FBBF24; line-height: 1;">H-2</div>
+          <strong style="color: #FFF; font-size: 15px; margin-top: 10px;">Disiplin SOP Approval</strong>
+          <p style="font-size: 13px; color: #94A3B8; margin-top: 6px;">Kepastian perizinan ruang rapat strategis terpenuhi tepat waktu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: PENUTUP & KESIMPULAN -->
+    <section class="slide" data-slide="13">
+      <div class="cover-hero">
+        <div class="cover-badge-instansi" style="background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); color: #34D399;">
+          <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i>
+          <span>SIAP DIGUNAKAN DI SELURUH UNIT KERJA KEMNAKER RI</span>
+        </div>
+        <h2 class="cover-title" style="font-size: 48px;">Mewujudkan Tata Kelola Ruang Rapat Modern & Terpercaya</h2>
+        <p class="cover-tagline">
+          ROOMBOOK (SIRAPAT) siap menjadi standar operasional peminjaman fasilitas rapat yang efisien, transparan, dan profesional.
+        </p>
+        
+        <div style="display: flex; gap: 16px; margin-top: 10px;">
+          <a href="https://sirapatsekjen.vercel.app" target="_blank" class="btn-tool primary" style="padding: 12px 24px; font-size: 15px; text-decoration: none;">
+            <i data-lucide="external-link" style="width: 18px; height: 18px;"></i>
+            <span>Buka Aplikasi ROOMBOOK</span>
+          </a>
+          <button onclick="goToSlide(1)" class="btn-tool" style="padding: 12px 24px; font-size: 15px;">
+            <i data-lucide="rotate-ccw" style="width: 18px; height: 18px;"></i>
+            <span>Kembali ke Awal</span>
+          </button>
+        </div>
+
+        <div style="margin-top: 36px; font-size: 13px; color: #64748B;">
+          © 2026 Bagian Tata Usaha Sekretariat Jenderal — Kementerian Ketenagakerjaan RI
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Control Bar -->
+  <footer class="bottom-bar">
+    <div class="slide-counter">
+      <span>Slide</span>
+      <span class="current" id="currentSlideNum">1</span>
+      <span>/</span>
+      <span id="totalSlidesNum">13</span>
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressFill" style="width: 7.7%;"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-nav" id="prevBtn" onclick="prevSlide()" title="Slide Sebelumnya (Panah Kiri)">
+        <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
+      </button>
+      <button class="btn-nav" id="nextBtn" onclick="nextSlide()" title="Slide Selanjutnya (Panah Kanan / Spasi)">
+        <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+  </footer>
+</div>
+
+<!-- Modal Slide Overview Grid -->
+<div class="overview-overlay" id="overviewModal">
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
+    <h3 style="font-size: 20px; font-weight: 800; color: #FFF; display: flex; align-items: center; gap: 8px;">
+      <i data-lucide="grid" style="width: 20px; color: #34D399;"></i>
+      Daftar Semua Slide Presentasi
+    </h3>
+    <button class="btn-tool" onclick="toggleOverview()">
+      <i data-lucide="x" style="width: 16px;"></i>
+      <span>Tutup (ESC)</span>
+    </button>
+  </div>
+  <div class="overview-grid" id="overviewGrid"></div>
+</div>
+
+<script>
+  // Slide Controller Script
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let currentSlide = 1;
+
+  const currentSlideNumEl = document.getElementById('currentSlideNum');
+  const totalSlidesNumEl = document.getElementById('totalSlidesNum');
+  const progressFillEl = document.getElementById('progressFill');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const overviewModal = document.getElementById('overviewModal');
+  const overviewGrid = document.getElementById('overviewGrid');
+
+  totalSlidesNumEl.textContent = totalSlides;
+
+  // Build Overview Grid Cards
+  function buildOverviewGrid() {
+    overviewGrid.innerHTML = '';
+    slides.forEach((slide, index) => {
+      const slideNum = index + 1;
+      const titleEl = slide.querySelector('.slide-title') || slide.querySelector('.cover-title');
+      const title = titleEl ? titleEl.innerText : `Slide ${slideNum}`;
+      
+      const card = document.createElement('div');
+      card.className = `overview-card ${slideNum === currentSlide ? 'active' : ''}`;
+      card.innerHTML = `
+        <span class="overview-num">SLIDE ${slideNum.toString().padStart(2, '0')}</span>
+        <span class="overview-title">${title}</span>
+      `;
+      card.onclick = () => {
+        goToSlide(slideNum);
+        toggleOverview();
+      };
+      overviewGrid.appendChild(card);
+    });
+  }
+
+  function updateSlideView() {
+    slides.forEach((slide, index) => {
+      if (index + 1 === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    currentSlideNumEl.textContent = currentSlide;
+    const progressPercent = (currentSlide / totalSlides) * 100;
+    progressFillEl.style.width = `${progressPercent}%`;
+
+    prevBtn.disabled = (currentSlide === 1);
+    nextBtn.disabled = (currentSlide === totalSlides);
+
+    buildOverviewGrid();
+  }
+
+  function nextSlide() {
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+      updateSlideView();
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 1) {
+      currentSlide--;
+      updateSlideView();
+    }
+  }
+
+  function goToSlide(num) {
+    if (num >= 1 && num <= totalSlides) {
+      currentSlide = num;
+      updateSlideView();
+    }
+  }
+
+  function toggleOverview() {
+    overviewModal.classList.toggle('open');
+  }
+
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.error(err);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (overviewModal.classList.contains('open')) {
+      if (e.key === 'Escape' || e.key === 'g' || e.key === 'G') {
+        toggleOverview();
+      }
+      return;
+    }
+
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      nextSlide();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      prevSlide();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      goToSlide(1);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      goToSlide(totalSlides);
+    } else if (e.key === 'f' || e.key === 'F') {
+      toggleFullScreen();
+    } else if (e.key === 'g' || e.key === 'G') {
+      toggleOverview();
+    }
+  });
+
+  // Init Lucide Icons and view
+  lucide.createIcons();
+  buildOverviewGrid();
+  updateSlideView();
+</script>
+
+</body>
+</html>

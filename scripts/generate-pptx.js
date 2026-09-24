@@ -13,8 +13,8 @@ const pres = new pptxgen();
 pres.layout = 'LAYOUT_16x9'; // 10.0 x 5.625 inches
 pres.author = 'Bagian Tata Usaha Sekretariat Jenderal Kemnaker RI';
 pres.company = 'Kementerian Ketenagakerjaan RI';
-pres.subject = 'Presentasi Sistem Peminjaman Ruang Rapat (SIRAPAT / ROOMBOOK)';
-pres.title = 'SIRAPAT — ROOMBOOK Presentasi Sistem';
+pres.subject = 'Presentasi Sistem Peminjaman Ruang Rapat (SIRAPAT)';
+pres.title = 'SIRAPAT — Presentasi Sistem';
 
 // Color Palette
 const C = {
@@ -114,7 +114,7 @@ function addHeader(slide, category, title, subtitle) {
   });
 
   // App Tagline
-  slide.addText('SIRAPAT (ROOMBOOK) v2.0 Production Ready\nIntegrasi Google Calendar API, Layar Smart TV 16:9, SOP Approval H-2, & Cetak Laporan Resmi', {
+  slide.addText('Aplikasi SIRAPAT — Tata Kelola Ruang Rapat Terpadu\nIntegrasi Google Calendar API, Layar Smart TV 16:9, SOP Approval H-2, & Cetak Laporan Resmi', {
     x: 1.0, y: 3.2, w: 8.0, h: 0.65,
     fontSize: 11, fontFace: 'Arial', color: C.slateMuted, align: 'center', lineSpacingMultiple: 1.2
   });
@@ -199,12 +199,12 @@ function addHeader(slide, category, title, subtitle) {
 }
 
 // -------------------------------------------------------------
-// SLIDE 3: SOLUSI ROOMBOOK & NILAI STRATEGIS
+// SLIDE 3: SOLUSI SIRAPAT & NILAI STRATEGIS
 // -------------------------------------------------------------
 {
   const slide = pres.addSlide();
   slide.background = { color: C.bgDark };
-  addHeader(slide, 'Transformasi Digital', 'Solusi Terpadu: ROOMBOOK (SIRAPAT)', 'Satu ekosistem berbasis web terintegrasi untuk seluruh pegawai dan pengelola TU.');
+  addHeader(slide, 'Transformasi Digital', 'Solusi Terpadu: SIRAPAT', 'Satu ekosistem berbasis web terintegrasi untuk seluruh pegawai dan pengelola TU.');
 
   // Card Left: Nilai Strategis
   slide.addShape(pres.ShapeType.roundRect, {
@@ -791,7 +791,7 @@ function addHeader(slide, category, title, subtitle) {
 {
   const slide = pres.addSlide();
   slide.background = { color: C.bgDark };
-  addHeader(slide, 'Hasil & Dampak', 'Dampak Positif Implementasi ROOMBOOK', 'Peningkatan efisiensi birokrasi dan transparansi fasilitas secara nyata.');
+  addHeader(slide, 'Hasil & Dampak', 'Dampak Positif Implementasi SIRAPAT', 'Peningkatan efisiensi birokrasi dan transparansi fasilitas secara nyata.');
 
   const metrics = [
     { val: '0%', lbl: 'Zero Double Booking', desc: 'Tidak ada lagi konflik jadwal tumpang tindih antar unit kerja.', color: C.emeraldLight },
@@ -845,7 +845,7 @@ function addHeader(slide, category, title, subtitle) {
     x: 0.8, y: 1.4, w: 8.4, h: 1.0, fontSize: 24, bold: true, color: C.white, align: 'center', lineSpacingMultiple: 1.1
   });
 
-  slide.addText('ROOMBOOK (SIRAPAT) siap menjadi standar operasional peminjaman fasilitas rapat yang efisien, transparan, dan akuntabel.', {
+  slide.addText('Aplikasi SIRAPAT siap menjadi standar operasional peminjaman fasilitas rapat yang efisien, transparan, dan akuntabel.', {
     x: 1.0, y: 2.5, w: 8.0, h: 0.6, fontSize: 11, color: C.slateMuted, align: 'center'
   });
 
@@ -866,10 +866,14 @@ function addHeader(slide, category, title, subtitle) {
 }
 
 // Generate File
-const outputPath = path.join(rootDir, 'ROOMBOOK_Presentasi_Kemnaker.pptx');
+const outputPath = path.join(rootDir, 'SIRAPAT_Presentasi_Kemnaker.pptx');
 pres.writeFile({ fileName: outputPath })
   .then(fileName => {
     console.log(`[SUCCESS] Perfect PowerPoint generated at: ${fileName}`);
+    // Also save to ROOMBOOK_Presentasi_Kemnaker.pptx if possible
+    try {
+      fs.copyFileSync(outputPath, path.join(rootDir, 'ROOMBOOK_Presentasi_Kemnaker.pptx'));
+    } catch (e) {}
   })
   .catch(err => {
     console.error(`[ERROR] Failed to generate:`, err);
