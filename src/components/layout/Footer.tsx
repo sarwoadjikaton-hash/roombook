@@ -16,11 +16,11 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
     return (
       <footer className="mt-auto bg-white dark:bg-surface border-t border-border py-3 text-xs text-text-secondary select-none">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-3">
-          {/* Logo Aplikasi & Logo Kemnaker + SIRAPAT */}
+          {/* Logo Aplikasi & Logo Kemnaker + RUANGKU */}
           <div className="flex items-center gap-2">
             <img
               src="/logo.svg"
-              alt="Logo Aplikasi SIRAPAT"
+              alt="Logo Aplikasi RUANGKU"
               className="w-4 h-4 object-contain rounded-xs shrink-0"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
                 }
               }}
             />
-            <span className="font-extrabold tracking-wider text-text-primary text-xs ml-0.5">SIRAPAT</span>
+            <span className="font-extrabold tracking-wider text-text-primary text-xs ml-0.5">RUANGKU</span>
           </div>
 
           <span className="text-stone-300 dark:text-stone-700">-</span>
@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
               {/* Logo Aplikasi */}
               <img
                 src="/logo.svg"
-                alt="Logo Aplikasi SIRAPAT"
+                alt="Logo Aplikasi RUANGKU"
                 className="w-9 h-9 object-contain rounded-md shrink-0 drop-shadow-sm"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -127,7 +127,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
           <div className="flex items-center gap-2">
             <img
               src="/logo.svg"
-              alt="Logo SIRAPAT"
+              alt="Logo RUANGKU"
               className="w-4 h-4 object-contain rounded-xs shrink-0"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
@@ -146,7 +146,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = 'auto' }) => {
                 }
               }}
             />
-            <span className="font-bold tracking-wider text-white text-xs ml-0.5">SIRAPAT</span>
+            <span className="font-bold tracking-wider text-white text-xs ml-0.5">RUANGKU</span>
           </div>
 
           <span className="text-stone-300 dark:text-stone-700">-</span>

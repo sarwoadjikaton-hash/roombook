@@ -1,6 +1,6 @@
 import React from 'react';
 
-// 1. Logo Resmi Kementerian Ketenagakerjaan RI (SIRAPAT) — Render [ Logo Aplikasi | Logo Kemnaker ]
+// 1. Logo Resmi Kementerian Ketenagakerjaan RI (RUANGKU) — Render [ Logo Aplikasi | Logo Kemnaker ]
 interface KemnakerLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   title?: string;
@@ -10,7 +10,7 @@ interface KemnakerLogoProps {
 
 export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   size = 'lg',
-  title = 'SIRAPAT',
+  title = 'RUANGKU',
   subtitle = 'TU SEKJEN',
   className = '',
 }) => {
@@ -23,10 +23,10 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* 1. Logo Aplikasi SIRAPAT */}
+      {/* 1. Logo Aplikasi RUANGKU */}
       <img
         src="/logo.svg"
-        alt="Logo Aplikasi SIRAPAT"
+        alt="Logo Aplikasi RUANGKU"
         style={{
           width: iconDimensions.size,
           height: iconDimensions.size,
@@ -49,7 +49,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
       {/* 2. Logo Resmi KEMNAKER RI */}
       <img
         src="/logo-kemnaker.png"
-        alt="Logo Resmi SIRAPAT KEMNAKER RI"
+        alt="Logo Resmi RUANGKU KEMNAKER RI"
         style={{
           width: iconDimensions.size,
           height: iconDimensions.size,
@@ -64,7 +64,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
         }}
       />
 
-      {/* Teks SIRAPAT & TU SEKJEN */}
+      {/* Teks RUANGKU & TU SEKJEN */}
       <div className="flex flex-col justify-center min-w-0 ml-0.5">
         <span className={`font-black text-white leading-none uppercase tracking-wider drop-shadow-md ${iconDimensions.title}`}>
           {title}
@@ -77,7 +77,7 @@ export const KemnakerLogo: React.FC<KemnakerLogoProps> = ({
   );
 };
 
-// 2. Logo Header & Navbar: [ Logo Aplikasi | Logo Kemnaker ] + Teks SIRAPAT TU SEKJEN
+// 2. Logo Header & Navbar: [ Logo Aplikasi | Logo Kemnaker ] + Teks RUANGKU TU SEKJEN
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'light' | 'dark' | 'auto';
@@ -102,10 +102,10 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* 1. Logo Aplikasi SIRAPAT */}
+      {/* 1. Logo Aplikasi RUANGKU */}
       <img
         src="/logo.svg"
-        alt="Logo Aplikasi SIRAPAT"
+        alt="Logo Aplikasi RUANGKU"
         style={{
           width: iconDimensions.size,
           height: iconDimensions.size,
@@ -152,10 +152,10 @@ export const Logo: React.FC<LogoProps> = ({
                 : 'text-slate-900 dark:text-white'
                 }`}
             >
-              SI
+              RUANG
             </span>
-            <span className={`font-black tracking-tight text-primary dark:text-emerald-500 ${iconDimensions.title}`}>
-              RAPAT
+            <span className={`font-black tracking-tight text-primary dark:text-sky-400 ${iconDimensions.title}`}>
+              KU
             </span>
           </div>
           {showSubtitle && (

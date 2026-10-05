@@ -188,12 +188,12 @@ export const DisplayRoomPage: React.FC = () => {
 
         {/* 3. HEADER TRANSPARAN DENGAN LOGO APLIKASI & LOGO ASLI KEMNAKER (POJOK KIRI ATAS) */}
         <div className="relative z-20 p-5 sm:p-6 flex items-center justify-between pointer-events-auto">
-          {/* Logo Aplikasi SIRAPAT ✕ Logo Kemnaker RI Warna Asli + Teks Transparan */}
+          {/* Logo Aplikasi RUANGKU ✕ Logo Kemnaker RI Warna Asli + Teks Transparan */}
           <div className="flex items-center gap-2.5 select-none">
-            {/* 1. Logo Aplikasi SIRAPAT */}
+            {/* 1. Logo Aplikasi RUANGKU */}
             <img
               src="/logo.svg"
-              alt="Logo Aplikasi SIRAPAT"
+              alt="Logo Aplikasi RUANGKU"
               className="h-10 w-10 shrink-0 object-contain rounded-md drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
@@ -219,7 +219,7 @@ export const DisplayRoomPage: React.FC = () => {
             {/* Teks Identitas */}
             <div className="flex flex-col text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] ml-1">
               <div className="text-base sm:text-lg font-black tracking-wider uppercase leading-none">
-                SIRAPAT <span className="text-sky-400 font-extrabold">• TU SEKJEN</span>
+                RUANGKU <span className="text-sky-400 font-extrabold">• TU SEKJEN</span>
               </div>
               <div className="text-xs font-semibold text-slate-200 tracking-wide mt-1 leading-tight">
                 Sekretariat Jenderal Kementerian Ketenagakerjaan RI
@@ -437,7 +437,7 @@ export const DisplayRoomPage: React.FC = () => {
 
         {/* 3. Footer */}
         <div className="pt-1 text-center text-[10px] text-slate-500 font-semibold tracking-wider shrink-0">
-          SIRAPAT • TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI
+          RUANGKU • TATA USAHA SEKRETARIAT JENDERAL KEMNAKER RI
         </div>
       </div>
     </div>
