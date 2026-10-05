@@ -56,9 +56,6 @@ export const DisplayRoomPage: React.FC = () => {
   const [lightboxRoomIndex, setLightboxRoomIndex] = useState<number | null>(null);
   const [lightboxPhotoIndex, setLightboxPhotoIndex] = useState<number>(0);
 
-  // Switcher bar toggle
-  const [isSwitcherOpen, setIsSwitcherOpen] = useState<boolean>(false);
-
   // List Foto Resmi Sekjen Dr. Cris Kuntadi
   const sekjenPhotos = [
     '/sekjen/sekjen-2.jpg', // Peci hitam & seragam putih Kemnaker
