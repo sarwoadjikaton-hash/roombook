@@ -186,15 +186,28 @@ export const DisplayRoomPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/30 via-transparent to-slate-950/50 pointer-events-none" />
 
-        {/* 3. HEADER TRANSPARAN DENGAN LOGO ASLI KEMNAKER (POJOK KIRI ATAS) */}
+        {/* 3. HEADER TRANSPARAN DENGAN LOGO APLIKASI & LOGO ASLI KEMNAKER (POJOK KIRI ATAS) */}
         <div className="relative z-20 p-5 sm:p-6 flex items-center justify-between pointer-events-auto">
-          {/* Logo Kemnaker RI Warna Asli + Teks Transparan */}
-          <div className="flex items-center gap-3 select-none">
-            {/* Logo Resmi Kemnaker RI Warna Asli */}
+          {/* Logo Aplikasi SIRAPAT ✕ Logo Kemnaker RI Warna Asli + Teks Transparan */}
+          <div className="flex items-center gap-2.5 select-none">
+            {/* 1. Logo Aplikasi SIRAPAT */}
+            <img
+              src="/logo.svg"
+              alt="Logo Aplikasi SIRAPAT"
+              className="h-10 w-10 shrink-0 object-contain rounded-md drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+
+            {/* Separator ✕ */}
+            <span className="text-white/60 font-black text-sm select-none px-0.5">✕</span>
+
+            {/* 2. Logo Resmi Kemnaker RI Warna Asli */}
             <img
               src="/logo-kemnaker.png"
               alt="Logo Resmi Kemnaker RI"
-              className="h-11 w-11 object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105"
+              className="h-11 w-11 shrink-0 object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105"
               onError={(e) => {
                 const target = e.currentTarget;
                 if (!target.src.includes('.webp')) {
@@ -203,12 +216,13 @@ export const DisplayRoomPage: React.FC = () => {
               }}
             />
 
-            <div className="flex flex-col text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            {/* Teks Identitas */}
+            <div className="flex flex-col text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] ml-1">
               <div className="text-base sm:text-lg font-black tracking-wider uppercase leading-none">
                 SIRAPAT <span className="text-sky-400 font-extrabold">• TU SEKJEN</span>
               </div>
-              <div className="text-xs font-semibold text-slate-200 tracking-wide mt-0.5">
-                Kementerian Ketenagakerjaan RI
+              <div className="text-xs font-semibold text-slate-200 tracking-wide mt-1 leading-tight">
+                Sekretariat Jenderal Kementerian Ketenagakerjaan RI
               </div>
             </div>
           </div>
