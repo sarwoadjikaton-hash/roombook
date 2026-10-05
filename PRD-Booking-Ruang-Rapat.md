@@ -61,7 +61,7 @@ Sistem **ROOMBOOK** dirancang sebagai solusi end-to-end berbasis web dengan inte
 - **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Lucide Icons, Canvas Confetti, HTML5 QR Generator.
 - **Backend API**: Node.js, Express, Google APIs Client Library (`googleapis`), PostgreSQL Client (`pg`), CORS, Helmet, Rate Limiter.
 - **Database**: PostgreSQL (Relasional, ACID compliant dengan Foreign Keys, Enums, & Indexing waktu).
-- **External Integration**: Google Calendar API v3 via Google Cloud Service Account (`id-booking-ruang-rapat@booking-ruang-rapat-508313.iam.gserviceaccount.com`).
+- **External Integration**: Google Calendar API v3 via Google Cloud Service Account (`ruangku-calendar-sync@ruangku-510707.iam.gserviceaccount.com`).
 
 ### 5.2 Skema Database Relasional
 
